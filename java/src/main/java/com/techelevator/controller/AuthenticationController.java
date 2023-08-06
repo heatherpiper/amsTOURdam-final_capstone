@@ -32,6 +32,7 @@ public class AuthenticationController {
         this.userDao = userDao;
     }
 
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<LoginResponseDto> login(@Valid @RequestBody LoginDto loginDto) {
 
