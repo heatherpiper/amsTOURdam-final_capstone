@@ -21,6 +21,7 @@ CREATE TABLE landmarks (
 	description varchar(200) NOT NULL,
 	historic_details varchar(200) NOT NULL,
 	cost_of_entry decimal(2,2),
+	reviews varchar(500),
 	CONSTRAINT PK_landmark PRIMARY KEY (landmark_id)
 );
 
