@@ -19,7 +19,20 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    landmarks: [
+      {
+        name: "Children of Reagan",
+        address: "100 Rock 'N Roll Hall Of Fame",
+        latitudeCoordinates: 80.87,
+        longitudeCoordinates: -77.506,
+        imageName: "",
+        description: "Live at Bernie's",
+        historicDetails: "Punk Rock Girls",
+        costOfEntry: 100.00,
+        reviews: "5 Stars!"
+  }
+]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
