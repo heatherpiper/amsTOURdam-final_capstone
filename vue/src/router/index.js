@@ -64,14 +64,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    // {
-    //   path: '/addlandmarks',
-      // name: 'add-landmark',
-      // component: AddLandmarks,
-      // meta: {
-    //     requiresAuth: true
-    //   }
-    // },
+    {
+      path: '/addlandmarks',
+      name: 'add-landmark',
+      component: AddLandmarks,
+      meta: {
+        requiresAuth: true
+      }
+    },
     {
       path: '/landmarks/:id',
       name: "landmark-by-id",
