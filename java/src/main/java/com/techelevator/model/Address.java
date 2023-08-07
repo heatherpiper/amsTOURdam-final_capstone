@@ -2,18 +2,21 @@ package com.techelevator.model;
 
 public class Address {
     private String street;
-    private String houseNumber;
+    private int houseNumber;
     private String postalCode;
     private String city;
     private String town;
 
 
-    public Address(String street, String houseNumber, String postalCode, String city, String town) {
+    public Address(String street, int houseNumber, String postalCode, String city, String town) {
         this.street = street;
         this.houseNumber = houseNumber;
         this.postalCode = postalCode;
         this.city = city;
         this.town = town;
+    }
+    public Address (){
+
     }
 
     public String getStreet() {
@@ -24,11 +27,11 @@ public class Address {
         this.street = street;
     }
 
-    public String getHouseNumber() {
+    public int getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(String houseNumber) {
+    public void setHouseNumber(int houseNumber) {
         this.houseNumber = houseNumber;
     }
 
