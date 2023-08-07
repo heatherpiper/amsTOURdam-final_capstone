@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LandmarksService from '../services/LandmarksService';
+//import LandmarksService from '../services/LandmarksService';
 
 export default {
     name: "add-landmark",
