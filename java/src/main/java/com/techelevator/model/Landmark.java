@@ -30,14 +30,9 @@ public class Landmark {
         this.landmark_id = landmark_id;
         this.name = name;
         this.address = address;
-        this.street = street;
-        this.houseNumber = houseNumber;
-        this.postalCode = postalCode;
-        this.city = city;
-        this.town = town;
+
         this.coordinates = coordinates;
-        this.latitudeCoordinates = latitudeCoordinates;
-        this.longitudeCoordinates = longitudeCoordinates;
+
         this.imageName = imageName;
         this.reviews = reviews;
         this.description = description;
@@ -75,68 +70,12 @@ public class Landmark {
         this.address = address;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getHouseNumber() {
-        return houseNumber;
-    }
-
-    public void setHouseNumber(String houseNumber) {
-        this.houseNumber = houseNumber;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getTown() {
-        return town;
-    }
-
-    public void setTown(String town) {
-        this.town = town;
-    }
-
     public Coordinates getCoordinates() {
         return coordinates;
     }
 
     public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
-    }
-
-    public double getLatitudeCoordinates() {
-        return latitudeCoordinates;
-    }
-
-    public void setLatitudeCoordinates(double latitudeCoordinates) {
-        this.latitudeCoordinates = latitudeCoordinates;
-    }
-
-    public double getLongitudeCoordinates() {
-        return longitudeCoordinates;
-    }
-
-    public void setLongitudeCoordinates(double longitudeCoordinates) {
-        this.longitudeCoordinates = longitudeCoordinates;
     }
 
     public String getImageName() {

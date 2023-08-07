@@ -19,12 +19,12 @@ CREATE TABLE landmarks (
 	postal_code varchar (10) NOT NULL,
 	city varchar (50) NOT NULL,
 	town varchar (50) NOT NULL,
-	latitude_coordinates decimal(8,6) NOT NULL,
-	longitude_coordinates decimal(9,6) NOT NULL,
+	latitude_coordinates decimal NOT NULL,
+	longitude_coordinates decimal NOT NULL,
 	image_name varchar(255) NOT NULL,
 	description varchar(200) NOT NULL,
 	historic_details varchar(200) NOT NULL,
-	cost_of_entry decimal(2,2),
+	cost_of_entry decimal,
 	reviews varchar(500),
 	CONSTRAINT PK_landmark PRIMARY KEY (landmark_id)
 );
