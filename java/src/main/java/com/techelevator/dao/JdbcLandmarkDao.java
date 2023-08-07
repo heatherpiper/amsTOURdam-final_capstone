@@ -6,27 +6,30 @@ import com.techelevator.model.User;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
+@Component
 public class JdbcLandmarkDao implements LandmarkDao{
 
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcLandmarkDao(DataSource datasource) {
-        jdbcTemplate = new JdbcTemplate(datasource);
+    public JdbcLandmarkDao(DataSource final_capstone) {
+        jdbcTemplate = new JdbcTemplate(final_capstone);
     }
+
 
 
 public Landmark getLandmarkById(int landmarkId) {
 
         Landmark landmark = null;
-        String sql =    "SELECT landmark_id, name, address, image_name, description, historic_details, cost_of_entry, reviews " +
-                        "FROM landmarks;";
+        String sql =    "SELECT name, address, latitude_coordinates, longitude_coordinates, " +
+                        "image_name, description, historic_details, cost_of_entry, reviews " +
+                        "FROM landmarks WHERE landmark_id =?";
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmarkId);
             if(results.next()) {
@@ -47,13 +50,13 @@ public Landmark getLandmarkById(int landmarkId) {
 //}
 
 
-
-
     private Landmark mapRowToLandmark(SqlRowSet rs) {
         Landmark landmark = new Landmark();
         landmark.setLandmark_id(rs.getInt("landmark_id"));
         landmark.setName(rs.getString("name"));
         landmark.setAddress(landmark.getAddress());
+        landmark.setLatitude(rs.getDouble("latitude_coordinates"));
+        landmark.setLongitude(rs.getDouble("longitude_coordinates"));
         landmark.setImageName(rs.getString("image_name"));
         landmark.setDescription(rs.getString("description"));
         landmark.setHistoricDetails(rs.getString("historic_details"));
