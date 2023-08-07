@@ -11,11 +11,11 @@ public interface LandmarkDao {
 
 
 //get a list of landmarks; /landmarks
-//List<Landmark> getLandmarks();
+    List<Landmark> getLandmarks();
 
 
 //add a landmark; /landmarks
-//Landmark createLandmark();
+    Landmark addLandmark(Landmark landmark);
 
 
 
