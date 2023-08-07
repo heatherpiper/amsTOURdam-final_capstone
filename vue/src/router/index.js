@@ -55,7 +55,7 @@ const router = new Router({
       }
     },
     {
-      path: '/landmarks',
+      path: '/landmarks/:id/add-landmark',
       name: 'add-landmark',
       component: Landmarks,
       meta: {

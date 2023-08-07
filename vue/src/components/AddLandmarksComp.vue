@@ -12,15 +12,20 @@ export default {
     data() {
         return {
             newLandmark: {
-                name: "",
-                address: "",
-                latitudeCoordinates: 0.0,
-                longitudeCoordinates: 0.0,
-                imageName: "",
-                description: "",
-                historicDetails: "",
-                costOfEntry: 0.0,
-                reviews: ""
+                    landmarkId: 0,
+                    name: "",
+                    street: "",
+                    houseNumber: 0,
+                    postalCode: 0,
+                    city: "",
+                    town: "",
+                    latitudeCoordinates: 0.0,
+                    longitudeCoordinates: 0.0,
+                    imageName: "",
+                    description: "",
+                    historicDetails: "",
+                    costOfEntry: 0.0,
+                    reviews: ""
             }
         }
     }
