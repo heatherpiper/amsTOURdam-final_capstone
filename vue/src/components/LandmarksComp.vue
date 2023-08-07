@@ -1,12 +1,24 @@
 <template>
   <div>
-      
+
   </div>
 </template>
 
 <script>
-export default {
+import LandmarksService from '../services/LandmarksService'
 
+export default {
+name: "landmarks",
+data() {
+    return {
+        landmarks: []
+    }
+},
+ created() {
+        LandmarksService.getAllLandmarks().then( response => {
+        this.landmarks = response.data;
+        })
+    }
 }
 </script>
 

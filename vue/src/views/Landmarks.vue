@@ -11,12 +11,11 @@ import LandmarksComp from '@/components/LandmarksComp'
 import AddLandmarksComp from '@/components/AddLandmarksComp'
 
 export default {
-    name: 'landmarks',
     components: {
         LandmarksComp,
         AddLandmarksComp
     }
-};
+}
 </script>
 
 <style>
