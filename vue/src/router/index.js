@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Landmarks from '../views/Landmarks.vue'
+import AddLandmarks from '../views/AddLandmarks.vue'
 import store from '../store/index'
 import LandmarkDetails from '../components/LandmarkDetailComp.vue'
 
@@ -64,10 +65,10 @@ const router = new Router({
       }
     },
     // {
-    //   path: '/landmarks/add-landmark',
-    //   name: 'add-landmark',
-    //   component: AddLandmarks,
-    //   meta: {
+    //   path: '/addlandmarks',
+      // name: 'add-landmark',
+      // component: AddLandmarks,
+      // meta: {
     //     requiresAuth: true
     //   }
     // },
@@ -76,6 +77,7 @@ const router = new Router({
       name: "landmark-by-id",
       component: LandmarkDetails,
            meta: {
+
         requiresAuth: true
       }
     }
