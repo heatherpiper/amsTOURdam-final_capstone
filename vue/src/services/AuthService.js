@@ -1,17 +1,14 @@
 import axios from 'axios';
 
-const AuthApi = axios.create({
-  baseURL: 'http://localhost:8080'
-});
 
 export default {
 
   login(user) {
-    return AuthApi.post('/login', user)
+    return axios.post('/login', user)
   },
 
   register(user) {
-    return AuthApi.post('/register', user)
+    return axios.post('/register', user)
   }
 
 }
