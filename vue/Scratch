@@ -1,0 +1,19 @@
+                name: "",
+                address: "",
+                latitudeCoordinates: 0.0,
+                longitudeCoordinates: 0.0,
+                imageName: "",
+                description: "",
+                historicDetails: "",
+                costOfEntry: 0.0,
+                reviews: ""
+
+        name: "Children of Reagan",
+        address: "100 Rock 'N Roll Hall Of Fame",
+        latitudeCoordinates: 80.87,
+        longitudeCoordinates: -77.506,
+        imageName: "",
+        description: "Live at Bernie's",
+        historicDetails: "Punk Rock Girls",
+        costOfEntry: 100.00,
+        reviews: "5 Stars!"
