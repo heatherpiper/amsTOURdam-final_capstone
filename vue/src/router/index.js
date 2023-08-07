@@ -55,11 +55,19 @@ const router = new Router({
       }
     },
     {
-      path: '/landmarks/:id/add-landmark',
-      name: 'add-landmark',
+      path: '/landmarks',
+      name: 'landmarks',
       component: Landmarks,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: '/landmarks/add-landmark',
+      name: 'add-landmark',
+      component: Landmarks,
+      meta: {
+        requiresAuth: true
       }
     }
   ]
