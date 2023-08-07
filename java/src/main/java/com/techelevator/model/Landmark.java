@@ -6,9 +6,8 @@ public class Landmark {
     private int landmark_id;
     private String name;
     private String address;
-    private String coordinates;
-    private double latitude;
-    private double longitude;
+    private double latitudeCoordinates;
+    private double longitudeCoordinates;
     private String imageName;
 
     private String reviews;
@@ -18,13 +17,12 @@ public class Landmark {
     private double cost;
 
 
-    public Landmark(int landmark_id, String name, String address, String coordinates, double latitude, double longitude, String imageName, String reviews, String description, String historicDetails, double cost) {
+    public Landmark(int landmark_id, String name, String address,  double latitudeCoordinates, double longitudeCoordinates, String imageName, String reviews, String description, String historicDetails, double cost) {
         this.landmark_id = landmark_id;
         this.name = name;
         this.address = address;
-        this.coordinates = coordinates;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.latitudeCoordinates = latitudeCoordinates;
+        this.longitudeCoordinates = longitudeCoordinates;
         this.imageName = imageName;
         this.reviews = reviews;
         this.description = description;
@@ -60,28 +58,20 @@ public class Landmark {
         this.address = address;
     }
 
-    public String getCoordinates() {
-        return coordinates;
+    public Double getLatitudeCoordinates() {
+        return latitudeCoordinates;
     }
 
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public void setLatitudeCoordinates(Double latitude) {
+        this.latitudeCoordinates = latitudeCoordinates;
     }
 
-    public Double getLatitude() {
-        return latitude;
+    public Double getLongitudeCoordinates() {
+        return longitudeCoordinates;
     }
 
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
+    public void setLongitudeCoordinates(Double longitude) {
+        this.longitudeCoordinates = longitudeCoordinates;
     }
 
     public String getImageName() {
