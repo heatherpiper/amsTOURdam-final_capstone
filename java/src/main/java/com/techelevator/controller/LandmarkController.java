@@ -3,7 +3,10 @@ package com.techelevator.controller;
 import com.techelevator.dao.LandmarkDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Landmark;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -30,6 +33,18 @@ public class LandmarkController {
         return landmark;
 
     }
+
+    @RequestMapping (path = "/landmarks", method = RequestMethod.GET)
+    public List<Landmark> getLandmarks(){
+        return landmarkDao.getLandmarks();
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping (path = "/landmarks", method = RequestMethod.POST)
+    public Landmark addLandmark (@RequestBody Landmark landmark){
+        return landmarkDao.addLandmark(landmark);
+    }
+
 
 
 }

@@ -5,6 +5,7 @@ import com.techelevator.model.Address;
 import com.techelevator.model.Coordinates;
 import com.techelevator.model.Landmark;
 import com.techelevator.model.User;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -42,12 +43,41 @@ public Landmark getLandmarkById(int landmarkId) {
     return landmark;
 }
 
+public List<Landmark> getLandmarks(){
+        List<Landmark> landmarks = new ArrayList<>();
+        String sql =    "SELECT landmark_id, name, street, house_number, postal_code, city, town , latitude_coordinates, longitude_coordinates, " +
+                        "image_name, description, historic_details, cost_of_entry, reviews " +
+                        "FROM landmarks; ";
 
-//public List<Landmark> getLandmarks(){
-//        List<Landmark> landmarks = new ArrayList<>();
-//        String sql = "";
-//
-//}
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            Landmark landmark = mapRowToLandmark(results);
+            landmarks.add(landmark);
+        }
+
+        return landmarks;
+}
+
+public Landmark addLandmark(Landmark landmark){
+        Landmark newLandmark = null;
+        String sql = "INSERT into landmarks (name, street, house_number, postal_code, city, town , latitude_coordinates, longitude_coordinates, " +
+                    "image_name, description, historic_details, cost_of_entry, reviews) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+                    "RETURNING landmark_id;";
+        try {
+
+            int newLandmarkId = jdbcTemplate.queryForObject(sql, int.class, landmark.getName(), landmark.getAddress().getStreet(), landmark.getAddress().getHouseNumber(),
+                    landmark.getAddress().getPostalCode(), landmark.getAddress().getCity(), landmark.getAddress().getTown(), landmark.getCoordinates().getLatitude(), landmark.getCoordinates().getLongitude(),
+                    landmark.getImageName(), landmark.getDescription(), landmark.getHistoricDetails(), landmark.getCostOfEntry(), landmark.getReviews());
+            newLandmark = getLandmarkById(newLandmarkId);
+        }catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data Integrity Violation", e);
+        }
+
+    return newLandmark;
+}
 
 
     private Landmark mapRowToLandmark(SqlRowSet rs) {

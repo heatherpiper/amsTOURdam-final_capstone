@@ -1,23 +1,27 @@
 <template>
   <div class="landmarks">
       <h1>Landmarks</h1>
-    <LandmarksComp />
-    <AddLandmarksComp />
+    <add-landmarks-comp />
+    <landmarks-comp />
   </div>
 </template>
 
 <script>
-import LandmarksComp from '@/components/LandmarksComp'
-import AddLandmarksComp from '@/components/AddLandmarksComp'
+
+import AddLandmarksComp from '../components/AddLandmarksComp.vue'
+import LandmarksComp from '../components/LandmarksComp.vue'
 
 export default {
     components: {
         LandmarksComp,
         AddLandmarksComp
+       
+       
     }
 }
 </script>
 
-<style>
+
+        LandmarksComp<style>
 
 </style>
