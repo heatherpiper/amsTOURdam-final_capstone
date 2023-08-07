@@ -1,6 +1,6 @@
 <template>
   <div id="landmarks">
-    <h1>Landmarks</h1>
+    
     <div class="LandmarksList">
       <landmark-detail v-for="landmark in landmarks" v-bind:key="landmark.landmarkId" v-bind:landmark="landmarks"/>
     </div>
