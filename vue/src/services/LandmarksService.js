@@ -12,7 +12,5 @@ export default {
 
     getLandmarkById(landmarkId) {
         return axios.get(`/landmarks/${landmarkId}`)
-
-        return axios.post(`/landmarks/add-landmark`, landmark);
     }
 }

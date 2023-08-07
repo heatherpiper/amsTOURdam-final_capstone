@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Landmarks from '../views/Landmarks.vue'
 import store from '../store/index'
+import LandmarkDetails from '../components/LandmarkDetailComp.vue'
 
 Vue.use(Router)
 
@@ -62,11 +63,19 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    // {
+    //   path: '/landmarks/add-landmark',
+    //   name: 'add-landmark',
+    //   component: AddLandmarks,
+    //   meta: {
+    //     requiresAuth: true
+    //   }
+    // },
     {
-      path: '/landmarks/add-landmark',
-      name: 'add-landmark',
-      component: Landmarks,
-      meta: {
+      path: '/landmarks/:id',
+      name: "landmark-by-id",
+      component: LandmarkDetails,
+           meta: {
         requiresAuth: true
       }
     }
