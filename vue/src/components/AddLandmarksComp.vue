@@ -5,7 +5,7 @@
 </template>
 
 <script>
-//import LandmarksService from '../services/LandmarksService';
+import LandmarksService from '../services/LandmarksService';
 
 export default {
     name: "add-landmark",
@@ -27,8 +27,25 @@ export default {
                     costOfEntry: 0.0,
                     reviews: ""
             }
+        };
+        },
+        methods: {
+            addNewLandmark() {
+            LandmarksService.addLandmark(this.newLandmark)
+        .then( response => {
+          if (response.status === 201) {
+            this.$router.push( { 
+              name: 'landmarks', 
+             // params: { id: productID }
+            });
+          }
+        })
+        .catch( err => console.error(err) );
+    },
+   // resetForm() {
+     // this.newLandmark = {};
+   // }
         }
-    }
 };
 </script>
 
