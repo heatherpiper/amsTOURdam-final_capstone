@@ -58,7 +58,7 @@ public Landmark getLandmarkById(int landmarkId) {
         landmark.setImageName(rs.getString("image_name"));
         landmark.setDescription(rs.getString("description"));
         landmark.setHistoricDetails(rs.getString("historic_details"));
-        landmark.setCost(rs.getDouble("cost_of_entry"));
+        landmark.setCostOfEntry(rs.getDouble("cost_of_entry"));
         landmark.setReviews(rs.getString("reviews"));
 
         return landmark;
