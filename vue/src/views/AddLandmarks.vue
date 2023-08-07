@@ -1,18 +1,16 @@
 <template>
-  <div class="landmarks">
-    <LandmarksComp />
-    <h1>Landmarks</h1>
+  <div>
+      <h1>Add New Landmark</h1>
+      <AddLandmarksComp />
   </div>
 </template>
 
 <script>
-import LandmarksComp from '@/components/LandmarksComp'
-
+import AddLandmarksComp from '../components/AddLandmarksComp'
 
 export default {
     components: {
-        LandmarksComp
-        
+        AddLandmarksComp
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-
+  <div class="add-landmarks">
+      
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
         .then( response => {
           if (response.status === 201) {
             this.$router.push( { 
-              name: 'landmarks', 
+              name: '/landmarks/add-landmark', 
              // params: { id: productID }
             });
           }
@@ -50,5 +50,8 @@ export default {
 </script>
 
 <style>
-
+h1 {
+  text-align: center;
+  font-family: arial Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 </style>

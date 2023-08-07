@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
     addLandmark(landmark) {
 
-        return axios.post('landmarks', landmark);
+        return axios.post('/addlandmarks', landmark);
     },
 
     getAllLandmarks() {
