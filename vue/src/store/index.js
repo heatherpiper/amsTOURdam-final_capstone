@@ -22,15 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     landmarks: [
       {
-        name: "Children of Reagan",
-        address: "100 Rock 'N Roll Hall Of Fame",
-        latitudeCoordinates: 80.87,
-        longitudeCoordinates: -77.506,
-        imageName: "",
-        description: "Live at Bernie's",
-        historicDetails: "Punk Rock Girls",
-        costOfEntry: 100.00,
-        reviews: "5 Stars!"
+        
   }
 ]
   },
