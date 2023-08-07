@@ -5,7 +5,9 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Landmarks from '../views/Landmarks.vue'
+import AddLandmarks from '../views/AddLandmarks.vue'
 import store from '../store/index'
+import LandmarkDetails from '../components/LandmarkDetailComp.vue'
 
 Vue.use(Router)
 
@@ -63,10 +65,19 @@ const router = new Router({
       }
     },
     {
-      path: '/landmarks/add-landmark',
+      path: '/addlandmarks',
       name: 'add-landmark',
-      component: Landmarks,
+      component: AddLandmarks,
       meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/landmarks/:id',
+      name: "landmark-by-id",
+      component: LandmarkDetails,
+           meta: {
+
         requiresAuth: true
       }
     }
