@@ -5,31 +5,31 @@ public class Landmark {
 
     private int landmark_id;
     private String name;
-    private Address address;
-    private Coordinates coordinates;
+    private String address;
+    private String coordinates;
+    private double latitude;
+    private double longitude;
     private String imageName;
 
     private String reviews;
     private String description;
     private String historicDetails;
 
-    private Double cost;
+    private double cost;
 
 
-
-
-    public Landmark(int landmark_id, String name, Address address, Coordinates coordinates, String imageName, String reviews, String description, String historicDetails, Double cost) {
+    public Landmark(int landmark_id, String name, String address, String coordinates, double latitude, double longitude, String imageName, String reviews, String description, String historicDetails, double cost) {
         this.landmark_id = landmark_id;
         this.name = name;
         this.address = address;
         this.coordinates = coordinates;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.imageName = imageName;
         this.reviews = reviews;
         this.description = description;
         this.historicDetails = historicDetails;
         this.cost = cost;
-
-
     }
 
     public Landmark() {
@@ -52,20 +52,36 @@ public class Landmark {
         this.name = name;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public Coordinates getCoordinates() {
+    public String getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Coordinates coordinates) {
+    public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public String getImageName() {
@@ -108,3 +124,4 @@ public class Landmark {
         this.cost = cost;
     }
 }
+

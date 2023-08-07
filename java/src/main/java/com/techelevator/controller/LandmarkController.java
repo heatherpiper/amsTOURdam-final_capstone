@@ -3,11 +3,9 @@ package com.techelevator.controller;
 import com.techelevator.dao.LandmarkDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Landmark;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 public class LandmarkController {
 
@@ -16,6 +14,10 @@ public class LandmarkController {
 
     private UserDao userDao;
 
+    public LandmarkController(LandmarkDao landmarkDao, UserDao userDao) {
+        this.landmarkDao = landmarkDao;
+        this.userDao = userDao;
+    }
 
     @RequestMapping(path= "/hello", method = RequestMethod.GET)
     public String hello() {
