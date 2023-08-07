@@ -14,10 +14,10 @@ public class Landmark {
     private String description;
     private String historicDetails;
 
-    private double cost;
+    private double costOfEntry;
 
 
-    public Landmark(int landmark_id, String name, String address,  double latitudeCoordinates, double longitudeCoordinates, String imageName, String reviews, String description, String historicDetails, double cost) {
+    public Landmark(int landmark_id, String name, String address,  double latitudeCoordinates, double longitudeCoordinates, String imageName, String reviews, String description, String historicDetails, double costOfEntry) {
         this.landmark_id = landmark_id;
         this.name = name;
         this.address = address;
@@ -27,7 +27,7 @@ public class Landmark {
         this.reviews = reviews;
         this.description = description;
         this.historicDetails = historicDetails;
-        this.cost = cost;
+        this.costOfEntry = costOfEntry;
     }
 
     public Landmark() {
@@ -106,12 +106,12 @@ public class Landmark {
         this.historicDetails = historicDetails;
     }
 
-    public Double getCost() {
-        return cost;
+    public Double getCostOfEntry() {
+        return costOfEntry;
     }
 
-    public void setCost(Double cost) {
-        this.cost = cost;
+    public void setCostOfEntry(Double costOfEntry) {
+        this.costOfEntry = costOfEntry;
     }
 }
 
