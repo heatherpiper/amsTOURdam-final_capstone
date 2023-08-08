@@ -1,8 +1,7 @@
 <template>
   <div class="landmarks">
-    <LandmarksComp v-if=" !isLoading " v-bind:landmarks="landmarks"/>
     <h1>Landmarks</h1>
-  
+    <LandmarksComp v-if=" !isLoading " v-bind:landmarks="landmarks"/>
   </div>
 </template>
 <script>
