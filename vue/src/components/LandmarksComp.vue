@@ -7,7 +7,7 @@
         params:{ id: landmark.landmark_id } }">
         <h1>{{ landmark.name }}</h1>
       </router-link>
-        <p>{{ landmark.description}}</p>
+        <h2>{{ landmark.description}}</h2>
       <!-- <landmark-detail v-for="landmark in landmarks" v-bind:key="landmark.landmarkId" v-bind:landmark="landmarks"/> -->
     </div>
   </div>
