@@ -65,11 +65,11 @@ const router = new Router({
       }
     },
     {
-      path: '/addlandmarks',
+      path: '/landmarks/addlandmarks',
       name: 'addlandmark',
       component: AddLandmarks,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
