@@ -1,6 +1,6 @@
 <template>
   <div class="landmarks">
-    <LandmarksComp v-bind:landmarks="landmarks"/>
+    <LandmarksComp v-if=" !isLoading " v-bind:landmarks="landmarks"/>
     <h1>Landmarks</h1>
   </div>
 </template>
@@ -14,12 +14,14 @@ export default {
     },
     data() {
       return {
-          landmarks: []
+          landmarks: [],
+          isLoading: true
       }
     },
     created() {
         LandmarksService.getAllLandmarks().then( response => {
         this.landmarks = response.data;
+        this.isLoading = false;
         console.log(this.landmarks);
         })
     }
