@@ -67,19 +67,19 @@ export default {
     data() {
         return {
             newLandmark: {
-                    landmarkId: 0,
+                    landmarkId: "",
                     name: "",
                     street: "",
-                    houseNumber: 0,
-                    postalCode: 0,
+                    houseNumber: "",
+                    postalCode: "",
                     city: "",
                     town: "",
-                    latitudeCoordinates: 0.0,
-                    longitudeCoordinates: 0.0,
+                    latitudeCoordinates: "",
+                    longitudeCoordinates: "",
                     imageName: "",
                     description: "",
                     historicDetails: "",
-                    costOfEntry: 0.0,
+                    costOfEntry: "",
                     reviews: ""
             }
         };

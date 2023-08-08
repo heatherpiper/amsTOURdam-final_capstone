@@ -40,7 +40,7 @@ public class LandmarkController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping (path = "/landmarks/addlandmarks", method = RequestMethod.POST)
+    @RequestMapping (path = "/addlandmarks", method = RequestMethod.POST)
     public Landmark addLandmark (@RequestBody Landmark landmark){
         return landmarkDao.addLandmark(landmark);
     }
