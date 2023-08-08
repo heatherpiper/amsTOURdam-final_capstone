@@ -54,7 +54,7 @@
       <input id="reviews" type="text" v-model="newLandmark.reviews" />
   </div>
   <div class="actions">
-      <button v-on:click="resetForm" type="button">Cancel</button>
+      <button v-on:click="resetForm()" type="button">Cancel</button>
       <button>Submit</button>
     </div>
   </form>
@@ -96,7 +96,7 @@ export default {
         .then( response => {
           if (response.status === 201) {
             this.$router.push( { 
-              name: 'add-landmarks', 
+              name: 'addlandmark', 
              // params: { id: productID }
             });
           }
