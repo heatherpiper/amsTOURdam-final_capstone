@@ -118,4 +118,31 @@ public class Landmark {
         this.costOfEntry = costOfEntry;
     }
 
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setHouseNumber(String houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
+
+    public void setLatitudeCoordinates(double latitudeCoordinates) {
+        this.latitudeCoordinates = latitudeCoordinates;
+    }
+
+    public void setLongitudeCoordinates(double longitudeCoordinates) {
+        this.longitudeCoordinates = longitudeCoordinates;
+    }
 }
