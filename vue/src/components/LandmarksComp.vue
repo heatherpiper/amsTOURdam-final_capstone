@@ -1,11 +1,13 @@
 <template>
   <div id="landmarks">
     
-    <div class="LandmarksList" v-for="landmark in landmarks" v-bind:key="landmark.id">
-      <router-link v-bind:to="{name: 'landmark'}">
+    <div class="LandmarksList" v-for="landmark in landmarks" v-bind:key="landmark.landmark_id">
+      <router-link v-bind:to="{
+        name:'landmarkdetail', 
+        params:{ id: landmark.landmark_id } }">
         <h1>{{ landmark.name }}</h1>
-        <p>{{ landmark.description}}</p>
       </router-link>
+        <p>{{ landmark.description}}</p>
       <!-- <landmark-detail v-for="landmark in landmarks" v-bind:key="landmark.landmarkId" v-bind:landmark="landmarks"/> -->
     </div>
   </div>
@@ -20,7 +22,6 @@ components: {
   // LandmarkDetail
 },
 props: ['landmarks']
-
 }
 </script>
 

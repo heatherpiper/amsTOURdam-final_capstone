@@ -74,7 +74,7 @@ const router = new Router({
     },
     {
       path: '/landmarks/:id',
-      name: "landmark",
+      name: "landmarkdetail",
       component: LandmarkDetails,
            meta: {
 
