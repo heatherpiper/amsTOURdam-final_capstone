@@ -10,16 +10,16 @@
       
     </div>
     <router-view />
-    <GoogleMapsCompVue/>
+   
   </div>
 </template>
 
 <script>
-import GoogleMapsCompVue from "./components/GoogleMapsComp.vue";
+
 
 export default {
   components: {
-    GoogleMapsCompVue
+    
     }
 
 }
