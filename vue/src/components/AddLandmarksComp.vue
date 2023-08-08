@@ -1,5 +1,6 @@
 <template>
 <form v-on:submit.prevent="addNewLandmark">
+    <h1>Add New Landmark</h1>
   <div class="form-element">
       <label for="name">Name:</label>
       <input id="name" type="text" v-model="newLandmark.name" />
@@ -10,7 +11,7 @@
   </div>
   <div class="form-element">
       <label for="houseNumber">House Number:</label>
-      <input id="houseNumber" type="text" v-model="newLandmark.houseNumber" />
+      <input id="houseNumber" type="text" v-model.number="newLandmark.houseNumber" />
   </div>
   <div class="form-element">
       <label for="postalCode">Postal Code:</label>
@@ -86,6 +87,7 @@ export default {
         },
         methods: {
             addNewLandmark() {
+                console.log(this.newLandmark)
             LandmarksService.addLandmark(this.newLandmark)
         .then( response => {
           if (response.status === 201) {

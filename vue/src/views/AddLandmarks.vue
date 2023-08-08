@@ -1,7 +1,7 @@
 <template>
-  <div>
-      <h1>Add New Landmark</h1>
-      <AddLandmarksComp />
+  <div class="addlandmarks">
+    <AddLandmarksComp />
+      
   </div>
 </template>
 
