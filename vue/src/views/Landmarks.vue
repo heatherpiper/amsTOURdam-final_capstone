@@ -2,15 +2,18 @@
   <div class="landmarks">
     <LandmarksComp v-if=" !isLoading " v-bind:landmarks="landmarks"/>
     <h1>Landmarks</h1>
+  
   </div>
 </template>
 <script>
+
 import LandmarksComp from '../components/LandmarksComp.vue'
 import LandmarksService from '../services/LandmarksService'
 
 export default {
     components: {
         LandmarksComp,
+        
     },
     data() {
       return {
