@@ -2,12 +2,18 @@
   <div class="home">
     <h1>Welcome To Amsterdam!</h1>
     <p></p>
+    <GoogleMapsCompVue/>
   </div>
 </template>
 
 <script>
+import GoogleMapsCompVue from "../components/GoogleMapsComp.vue";
+
 export default {
-  name: "home"
+  name: "home",
+  components: {
+    GoogleMapsCompVue
+  }
 };
 </script>
 <style scoped>

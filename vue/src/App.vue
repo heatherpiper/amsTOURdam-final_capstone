@@ -6,16 +6,16 @@
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
     <router-view />
-    <GoogleMapsCompVue/>
+   
   </div>
 </template>
 
 <script>
-import GoogleMapsCompVue from "./components/GoogleMapsComp.vue";
+
 
 export default {
   components: {
-    GoogleMapsCompVue
+    
     }
 
 }
