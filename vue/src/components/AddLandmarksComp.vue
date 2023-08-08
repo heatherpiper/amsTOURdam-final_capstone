@@ -7,31 +7,31 @@
   </div>
   <div class="form-element">
       <label for="street">Street:</label>
-      <input id="street" type="text" v-model="newLandmark.street" />
+      <input id="street" type="text" v-model="newLandmark.address.street" />
   </div>
   <div class="form-element">
       <label for="houseNumber">House Number:</label>
-      <input id="houseNumber" type="text" v-model.number="newLandmark.houseNumber" />
+      <input id="houseNumber" type="text" v-model.number="newLandmark.address.houseNumber" />
   </div>
   <div class="form-element">
       <label for="postalCode">Postal Code:</label>
-      <input id="postalCode" type="text" v-model="newLandmark.postalCode" />
+      <input id="postalCode" type="text" v-model.number="newLandmark.address.postalCode" />
   </div>
   <div class="form-element">
       <label for="city">City:</label>
-      <input id="city" type="text" v-model="newLandmark.city" />
+      <input id="city" type="text" v-model="newLandmark.address.city" />
   </div>
   <div class="form-element">
       <label for="town">Town:</label>
-      <input id="town" type="text" v-model="newLandmark.town" />
+      <input id="town" type="text" v-model="newLandmark.address.town" />
   </div>
   <div class="form-element">
       <label for="latitudeCoordinates">Latitude Coordinates:</label>
-      <input id="latitudeCoordinates" type="text" v-model="newLandmark.latitudeCoordinates" />
+      <input id="latitudeCoordinates" type="text" v-model.number="newLandmark.coordinates.latitude" />
   </div>
   <div class="form-element">
       <label for="longitudeCoordinates">Longitude Coordinates:</label>
-      <input id="longitudeCoordinates" type="text" v-model="newLandmark.longitudeCoordinates" />
+      <input id="longitudeCoordinates" type="text" v-model.number="newLandmark.coordinates.longitude" />
   </div>
   <div class="form-element">
       <label for="imageName">Image Name:</label>
@@ -70,13 +70,17 @@ export default {
             newLandmark: {
                     landmarkId: "",
                     name: "",
-                    street: "",
-                    houseNumber: "",
-                    postalCode: "",
-                    city: "",
-                    town: "",
-                    latitudeCoordinates: "",
-                    longitudeCoordinates: "",
+                    address: {
+                        street: "",
+                        houseNumber: "",
+                        postalCode: "",
+                        city: "",
+                        town: "",
+                    },
+                    coordinates: {
+                        latitude: "",
+                        longitude: "",
+                    },
                     imageName: "",
                     description: "",
                     historicDetails: "",

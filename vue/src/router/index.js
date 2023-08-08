@@ -69,7 +69,7 @@ const router = new Router({
       name: 'addlandmark',
       component: AddLandmarks,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
