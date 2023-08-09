@@ -5,7 +5,7 @@
         <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }">
           <h1>{{ landmark.name }}</h1>
         </router-link>
-        <img v-bind:src="require('../media/assets/' + landmark.imageName)" alt="">
+        <img class="landmark-image" v-bind:src="require('../media/assets/' + landmark.imageName)" alt="">
         <h2>{{ landmark.description }}</h2>
 
       </div>
@@ -38,5 +38,12 @@ props: ['landmarks']
 
 h2 {
   font-size: 19px;
+}
+
+img.landmark-image {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+
 }
 </style>
