@@ -9,6 +9,7 @@ import AddLandmarks from '../views/AddLandmarks.vue'
 import store from '../store/index'
 import LandmarkDetails from '../components/LandmarkDetailComp.vue'
 
+
 Vue.use(Router)
 
 /**
