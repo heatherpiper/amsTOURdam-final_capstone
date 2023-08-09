@@ -1,30 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{name: 'landmarks'}">Landmarks</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'addlandmark' }">Add Landmark</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      
-
-      
-    </div>
-      <router-view />
+  <Header />
+  <br>
+  <main>
+    <router-view />
+  </main> 
   </div>
 </template>
 
 <script>
+import Header from './components/Header.vue'
 
 
 
 export default {
   components: {
+    Header
     
     }
 
 }
 
 </script>
-<style>
-
-</style>

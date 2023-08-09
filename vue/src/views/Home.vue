@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <h1>Welcome To Amsterdam!</h1>
-    <p></p>
+    <br>
+    <br>
     <div class="googlemap-container">
       <GoogleMapsCompVue/>
     </div>
@@ -28,8 +29,10 @@ h1 {
   color: rgb(58, 2, 58);
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: rgb(231, 163, 17);
-  width: 900px;
+  width: 800px;
   margin: 0 auto;
+  border-radius: 5px;
+  
 }
 
 div home {
