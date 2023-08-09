@@ -1,6 +1,7 @@
 <template>
-<form v-on:submit.prevent="addNewLandmark">
-    <h1>Add New Landmark</h1>
+<div class="addlandmarks">
+<h1> Add New Landmark</h1>
+<form id="form" v-on:submit.prevent="addNewLandmark">
   <div class="form-element">
       <label for="name">Name:</label>
       <input id="name" type="text" v-model="newLandmark.name" />
@@ -58,6 +59,7 @@
       <button>Submit</button>
     </div>
   </form>
+  </div>
 </template>
 
 <script>
@@ -131,32 +133,56 @@ export default {
 </script>
 
 <style>
-#form {
-align-content: center;
-top: auto;
-right: auto;
-bottom: auto;
-left: auto;
-}
-.form-element label,
-textarea {
-font-weight: bold;
-padding: 20px;
-width: 500px;
-height: 500px;
-}
-.form-element textarea {
+.addlandmarks {
     display: flex;
-    align-content: center;
-    justify-content: center;
-    padding: 100px;
-    
+    align-items: center;
+    flex-direction: column;
+}
+#form {
+width: 50vw;
+margin-top: 50px;
+background-color:aliceblue;
+}
+.form-element {
+display: flex;
+margin-top: 10px;
+margin-bottom: 5px;
+height: 2.50vw;
 }
 .actions {
-    vertical-align: auto;
+    display: block;
+    text-align: center;
     margin: 20px;
     padding: 10px;
     align-items:center;
+    
+}
+div.addlandmarks h1 {
+  text-align: center;
+  font-size: 60px;
+  border: 10px solid rgb(102, 3, 89);
+  border-style: double;
+  color: rgb(58, 2, 58);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(231, 163, 17);
+  width: 900px;
+  margin: 0 auto;
+}
+.form-element label {
+font-weight: bolder;
+align-content: right;
+justify-content: right;
+vertical-align: right;
+font-size: 25px;
+padding: 20px;
+width: 500px;
+}
+.form-element textarea {
+    display: block;
+    align-content: center;
+    text-align: center;
+    justify-content: space-between;
+    
 }
 
 </style>
