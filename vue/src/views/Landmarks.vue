@@ -1,6 +1,7 @@
 <template>
   <div class="landmarksvue">
     <h1>Landmarks</h1>
+    <br>
     <LandmarksComp v-if=" !isLoading " v-bind:landmarks="landmarks"/>
   </div>
 </template>
@@ -39,6 +40,9 @@ div.landmarksvue h1 {
   color: rgb(58, 2, 58);
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: rgb(231, 163, 17);
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 5px;
   
 }
 </style>

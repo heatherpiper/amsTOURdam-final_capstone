@@ -43,6 +43,7 @@ div.landmark {
     border-style: double;
     color: rgb(58, 2, 58);
     font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 10px
 }
 
 </style>
