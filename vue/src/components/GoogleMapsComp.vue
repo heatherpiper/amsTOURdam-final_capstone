@@ -1,13 +1,14 @@
 <template>
   <div>
-    <div>
+    <div class="locationsofinterest">
       <h2>Locations Of Interest:</h2>
     </div>
     <br>
+    <div class="map-container">
     <GmapMap
       :center='center'
-      :zoom='12'
-      style='width: 400px;  height: 400px;'
+      :zoom='13'
+      style='width: 475px;  height: 375px;'
     >
       <GmapMarker
         :key="index"
@@ -16,14 +17,11 @@
         @click="center=m.position"
       />
     </GmapMap>
+    </div>
     <br>
-    <div>
-      <GmapAutocomplete
-        @place_changed='setPlace'
-      />
-      <button
-        @click='addMarker'
-      >
+    <div class="pin-location-container">
+      <GmapAutocomplete @place_changed='setPlace' class="autocompletebox" />
+      <button @click='addMarker' class="pin-button">
         Pin A New Location
       </button>
     </div>
@@ -48,7 +46,12 @@ export default {
         { lat: 52.357920, lng: 4.881320 },
         { lat: 52.362540, lng: 4.922240 },
         { lat: 52.366820, lng: 4.926180 },
-        { lat: 52.341320, lng: 4.889980 }
+        { lat: 52.341320, lng: 4.889980 },
+        { lat: 52.391190, lng: 4.904040 },
+        { lat: 52.390310, lng: 4.873900 },
+        { lat: 52.390310, lng: 4.886060 },
+        { lat: 52.374119, lng: 4.897760 }
+       
       ],
     };
   },
@@ -89,8 +92,53 @@ export default {
 };
 </script>
 
+<style scoped>
 
+div.locationsofinterest {
+  text-align: center;
+  border: 1px solid rgb(231, 163, 17);
+  color:rgb(231, 163, 17);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(102, 3, 89);
+  border-radius: 10px;
+  font-size: 20px;
 
+  line-height: 1px;
+}
 
-<style>
+div.map-container {
+  border: 10px solid rgb(102, 3, 89);
+  border-style: double;
+  color: rgb(58, 2, 58);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(231, 163, 17);
+  border-radius: 5px;
+}
+
+.autocompletebox {
+   font-size: 16px;
+   border: 10px solid rgb(102, 3, 89);
+   border-style: double;
+   border-radius: 20px;
+   color: rgb(231, 163, 17);
+   background-color: rgb(231, 163, 17);
+   line-height: 40px;
+}
+
+button.pin-button {
+  border: 3px solid rgb(231, 163, 17);
+  color: rgb(231, 163, 17);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(102, 3, 89);
+  margin: 20px;
+  font-size: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+ 
+  line-height: 30px;
+}
+
+button.pin-button:hover {
+  background-color: rgb(91, 47, 109);
+}
 </style>
