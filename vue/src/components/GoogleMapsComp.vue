@@ -1,48 +1,60 @@
 <template>
   <div>
     <div>
-      <h2>Search and add a pin</h2>
-      <GmapAutocomplete @place_changed="setPlace" />
-      <button @click="addMarker">Add</button>
+      <h2>Locations Of Interest:</h2>
     </div>
-    <div>
-      <button @click="searchNearbyPlaces">Search Nearby Locations</button>
-    </div>
-    <br />
-    <GmapMap :center="center" :zoom="12" style="width: 400px; height: 400px">
+    <br>
+    <GmapMap
+      :center='center'
+      :zoom='12'
+      style='width: 400px;  height: 400px;'
+    >
       <GmapMarker
-        ref="map"
         :key="index"
         v-for="(m, index) in markers"
         :position="m.position"
-        @click="center = m.position"
+        @click="center=m.position"
       />
     </GmapMap>
+    <br>
+    <div>
+      <GmapAutocomplete
+        @place_changed='setPlace'
+      />
+      <button
+        @click='addMarker'
+      >
+        Pin A New Location
+      </button>
+    </div>
   </div>
 </template>
 
+
 <script>
 export default {
-  name: "GoogleMap",
+  name: 'GoogleMap',
   data() {
     return {
       center: { lat: 52.377956, lng: 4.89707 },
       currentPlace: null,
       markers: [],
       places: [],
-      service: null,
+      prePinnedLocations: [
+        { lat: 52.376400, lng: 4.887370 },
+        { lat: 52.37444444444444, lng: 4.884861111111111 },
+        { lat: 52.37516, lng: 4.88398 },
+        { lat: 52.373989, lng: 4.912080 },
+        { lat: 52.357920, lng: 4.881320 },
+        { lat: 52.362540, lng: 4.922240 },
+        { lat: 52.366820, lng: 4.926180 },
+        { lat: 52.341320, lng: 4.889980 }
+      ],
     };
   },
   mounted() {
     this.geolocate();
-
-    if (this.$refs.map) {
-      this.service = new window.google.maps.places.PlacesService(
-        this.$refs.map.$mapObject
-      );
-    }
-
-    this.handleNearbySearchResults = this.handleNearbySearchResults.bind(this);
+    this.addPrePinnedMarkers();
   },
   methods: {
     setPlace(place) {
@@ -60,50 +72,25 @@ export default {
         this.currentPlace = null;
       }
     },
-    geolocate: function () {
-      navigator.geolocation.getCurrentPosition((position) => {
+    geolocate: function() {
+      navigator.geolocation.getCurrentPosition(position => {
         this.center = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
       });
     },
-    searchNearbyPlaces() {
-      if (this.center && this.service) {
-        const request = {
-          location: this.center,
-          radius: 1000,
-          type: 'restaurant'
-        };
-
-        this.service.nearbySearch(request, this.handleNearbySearchResults);
-      }
+    addPrePinnedMarkers() {
+      this.prePinnedLocations.forEach(location => {
+        this.markers.push({ position: location });
+      });
     },
-
-    handleNearbySearchResults(results, status) {
-  if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-    this.markers = [];
-
-    results.forEach((result) => {
-      const marker = {
-        lat: result.geometry.location.lat(),
-        lng: result.geometry.location.lng(),
-      };
-      this.markers.push({ position: marker });
-    });
-
-    if (results.length > 0) {
-      const firstPlace = results[0];
-      this.center = {
-        lat: firstPlace.geometry.location.lat(),
-        lng: firstPlace.geometry.location.lng(),
-      };
-    }
-  }
-},
   },
 };
 </script>
+
+
+
 
 <style>
 </style>
