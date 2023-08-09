@@ -1,5 +1,5 @@
 <template>
-  <div class="landmarks">
+  <div class="landmarksvue">
     <h1>Landmarks</h1>
     <LandmarksComp v-if=" !isLoading " v-bind:landmarks="landmarks"/>
   </div>
@@ -29,9 +29,16 @@ export default {
     }
 }
 </script>
-<style>
-h1 {
+
+<style scoped>
+div.landmarksvue h1 {
   text-align: center;
-  font-family: arial Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 60px;
+  border: 10px solid rgb(102, 3, 89);
+  border-style: double;
+  color: rgb(58, 2, 58);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgb(231, 163, 17);
+  
 }
 </style>
