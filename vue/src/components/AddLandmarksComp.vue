@@ -63,72 +63,70 @@
 </template>
 
 <script>
-import LandmarksService from '../services/LandmarksService';
+import LandmarksService from "../services/LandmarksService";
 
 export default {
-    name: "add-landmark",
-    data() {
-        return {
-            newLandmark: {
-                    landmarkId: "",
-                    name: "",
-                    address: {
-                        street: "",
-                        houseNumber: "",
-                        postalCode: "",
-                        city: "",
-                        town: "",
-                    },
-                    coordinates: {
-                        latitude: "",
-                        longitude: "",
-                    },
-                    imageName: "",
-                    description: "",
-                    historicDetails: "",
-                    costOfEntry: "",
-                    reviews: ""
-            }
-        };
+  name: "add-landmark",
+  data() {
+    return {
+      newLandmark: {
+        landmarkId: "",
+        name: "",
+        address: {
+          street: "",
+          houseNumber: "",
+          postalCode: "",
+          city: "",
+          town: "",
         },
-        methods: {
-            addNewLandmark() {
-                console.log(this.newLandmark)
-            LandmarksService.addLandmark(this.newLandmark)
-        .then( response => {
+        coordinates: {
+          latitude: "",
+          longitude: "",
+        },
+        imageName: "",
+        description: "",
+        historicDetails: "",
+        costOfEntry: "",
+        reviews: "",
+      },
+    };
+  },
+  methods: {
+    addNewLandmark() {
+      console.log(this.newLandmark);
+      LandmarksService.addLandmark(this.newLandmark)
+        .then((response) => {
           if (response.status === 201) {
-            this.$router.push( { 
- 
-              name: 'landmarks',  
-
+            this.$router.push({
+              name: "landmarks",
             });
           }
         })
-        .catch( err => console.error(err) );
+        .catch((err) => console.error(err));
     },
     resetForm() {
       this.newLandmark = {
-                    landmarkId: "",
-                    name: "",
-                    address: {
-                        street: "",
-                        houseNumber: "",
-                        postalCode: "",
-                        city: "",
-                        town: "",
-                    },
-                    coordinates: {
-                        latitude: "",
-                        longitude: "",
-                    },
-                    imageName: "",
-                    description: "",
-                    historicDetails: "",
-                    costOfEntry: "",
-                    reviews: ""
+        landmarkId: "",
+        name: "",
+        address: {
+          street: "",
+          houseNumber: "",
+          postalCode: "",
+          city: "",
+          town: "",
+        },
+        coordinates: {
+          latitude: "",
+          longitude: "",
+        },
+        imageName: "",
+        description: "",
+        historicDetails: "",
+        costOfEntry: "",
+        reviews: "",
       };
-    }
-        }
+    },
+  },
 };
 </script>
 
@@ -184,5 +182,22 @@ width: 500px;
     justify-content: space-between;
     
 }
-
+.form-element label,
+textarea {
+  font-weight: bold;
+  padding: 20px;
+  width: 500px;
+}
+.form-element textarea {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 100px;
+}
+.actions {
+  vertical-align: auto;
+  margin: 20px;
+  padding: 10px;
+  align-items: center;
+}
 </style>
