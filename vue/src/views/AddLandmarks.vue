@@ -1,5 +1,5 @@
 <template>
-  <div class="addlandmarks">
+  <div>
     <AddLandmarksComp />
       
   </div>
@@ -16,8 +16,5 @@ export default {
 </script>
 
 <style>
-h1 {
-  text-align: center;
-  font-family: arial Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
+
 </style>
