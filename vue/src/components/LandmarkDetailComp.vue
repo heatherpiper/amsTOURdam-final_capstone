@@ -1,14 +1,15 @@
 <template>
   <div class="landmark">
       <h2 class="landmark-name">{{ landmark.name }}</h2>
+      <img v-bind:src="require('../media/assets/' + landmark.imageName)" alt="">
       <h3 class="address">Address: {{ landmark.address.street }} {{ landmark.address.houseNumber }} {{ landmark.address.postalCode }} {{ landmark.address.city }} {{ landmark.address.town }}</h3>
-      <h3 class="image-name">Image-Name: {{ landmark.imageName }}</h3>
       <h3 class="description">Description: {{ landmark.description }}</h3>
       <h3 class="historic-details">Historic Details: {{ landmark.historicDetails }}</h3>
       <h3 class= "cost">Cost of Entry: {{ landmark.costOfEntry }}</h3>
       <h3 class="reviews">Reviews: {{ landmark.reviews }}</h3>
   </div>
 </template>
+
 
 <script>
 import LandmarksService from '../services/LandmarksService';
