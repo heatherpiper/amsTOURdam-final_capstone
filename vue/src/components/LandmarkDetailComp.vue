@@ -1,7 +1,9 @@
 <template>
   <div class="landmark">
       <h2 class="landmark-name">{{ landmark.name }}</h2>
-      <img v-bind:src="require('../media/assets/' + landmark.imageName)" alt="">
+      <div class="img">
+        <img class="landmark-image" v-bind:src="require('../media/assets/' + landmark.imageName)" alt="" >
+      </div>
       <h3 class="address">Address: {{ landmark.address.street }} {{ landmark.address.houseNumber }} {{ landmark.address.postalCode }} {{ landmark.address.city }} {{ landmark.address.town }}</h3>
       <h3 class="description">Description: {{ landmark.description }}</h3>
       <h3 class="historic-details">Historic Details: {{ landmark.historicDetails }}</h3>
@@ -45,6 +47,12 @@ div.landmark {
     color: rgb(58, 2, 58);
     font-family: Georgia, 'Times New Roman', Times, serif;
     border-radius: 10px
+}
+
+img.landmark-image {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
 }
 
 </style>
