@@ -54,7 +54,7 @@
       <input id="reviews" type="text" v-model="newLandmark.reviews" />
   </div>
   <div class="actions">
-      <button v-on:click="resetForm" type="button">Cancel</button>
+      <button v-on:click="resetForm()" type="button">Cancel</button>
       <button>Submit</button>
     </div>
   </form>
@@ -96,15 +96,33 @@ export default {
         .then( response => {
           if (response.status === 201) {
             this.$router.push( { 
-              name: 'add-landmarks', 
-             // params: { id: productID }
+              name: 'landmarks', 
             });
           }
         })
         .catch( err => console.error(err) );
     },
     resetForm() {
-      this.newLandmark = {};
+      this.newLandmark = {
+                    landmarkId: "",
+                    name: "",
+                    address: {
+                        street: "",
+                        houseNumber: "",
+                        postalCode: "",
+                        city: "",
+                        town: "",
+                    },
+                    coordinates: {
+                        latitude: "",
+                        longitude: "",
+                    },
+                    imageName: "",
+                    description: "",
+                    historicDetails: "",
+                    costOfEntry: "",
+                    reviews: ""
+      };
     }
         }
 };
@@ -121,7 +139,7 @@ left: auto;
 .form-element label,
 textarea {
 font-weight: bold;
-padding: 150px;
+padding: 20px;
 width: 500px;
 height: 500px;
 }
