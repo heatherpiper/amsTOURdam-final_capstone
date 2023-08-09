@@ -1,18 +1,12 @@
 <template>
   <div class="landmark">
       <h2 class="landmark-name">{{ landmark.name }}</h2>
-      <h3 class="street">{{ landmark.address.street }}</h3>
-      <h3 class="house-number">{{ landmark.address.houseNumber }}</h3>
-      <h3 class="postal-code">{{ landmark.address.postalCode }}</h3>
-      <h3 class="city">{{ landmark.address.city }}</h3>
-      <h3 class="town">{{ landmark.address.town }}</h3>
-      <h3 class="latitude">{{ landmark.coordinates.latitudeCoordinates }}</h3>
-      <h3 class="longitude">{{ landmark.coordinates.longitudeCoordinates }}</h3>
-      <h3 class="image-name">{{ landmark.imageName }}</h3>
-      <h3 class="description">{{ landmark.description }}</h3>
-      <h3 class="historic-details">{{ landmark.historicDetails }}</h3>
-      <h3 class= "cost">{{ landmark.costOfEntry }}</h3>
-      <h3 class="reviews">{{ landmark.reviews }}</h3>
+      <h3 class="address">Address: {{ landmark.address.street }} {{ landmark.address.houseNumber }} {{ landmark.address.postalCode }} {{ landmark.address.city }} {{ landmark.address.town }}</h3>
+      <h3 class="image-name">Image-Name: {{ landmark.imageName }}</h3>
+      <h3 class="description">Description: {{ landmark.description }}</h3>
+      <h3 class="historic-details">Historic Details: {{ landmark.historicDetails }}</h3>
+      <h3 class= "cost">Cost of Entry: {{ landmark.costOfEntry }}</h3>
+      <h3 class="reviews">Reviews: {{ landmark.reviews }}</h3>
   </div>
 </template>
 
@@ -38,6 +32,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+div.landmark {
+    background-color: rgb(231, 163, 17);
+    text-align: center;
+    width: 700px;
+    margin: 0 auto;
+    border: 10px solid rgb(102, 3, 89);
+    border-style: double;
+    color: rgb(58, 2, 58);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 </style>
