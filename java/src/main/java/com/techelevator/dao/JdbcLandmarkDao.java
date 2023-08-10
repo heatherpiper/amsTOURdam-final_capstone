@@ -26,7 +26,6 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     public Landmark getLandmarkById(int landmarkId) {
-
         Landmark landmark = null;
         String sql = "SELECT landmark_id, category, name, street, house_number, postal_code, city, country , latitude_coordinates, longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews \n" +
                 "FROM landmarks WHERE landmark_id = ?";
@@ -35,7 +34,6 @@ public class JdbcLandmarkDao implements LandmarkDao {
             if (results.next()) {
                 landmark = mapRowToLandmark(results);
             }
-
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database.", e);
         }
