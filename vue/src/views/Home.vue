@@ -41,7 +41,15 @@ div home {
 
 div .googlemap-container {
   position: absolute;
-  left: 48%;
+  left: 35%;
+  width: 800px;
+  height: 500px;
   
 }
+#map {
+width: 500px;
+height: 500px;
+
+}
+
 </style>
