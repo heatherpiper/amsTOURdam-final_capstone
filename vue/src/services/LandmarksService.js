@@ -7,10 +7,10 @@ export default {
     },
 
     getAllLandmarks() {
-        return axios.get('/landmarks/')
+        return axios.get('/landmarks/');
     },
 
     getLandmarkById(landmarkId) {
-        return axios.get(`/landmarks/${landmarkId}`)
+        return axios.get(`/landmarks/${landmarkId}`);
     }
 }
