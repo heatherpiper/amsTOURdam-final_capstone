@@ -107,8 +107,8 @@ export default {
     resetForm() {
       this.newLandmark = {
         landmarkId: "",
-        name: "",
-        address: {
+          name: "",
+          address: {
           street: "",
           houseNumber: "",
           postalCode: "",
@@ -156,24 +156,24 @@ height: 2.50vw;
     
 }
 div.addlandmarks h1 {
-  text-align: center;
-  font-size: 60px;
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
-  color: rgb(58, 2, 58);
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: rgb(231, 163, 17);
-  width: 900px;
-  margin: 0 auto;
+    text-align: center;
+    font-size: 60px;
+    border: 10px solid rgb(102, 3, 89);
+    border-style: double;
+    color: rgb(58, 2, 58);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(231, 163, 17);
+    width: 900px;
+    margin: 0 auto;
 }
 .form-element label {
-font-weight: bolder;
-align-content: right;
-justify-content: right;
-vertical-align: right;
-font-size: 25px;
-padding: 20px;
-width: 500px;
+    font-weight: bolder;
+    align-content: right;
+    justify-content: right;
+    vertical-align: right;
+    font-size: 25px;
+    padding: 20px;
+    width: 500px;
 }
 .form-element textarea {
     display: block;
