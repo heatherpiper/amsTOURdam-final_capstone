@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link class="navlink" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>&nbsp;|&nbsp;
+      <router-link class="navlink" v-bind:to="{ name: 'createitinerary'}">My Itinerary</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" v-bind:to="{ name: 'addlandmark' }">Add Landmark</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link>
     </div>
@@ -10,7 +11,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    
+  }
+};
 </script>
 
 <style scoped>

@@ -8,6 +8,9 @@ import Landmarks from '../views/Landmarks.vue'
 import AddLandmarks from '../views/AddLandmarks.vue'
 import store from '../store/index'
 import LandmarkDetails from '../components/LandmarkDetailComp.vue'
+import CreateItinerary from '../views/CreateItinerary.vue'
+import MyItinerary from '@/views/MyItinerary.vue'
+
 
 
 Vue.use(Router)
@@ -77,12 +80,29 @@ const router = new Router({
       path: '/landmarks/:id',
       name: "landmarkdetail",
       component: LandmarkDetails,
-           meta: {
-
+      meta: {
         requiresAuth: true
       }
-    }
+    },
+    {
+      path: '/myitinerary/createitinerary',
+      name: "createitinerary",
+      component: CreateItinerary,
+      meta: {
+        requiresAuth: true
+          }
+    },
+    {
+      path: 'myitinerary/:id',
+      name: 'myitinerary',
+      component: MyItinerary,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    
   ]
+
 })
 
 router.beforeEach((to, from, next) => {
