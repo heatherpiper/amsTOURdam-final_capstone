@@ -32,6 +32,8 @@ export default {
         console.log(this.landmarks);
         })
     },
+
+    
 }
         // LandmarksService.addLandmark(landmark).then( response =>{
         //   this.landmarks = response.data.map(landmarks =>{
