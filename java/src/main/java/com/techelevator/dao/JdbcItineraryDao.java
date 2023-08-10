@@ -21,10 +21,8 @@ public class JdbcItineraryDao implements ItineraryDao {
 
     public Itinerary getMyItinerary(int itineraryId) {
         Itinerary itinerary = null;
-        String sql = "SELECT itineraries.itinerary_id, itineraries.name AS itinerary_name, itineraries.starting_location, landmarks.name AS landmark_name, landmarks.street, landmarks.house_number, landmarks.postal_code, landmarks.city, landmarks.town, landmarks.latitude_coordinates, landmarks.longitude_coordinates, landmarks.image_name, landmarks.description, landmarks.historic_details, landmarks.cost_of_entry, landmarks.reviews " +
-                "FROM landmarks " +
-                "JOIN itinerary_landmarks ON landmarks.landmark_id = itinerary_landmarks.landmark_id " +
-                "JOIN itineraries ON itinerary_landmarks.itinerary_id = itineraries.itinerary_id " +
+        String sql = "SELECT itineraries.itinerary_id, itineraries.name AS itinerary_name, itineraries.starting_location " +
+                "FROM itineraries " +
                 "WHERE itineraries.itinerary_id = ?";
 
         try {
@@ -39,19 +37,18 @@ public class JdbcItineraryDao implements ItineraryDao {
     }
 
     public Itinerary createItinerary(Itinerary itinerary) {
-        Itinerary createdItinerary = null;
         String sql = "INSERT INTO itineraries (name, starting_location)   " +
                     "VALUES (?, ?) " +
                     "RETURNING itinerary_id;";
         try {
             int newItineraryId = jdbcTemplate.queryForObject(sql, int.class, itinerary.getItineraryName(), itinerary.getStartingLocation());
-            createdItinerary = getMyItinerary(newItineraryId);
+            itinerary.setItineraryId(newItineraryId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database.", e);
         } catch (DataIntegrityViolationException e) {
             throw new DaoException("Data Integrity Violation", e);
         }
-        return createdItinerary;
+        return itinerary;
     }
 
     private Itinerary mapRowToItinerary(SqlRowSet rs) {

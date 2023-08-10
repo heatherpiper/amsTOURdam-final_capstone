@@ -23,7 +23,7 @@ public class ItineraryController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/myitinerary/createitinerary")
+    @PostMapping(value = "/myitinerary/createitinerary")
     public Itinerary createItinerary(@RequestBody Itinerary itinerary) {
         return itineraryDao.createItinerary(itinerary);
     }
