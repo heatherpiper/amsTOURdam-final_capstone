@@ -8,8 +8,8 @@ import Landmarks from '../views/Landmarks.vue'
 import AddLandmarks from '../views/AddLandmarks.vue'
 import store from '../store/index'
 import LandmarkDetails from '../components/LandmarkDetailComp.vue'
-import CreateItinerary from '../views/CreateItinerary.vue'
 import MyItinerary from '@/views/MyItinerary.vue'
+import CreateItinerary from '@/views/CreateItinerary.vue'
 
 
 
@@ -85,14 +85,6 @@ const router = new Router({
       }
     },
     {
-      path: '/myitinerary/createitinerary',
-      name: "createitinerary",
-      component: CreateItinerary,
-      meta: {
-        requiresAuth: true
-          }
-    },
-    {
       path: 'myitinerary/:id',
       name: 'myitinerary',
       component: MyItinerary,
@@ -100,6 +92,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: 'myitinerary/createitinerary',
+      name: 'createitinerary',
+      component: CreateItinerary,
+      meta: {
+        requiresAuth: true
+      }
+    }
     
   ]
 
