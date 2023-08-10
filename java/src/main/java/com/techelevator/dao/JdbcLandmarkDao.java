@@ -45,7 +45,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
     public List<Landmark> getLandmarks() {
         List<Landmark> landmarks = new ArrayList<>();
         String sql = "SELECT landmark_id, category, name, street, house_number, postal_code, city, country, latitude_coordinates, " +
-                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews\n" +
+                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews " +
                 "FROM landmarks;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -60,8 +60,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
     public Landmark addLandmark(Landmark landmark) {
         Landmark newLandmark = null;
         String sql = "INSERT into landmarks (category, name, street, house_number, postal_code, city, country, latitude_coordinates, " +
-                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews) \n" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n" +
+                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
                 "RETURNING landmark_id;";
         try {
 
