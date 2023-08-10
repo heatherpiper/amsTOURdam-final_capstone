@@ -23,7 +23,7 @@ CREATE TABLE landmarks (
 	longitude_coordinates decimal NOT NULL,
 	image_name varchar(255) NOT NULL,
 	description varchar(1000) NOT NULL,
-	historic_details varchar(1000) NOT NULL,
+	historic_details varchar(1000),
 	cost_of_entry decimal,
 	duration decimal,
 	reviews varchar(500),
