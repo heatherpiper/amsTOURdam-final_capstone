@@ -1,50 +1,37 @@
 <template>
   <div class="landmarksvue">
     <h1>Landmarks</h1>
-    <br>
-    <LandmarksComp v-if=" !isLoading " v-bind:landmarks="landmarks"/>
-    <GoogleMapsComp v-if=" isLoading" v-bind:landmarks="landmarks"/>
+    <br />
+    <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks" />
+    <GoogleMapsComp v-if="!isLoading" v-bind:landmarks="landmarks" />
   </div>
 </template>
 <script>
-import LandmarksComp from '../components/LandmarksComp.vue'
-import LandmarksService from '../services/LandmarksService'
-import GoogleMapsComp from '../components/GoogleMapsComp.vue'
+import LandmarksComp from "../components/LandmarksComp.vue";
+import LandmarksService from "../services/LandmarksService";
+import GoogleMapsComp from "../components/GoogleMapsComp.vue";
 
 export default {
-    components: {
-        LandmarksComp,
-        GoogleMapsComp
-        
-    },
-    data() {
-      return {
-          landmarks: [],
-          isLoading: true,
-          markers:[]
-          
-      }
-    },
-    created() {
-        LandmarksService.getAllLandmarks().then( response => {
-        this.landmarks = response.data;
-        this.isLoading = false;
-        console.log(this.landmarks);
-        })
-    },
-}
-        // LandmarksService.addLandmark(landmark).then( response =>{
-        //   this.landmarks = response.data.map(landmarks =>{
-        //     return{
-        //       latitude: "",
-        //       longitude: ""
-        //     }
-        //   })
-        
-        // });
-    
-
-
+  components: {
+    LandmarksComp,
+    GoogleMapsComp,
+  },
+  data() {
+    return {
+      landmarks: [],
+      isLoading: true,
+      markers: [],
+      coordinates: {},
+    };
+  },
+  created() {
+    LandmarksService.getAllLandmarks().then((response) => {
+      this.landmarks = response.data;
+      this.isLoading = false;
+      console.log(this.landmarks);
+    });
+  },
+};
 </script>
 
 <style scoped>
@@ -54,11 +41,10 @@ div.landmarksvue h1 {
   border: 10px solid rgb(102, 3, 89);
   border-style: double;
   color: rgb(58, 2, 58);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   background-color: rgb(231, 163, 17);
   width: 400px;
   margin: 0 auto;
   border-radius: 5px;
-  
 }
 </style>
