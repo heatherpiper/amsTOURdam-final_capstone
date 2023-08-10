@@ -21,8 +21,6 @@ export default {
     return {
       landmarks: [],
       isLoading: true,
-      markers: [],
-      coordinates: {},
     };
   },
   created() {
