@@ -30,7 +30,7 @@ public class LandmarkController {
     }
 
     @RequestMapping (path = "/landmarks", method = RequestMethod.GET)
-    public List<Landmark> getLandmarks(){
+    public List<Landmark> getLandmarks() {
         return landmarkDao.getLandmarks();
     }
 

@@ -34,9 +34,9 @@ CREATE TABLE landmarks (
 
 CREATE TABLE itineraries (
 	itinerary_id SERIAL,
-	name varchar(50) NOT NULL,
+	itinerary_name varchar(50) NOT NULL,
 	starting_location_address varchar(100) NOT NULL,
-	has_an_itinerary boolean NOT NULL,
+	is_an_itinerary boolean NOT NULL,
 	CONSTRAINT PK_itinerary PRIMARY KEY (itinerary_id)
 );
 
