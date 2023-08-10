@@ -1,171 +1,176 @@
 <template>
-    <div>
-      <section class="ui two column centered grid" style="position:relative;z-index:1">
-        <div class="column">
-          <form class="ui segment large form">
-            <div class="ui message red" v-show="error">{{error}}</div>
-            <div class="ui segment">
-              <div class="field">
-                <div class="ui right icon input large" :class="{loading:spinner}">
-                  <input
-                    type="text"
-                    placeholder="Enter your address"
-                    v-model="address"
-                    ref="autocomplete"
-                  />
-                  <i class="dot circle link icon" @click="locatorButtonPressed"></i>
-                </div>
-              </div>
-              <button class="ui button">Go</button>
-            </div>
-          </form>
-        </div>
-      </section>
-  
-      <section id="map" ref="map"></section>
+  <div>
+    <div class="locationsofinterest">
+      <h2>Locations Of Interest:</h2>
     </div>
-  </template>
-  
-  <script>
-  import axios from "axios";
-  
-  export default {
-    data() {
-      return {
-        address: "",
-        error: "",
-        spinner: false,
-      };
+    <br>
+
+    <div class="map-container">
+    <GmapMap
+      :center='center'
+      :zoom='13'
+      style='width: 475px;  height: 375px;'
+    >
+      <GmapMarker
+        :key="index"
+        v-for="(m, index) in markers"
+        :position="m.position"
+        @click="center=m.position"
+      />
+    </GmapMap>
+    </div>
+    <br>
+    <div class="pin-location-container">
+      <GmapAutocomplete @place_changed='setPlace' class="autocompletebox" />
+      <button @click='addMarker' class="pin-button">
+        Pin A New Location
+      </button>
+    </div>
+   
+  </div>
+</template>
+
+
+<script>
+export default {
+
+
+  name: "GoogleMap",
+  data() {
+    return {
+      center: { lat: 52.377956, lng: 4.89707 },
+      currentPlace: null,
+      markers: [],
+      places: [],
+      prePinnedLocations: [
+        { lat: 52.3764, lng: 4.88737 },
+        { lat: 52.37444444444444, lng: 4.884861111111111 },
+        { lat: 52.37516, lng: 4.88398 },
+        { lat: 52.373989, lng: 4.91208 },
+        { lat: 52.35792, lng: 4.88132 },
+        { lat: 52.36254, lng: 4.92224 },
+        { lat: 52.36682, lng: 4.92618 },
+        { lat: 52.34132, lng: 4.88998 },
+        { lat: 52.39119, lng: 4.90404 },
+        { lat: 52.39031, lng: 4.8739 },
+        { lat: 52.39031, lng: 4.88606 },
+        { lat: 52.374119, lng: 4.89776 },
+      ],
+      props:['landmarks']
+    };
+  },
+  mounted() {
+    this.geolocate();
+    this.addPrePinnedMarkers();
+  },
+  methods: {
+    setPlace(place) {
+      this.currentPlace = place;
     },
-  
-    mounted() {
-      let autocomplete = new window.google.maps.places.Autocomplete(
-        this.$refs["autocomplete"],
-        {
-          bounds: new window.google.maps.LatLngBounds(
-            new window.google.maps.LatLng(45.4215296, -75.6971931)
-          ),
-        }
-      );
-  
-      autocomplete.addListener("place_changed", () => {
-        let place = autocomplete.getPlace();
-  
-        this.showLocationOnTheMap(
-          place.geometry.location.lat(),
-          place.geometry.location.lng()
-        );
+    addMarker() {
+      if (this.currentPlace) {
+        const marker = {
+          lat: this.currentPlace.geometry.location.lat(),
+          lng: this.currentPlace.geometry.location.lng(),
+        };
+        this.markers.push({ position: marker });
+        this.places.push(this.currentPlace);
+        this.center = marker;
+        this.currentPlace = null;
+      }
+    },
+    geolocate: function () {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.center = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
       });
     },
-  
-    methods: {
-      locatorButtonPressed() {
-        this.spinner = true;
-  
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              this.getAddressFrom(
-                position.coords.latitude,
-                position.coords.longitude
-              );
-  
-              this.showLocationOnTheMap(
-                position.coords.latitude,
-                position.coords.longitude
-              );
-            },
-            (error) => {
-              this.error =
-                "Locator is unable to find your address. Please type your address manually.";
-              this.spinner = false;
-               console.log(error.message);
-            }
-          );
-        } else {
-          //this.error = error.message;
-          this.spinner = false;
-          console.log("Your browser does not support geolocation API ");
-        }
-      },
-      getAddressFrom(lat, long) {
-        axios
-          .get(
-            "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-              lat +
-              "," +
-              long +
-              "&key=AIzaSyDysAX3kRXwIFGralqrpbvB0is46Wb65jI"
-          )
-          .then((response) => {
-            if (response.data.error_message) {
-              this.error = response.data.error_message;
-              console.log(response.data.error_message);
-            } else {
-              this.address = response.data.results[0].formatted_address;
-              // console.log(response.data.results[0].formatted_address);
-            }
-            this.spinner = false;
-          })
-          .catch((error) => {
-            this.error = error.message;
-            this.spinner = false;
-            console.log(error.message);
-          });
-      },
-  
-      showLocationOnTheMap(latitude, longitude) {
-   
-        var map = new window.google.maps.Map(this.$refs["map"], {
-          zoom: 15,
-          center: new window.google.maps.LatLng(latitude, longitude),
-          mapTypeId: window.google.maps.MapTypeId.ROADMAP,
-        });
-  
-        new window.google.maps.Marker({
-          position: new window.google.maps.LatLng(latitude, longitude),
-          map: map,
-        });
-      },
+    addPrePinnedMarkers() {
+      this.prePinnedLocations.forEach((location) => {
+        this.markers.push({ position: location });
+      });
     },
-  };
-  </script>
+
   
-  
-  <style>
-  .ui.button,
-  .dot.circle.icon {
-    background-color: #ff5a5f;
-    color: white;
-  }
-  
-  .pac-icon {
-    display: none;
-  }
-  
-  .pac-item {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .pac-item:hover {
-    background-color: #ececec;
-  }
-  
-  .pac-item-query {
-    font-size: 16px;
-  }
-  
-  #map {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
-  </style>
-   
-  
-  
-  
+    locatorButtonPressed(){
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position =>{
+          console.log(position.coords.latitude);
+          console.log(position.coords.longitude);
+          },
+          error => {
+            console.log(error.message);
+        });
+
+      } else {
+          console.log("Your browser does not support geolocation API ");
+      }
+
+
+    }
+    },
+
+};
+
+</script>
+
+<style scoped>
+div.locationsofinterest {
+  text-align: center;
+  border: 1px solid rgb(231, 163, 17);
+  color: rgb(231, 163, 17);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: rgb(102, 3, 89);
+  border-radius: 10px;
+  font-size: 20px;
+
+  line-height: 1px;
+}
+
+div.map-container {
+  border: 10px solid rgb(102, 3, 89);
+  border-style: double;
+  color: rgb(58, 2, 58);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: rgb(231, 163, 17);
+  border-radius: 5px;
+}
+
+.autocompletebox {
+  font-size: 16px;
+  border: 10px solid rgb(102, 3, 89);
+  border-style: double;
+  border-radius: 20px;
+  color: rgb(231, 163, 17);
+  background-color: rgb(231, 163, 17);
+  line-height: 40px;
+}
+
+button.pin-button {
+  border: 3px solid rgb(231, 163, 17);
+  color: rgb(231, 163, 17);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: rgb(102, 3, 89);
+  margin: 20px;
+  font-size: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+
+  line-height: 30px;
+}
+
+button.pin-button:hover {
+  background-color: rgb(91, 47, 109);
+}
+
+.ui.button,
+.dot.circle.icon {
+  background-color: #ff5a5f;
+  color: white;
+
+}
+
+</style>
+
