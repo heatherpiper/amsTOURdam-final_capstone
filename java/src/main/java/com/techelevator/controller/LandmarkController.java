@@ -22,11 +22,6 @@ public class LandmarkController {
         this.userDao = userDao;
     }
 
-    @RequestMapping(path= "/hello", method = RequestMethod.GET)
-    public String hello() {
-        return "Hello";
-    }
-
     @RequestMapping (path = "/landmarks/{landmarkId}", method = RequestMethod.GET)
     public Landmark getLandmark(@PathVariable int landmarkId) {
         Landmark landmark = landmarkDao.getLandmarkById(landmarkId);
@@ -41,10 +36,7 @@ public class LandmarkController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping (path = "/landmarks/addlandmarks", method = RequestMethod.POST)
-    public Landmark addLandmark (@RequestBody Landmark landmark){
+    public Landmark addLandmark(@RequestBody Landmark landmark) {
         return landmarkDao.addLandmark(landmark);
     }
-
-
-
 }
