@@ -20,7 +20,9 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    landmarks: []
+    landmarks: [],
+    itineraryCreated: false,
+    itinerary: {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -38,6 +40,12 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    ITINERARY_CREATED(state) {
+      state.itineraryCreated = true;
+    },
+    ADD_ITINERARY(state, itinerary) {
+      state.itinerary = itinerary;
     }
   }
 })
