@@ -84,7 +84,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         landmark.setName(rs.getString("name"));
         Address address = new Address();
         address.setStreet(rs.getString("street"));
-        address.setHouseNumber(rs.getInt("house_number"));
+        address.setHouseNumber(rs.getString("house_number"));
         address.setPostalCode(rs.getString("postal_code"));
         address.setCity(rs.getString("city"));
         address.setCountry(rs.getString("country"));
