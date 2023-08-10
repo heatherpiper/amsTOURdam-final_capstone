@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Component
-public class JdbcLandmarkDao implements LandmarkDao{
+public class JdbcLandmarkDao implements LandmarkDao {
 
     private JdbcTemplate jdbcTemplate;
 
@@ -25,29 +25,29 @@ public class JdbcLandmarkDao implements LandmarkDao{
         this.jdbcTemplate = new JdbcTemplate(final_capstone);
     }
 
-public Landmark getLandmarkById(int landmarkId) {
+    public Landmark getLandmarkById(int landmarkId) {
 
         Landmark landmark = null;
-        String sql =    "SELECT landmark_id, name, street, house_number, postal_code, city, town , latitude_coordinates, longitude_coordinates, " +
-                        "image_name, description, historic_details, cost_of_entry, reviews " +
-                        "FROM landmarks WHERE landmark_id =?";
-        try{
+        String sql = "SELECT landmark_id, name, street, house_number, postal_code, city, town , latitude_coordinates, longitude_coordinates, " +
+                "image_name, description, historic_details, cost_of_entry, reviews " +
+                "FROM landmarks WHERE landmark_id =?";
+        try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmarkId);
-            if(results.next()) {
+            if (results.next()) {
                 landmark = mapRowToLandmark(results);
             }
 
-        }catch (CannotGetJdbcConnectionException e){
-            throw new DaoException("Unable to connect to server or database", e );
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database.", e);
         }
-    return landmark;
-}
+        return landmark;
+    }
 
-public List<Landmark> getLandmarks(){
+    public List<Landmark> getLandmarks() {
         List<Landmark> landmarks = new ArrayList<>();
-        String sql =    "SELECT landmark_id, name, street, house_number, postal_code, city, town , latitude_coordinates, longitude_coordinates, " +
-                        "image_name, description, historic_details, cost_of_entry, reviews " +
-                        "FROM landmarks; ";
+        String sql = "SELECT landmark_id, name, street, house_number, postal_code, city, town , latitude_coordinates, longitude_coordinates, " +
+                "image_name, description, historic_details, cost_of_entry, reviews " +
+                "FROM landmarks; ";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
@@ -56,29 +56,27 @@ public List<Landmark> getLandmarks(){
         }
 
         return landmarks;
-}
+    }
 
-public Landmark addLandmark(Landmark landmark){
+    public Landmark addLandmark(Landmark landmark) {
         Landmark newLandmark = null;
         String sql = "INSERT into landmarks (name, street, house_number, postal_code, city, town , latitude_coordinates, longitude_coordinates, " +
-                    "image_name, description, historic_details, cost_of_entry, reviews) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
-                    "RETURNING landmark_id;";
+                "image_name, description, historic_details, cost_of_entry, reviews) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+                "RETURNING landmark_id;";
         try {
 
             int newLandmarkId = jdbcTemplate.queryForObject(sql, int.class, landmark.getName(), landmark.getAddress().getStreet(), landmark.getAddress().getHouseNumber(),
                     landmark.getAddress().getPostalCode(), landmark.getAddress().getCity(), landmark.getAddress().getTown(), landmark.getCoordinates().getLatitude(), landmark.getCoordinates().getLongitude(),
                     landmark.getImageName(), landmark.getDescription(), landmark.getHistoricDetails(), landmark.getCostOfEntry(), landmark.getReviews());
             newLandmark = getLandmarkById(newLandmarkId);
-        }catch (CannotGetJdbcConnectionException e) {
+        } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
-        }catch (DataIntegrityViolationException e) {
+        } catch (DataIntegrityViolationException e) {
             throw new DaoException("Data Integrity Violation", e);
         }
-
-    return newLandmark;
-}
-
+        return newLandmark;
+    }
 
     private Landmark mapRowToLandmark(SqlRowSet rs) {
         Landmark landmark = new Landmark();

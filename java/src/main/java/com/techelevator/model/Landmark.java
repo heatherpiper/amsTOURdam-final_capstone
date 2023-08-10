@@ -2,7 +2,6 @@ package com.techelevator.model;
 
 public class Landmark {
 
-
     private int landmark_id;
     private String name;
     private Address address;
