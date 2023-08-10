@@ -6,7 +6,6 @@
   </div>
 </template>
 <script>
-
 import LandmarksComp from '../components/LandmarksComp.vue'
 import LandmarksService from '../services/LandmarksService'
 

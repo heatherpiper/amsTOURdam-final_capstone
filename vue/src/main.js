@@ -3,17 +3,17 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 import axios from 'axios'
-import * as VueGoogleMaps from 'vue2-google-maps'
+//import * as VueGoogleMaps from 'vue2-google-maps'
 
 Vue.config.productionTip = false
 
-Vue.use(VueGoogleMaps, {
+/*Vue.use(VueGoogleMaps, {
   load: {
     key: "AIzaSyCTlYcOo1geGmvoTzPWWOAc-2VjQsNcAGw",
     libraries: 'places'
   }
 });
-
+*/
 axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;
 
 new Vue({
