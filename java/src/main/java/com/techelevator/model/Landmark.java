@@ -3,30 +3,30 @@ package com.techelevator.model;
 public class Landmark {
 
     private int landmark_id;
+    private String category;
     private String name;
     private Address address;
     private String street;
     private String houseNumber;
     private String postalCode;
     private String city;
-    private String town;
+    private String country;
     private Coordinates coordinates;
     private double latitudeCoordinates;
     private double longitudeCoordinates;
     private String imageName;
-
-    private String reviews;
     private String description;
     private String historicDetails;
-
     private double costOfEntry;
+    private String duration;
+    private String reviews;
 
-
-    public Landmark(int landmark_id, String name, Address address, String street, String houseNumber,
-                    String postalCode, String city, String town, Coordinates coordinates, double latitudeCoordinates,
+    public Landmark(int landmark_id, String category, String name, Address address, String street, String houseNumber,
+                    String postalCode, String city, String country, Coordinates coordinates, double latitudeCoordinates,
                     double longitudeCoordinates, String imageName, String reviews, String description,
-                    String historicDetails, double costOfEntry) {
+                    String historicDetails, double costOfEntry, String duration) {
         this.landmark_id = landmark_id;
+        this.category = category;
         this.name = name;
         this.address = address;
 
@@ -37,10 +37,9 @@ public class Landmark {
         this.description = description;
         this.historicDetails = historicDetails;
         this.costOfEntry = costOfEntry;
-
-
-
+        this.duration = duration;
     }
+
     public Landmark(){
 
     }
@@ -133,8 +132,8 @@ public class Landmark {
         this.city = city;
     }
 
-    public void setTown(String town) {
-        this.town = town;
+    public void setCountry(String town) {
+        this.country = country;
     }
 
     public void setLatitudeCoordinates(double latitudeCoordinates) {
@@ -143,5 +142,21 @@ public class Landmark {
 
     public void setLongitudeCoordinates(double longitudeCoordinates) {
         this.longitudeCoordinates = longitudeCoordinates;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 }

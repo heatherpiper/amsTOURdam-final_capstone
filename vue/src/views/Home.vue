@@ -4,20 +4,34 @@
     <br>
     <br>
     <div class="googlemap-container">
-      <GoogleMapsCompVue/>
+      <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks" />
+      <GoogleMapsCompVue v-if="!isLoading" v-bind:landmarks="landmarks" />
+      <Landmarks />  
     </div>
   </div>
 </template>
 
 <script>
+
 import GoogleMapsCompVue from "../components/GoogleMapsComp.vue";
+import LandmarksComp from "../components/LandmarksComp.vue";
+import Landmarks from "@/views/Landmarks.vue";
+
 
 export default {
   name: "home",
   components: {
-    GoogleMapsCompVue
+    GoogleMapsCompVue,
+    LandmarksComp,
+    Landmarks
+  },
+  data() {
+    return {
+      landmarks: [],
+      isLoading: true,
+    }
   }
-};
+  };
 </script>
 
 <style scoped>
