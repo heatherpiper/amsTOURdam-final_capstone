@@ -116,7 +116,7 @@
   
       showLocationOnTheMap(latitude, longitude) {
    
-        var map = new window.google.maps.Map(this.$refs["map"], {
+        let map = new window.google.maps.Map(this.$refs["map"], {
           zoom: 15,
           center: new window.google.maps.LatLng(latitude, longitude),
           mapTypeId: window.google.maps.MapTypeId.ROADMAP,
