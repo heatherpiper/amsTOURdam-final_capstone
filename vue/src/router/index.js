@@ -10,6 +10,8 @@ import store from '../store/index'
 import LandmarkDetails from '../components/LandmarkDetailComp.vue'
 
 
+
+
 Vue.use(Router)
 
 /**
@@ -81,8 +83,10 @@ const router = new Router({
 
         requiresAuth: true
       }
-    }
+    },
+    
   ]
+
 })
 
 router.beforeEach((to, from, next) => {
