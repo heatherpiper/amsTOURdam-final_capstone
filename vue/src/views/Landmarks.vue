@@ -12,6 +12,7 @@ import LandmarksService from "../services/LandmarksService";
 import GoogleMapsComp from "../components/GoogleMapsComp.vue";
 
 export default {
+
   components: {
     LandmarksComp,
     GoogleMapsComp,
@@ -32,6 +33,7 @@ export default {
     });
   },
 };
+
 </script>
 
 <style scoped>
