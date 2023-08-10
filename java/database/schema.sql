@@ -14,7 +14,7 @@ CREATE TABLE users (
 CREATE TABLE landmarks (
     landmark_id SERIAL,
     category varchar(50),
-	name varchar(50) NOT NULL,
+	name varchar(50) NOT NULL UNIQUE,
 	street varchar (100) NOT NULL,
 	house_number varchar NOT NULL,
 	postal_code varchar (10) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE landmarks (
 	longitude_coordinates decimal NOT NULL,
 	image_name varchar(255) NOT NULL,
 	description varchar(500) NOT NULL,
-	historic_details varchar(500) NOT NULL,
+	historic_details varchar(500),
 	cost_of_entry decimal,
 	duration varchar,
 	reviews varchar(500),
