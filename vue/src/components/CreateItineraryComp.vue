@@ -22,15 +22,16 @@
 <script>
 import ItineraryService from "@/services/ItineraryService";
 
+
 export default {
     name: "create-itenerary",
     data() {
       return {
         createMyItinerary: {
-          itineraryId: "",
           itineraryName: "", 
           startingLocation: ""
-        }
+        },
+        newItinerary: {}
       }
     },
     methods: {
@@ -38,10 +39,10 @@ export default {
         ItineraryService.createItinerary(this.createMyItinerary)
           .then((response) => {
             if(response.status === 201) {
-              this.$router.push({
-                name: "myitinerary",
-                params: { id: this.createItinerary.itineraryId }
-              });
+              this.newItinerary = response.data;
+              this.$store.commit('ADD_ITINERARY', this.newItinerary);
+              console.log(this.newItinerary)
+              this.$router.push({ name: 'myitinerary', params: {id: this.newItinerary.id}});
             }
           })
           .catch((err) => console.error(err));
