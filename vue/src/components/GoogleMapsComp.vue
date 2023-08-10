@@ -3,65 +3,41 @@
     <div class="locationsofinterest">
       <h2>Locations Of Interest:</h2>
     </div>
-    <br>
+    <br />
 
     <div class="map-container">
-    <GmapMap
-      :center='center'
-      :zoom='13'
-      style='width: 475px;  height: 375px;'
-    >
-      <GmapMarker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        @click="center=m.position"
-      />
-    </GmapMap>
+      <GmapMap :center="center" :zoom="13" style="width: 475px; height: 375px">
+        <GmapMarker
+          :key="index"
+          v-for="(m, index) in markers"
+          :position="m.position"
+          @click="center = m.position"
+        />
+      </GmapMap>
     </div>
-    <br>
+    <br />
     <div class="pin-location-container">
-      <GmapAutocomplete @place_changed='setPlace' class="autocompletebox" />
-      <button @click='addMarker' class="pin-button">
-        Pin A New Location
-      </button>
+      <GmapAutocomplete @place_changed="setPlace" class="autocompletebox" />
+      <button @click="addMarker" class="pin-button">Pin A New Location</button>
     </div>
-   
   </div>
 </template>
 
 
 <script>
 export default {
-
-
   name: "GoogleMap",
+  props: ["landmarks"],
   data() {
     return {
       center: { lat: 52.377956, lng: 4.89707 },
       currentPlace: null,
       markers: [],
-      places: [],
-      prePinnedLocations: [
-        { lat: 52.3764, lng: 4.88737 },
-        { lat: 52.37444444444444, lng: 4.884861111111111 },
-        { lat: 52.37516, lng: 4.88398 },
-        { lat: 52.373989, lng: 4.91208 },
-        { lat: 52.35792, lng: 4.88132 },
-        { lat: 52.36254, lng: 4.92224 },
-        { lat: 52.36682, lng: 4.92618 },
-        { lat: 52.34132, lng: 4.88998 },
-        { lat: 52.39119, lng: 4.90404 },
-        { lat: 52.39031, lng: 4.8739 },
-        { lat: 52.39031, lng: 4.88606 },
-        { lat: 52.374119, lng: 4.89776 },
-      ],
-      props:['landmarks']
+      places: []
     };
   },
   mounted() {
     this.geolocate();
-    this.addPrePinnedMarkers();
   },
   methods: {
     setPlace(place) {
@@ -87,33 +63,36 @@ export default {
         };
       });
     },
-    addPrePinnedMarkers() {
-      this.prePinnedLocations.forEach((location) => {
+    locatorButtonPressed() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+          },
+          (error) => {
+            console.log(error.message);
+          }
+        );
+     } else {
+        console.log("Your browser does not support geolocation API ");
+      }
+    },
+    createMarkersFromLandmarks() {
+      this.markers = [];
+      this.landmarks.forEach((landmark) => {
+        const location = {
+          lat: landmark.coordinates.latitude,
+          lng: landmark.coordinates.longitude,
+        };
         this.markers.push({ position: location });
       });
     },
-
-  
-    locatorButtonPressed(){
-      if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position =>{
-          console.log(position.coords.latitude);
-          console.log(position.coords.longitude);
-          },
-          error => {
-            console.log(error.message);
-        });
-
-      } else {
-          console.log("Your browser does not support geolocation API ");
-      }
-
-
-    }
-    },
-
+  },
+  created() {
+    this.createMarkersFromLandmarks();
+  },
 };
-
 </script>
 
 <style scoped>
@@ -169,8 +148,6 @@ button.pin-button:hover {
 .dot.circle.icon {
   background-color: #ff5a5f;
   color: white;
-
 }
-
 </style>
 
