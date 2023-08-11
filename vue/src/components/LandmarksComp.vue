@@ -6,7 +6,7 @@
           <h1>{{ landmark.name }}</h1>
         </router-link>
         <div class="landmark-image-container">
-          <img class="landmark-image" v-bind:src="require('../media/assets/' + landmark.imageName)" alt="">
+         <img class="landmark-image" v-bind:src="landmark.imageName">
         </div>
         <h2>{{ landmark.description }}</h2>
 

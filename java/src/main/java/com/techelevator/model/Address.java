@@ -2,13 +2,13 @@ package com.techelevator.model;
 
 public class Address {
     private String street;
-    private int houseNumber;
+    private String houseNumber;
     private String postalCode;
     private String city;
     private String country;
 
 
-    public Address(String street, int houseNumber, String postalCode, String city, String country) {
+    public Address(String street, String houseNumber, String postalCode, String city, String country) {
         this.street = street;
         this.houseNumber = houseNumber;
         this.postalCode = postalCode;
@@ -27,11 +27,11 @@ public class Address {
         this.street = street;
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(int houseNumber) {
+    public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
     }
 
