@@ -3,6 +3,8 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS landmarks;
 DROP TABLE IF EXISTS itineraries;
+DROP TABLE IF EXISTS itinerary_landmarks;
+DROP TABLE IF EXISTS user_itinerary;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -39,6 +41,18 @@ CREATE TABLE itineraries (
 	starting_location_longitude decimal,
 	has_an_itinerary boolean,
 	CONSTRAINT PK_itinerary PRIMARY KEY (itinerary_id)
+);
+
+CREATE TABLE itinerary_landmarks (
+    itinerary_landmark_id SERIAL PRIMARY KEY,
+    itinerary_id INT REFERENCES itineraries(itinerary_id),
+    landmark_id INT REFERENCES landmarks(landmark_id)
+);
+
+CREATE TABLE user_itinerary (
+    user_itineraries_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    itinerary_id INT REFERENCES itineraries(itinerary_id)
 );
 
 COMMIT TRANSACTION;

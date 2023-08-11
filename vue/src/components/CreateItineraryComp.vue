@@ -5,7 +5,7 @@
     <form id="itinerary" v-on:submit.prevent="createItinerary()">
         <div class="input-name">
             <label for="name">Itinerary Name:</label>
-            <input id="name" type="text" v-model="createdItinerary.name" />
+            <input id="name" type="text" v-model="createdItinerary.itineraryName" />
         </div>
         <div class="input-starting-location">
             <label for="name">Starting Location:</label>
@@ -28,8 +28,9 @@ export default {
     data() {
       return {
         createdItinerary: {
-          name: "", 
-          startingLocation: ""
+          itineraryName: "", 
+          startingLocation: "",
+          isAnItinerary: false
         },
         newItinerary: {}
       }
@@ -50,8 +51,9 @@ export default {
       resetForm() {
         this.createdItinerary = {
           itineraryId: "",
-          name: "", 
-          startingLocation: ""
+          itineraryName: "", 
+          startingLocation: "",
+          isAnItinerary: false
         };
       }
     }
@@ -75,7 +77,7 @@ export default {
     font-family: Georgia, 'Times New Roman', Times, serif;
     border-radius: 10px
   }
-
+  
   .input-name {
     font-size: 30px;
     
