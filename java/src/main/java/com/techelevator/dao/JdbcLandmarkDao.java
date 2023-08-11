@@ -57,10 +57,10 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     public List<Landmark> getLandmarksByItineraryId(int itineraryId) {
         List<Landmark> landmarksByItineraryId = new ArrayList<>();
-        String sql = "SELECT landmarks.landmark_id, category, name, street, house_number, postal_code, city, country, latitude_coordinates, " +
+        String sql = "SELECT landmarks.landmark_id, category, landmarks.name, street, house_number, postal_code, city, country, latitude_coordinates, " +
                 "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews " +
                 "FROM landmarks " +
-                "JOIN itinerary_landmarks ON landmarks.landmark_id = itinerary_landmarks.itinerary_id " +
+                "JOIN itinerary_landmarks ON landmarks.landmark_id = itinerary_landmarks.landmark_id " +
                 "JOIN itineraries ON itinerary_landmarks.itinerary_id = itineraries.itinerary_id " +
                 "WHERE itineraries.itinerary_id = ?";
 
