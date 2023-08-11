@@ -17,3 +17,12 @@
         historicDetails: "Punk Rock Girls",
         costOfEntry: 100.00,
         reviews: "5 Stars!"
+
+#home {
+   background-image: url("../media/assets/canal-sunset.jpg");
+   margin: 0;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+   background-size: cover;
+}
