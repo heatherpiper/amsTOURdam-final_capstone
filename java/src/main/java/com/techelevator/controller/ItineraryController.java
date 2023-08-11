@@ -6,6 +6,8 @@ import com.techelevator.model.Itinerary;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 public class ItineraryController {
@@ -14,6 +16,11 @@ public class ItineraryController {
 
     public ItineraryController(ItineraryDao itineraryDao) {
         this.itineraryDao = itineraryDao;
+    }
+
+    @GetMapping("/myitinerary/")
+    public List<Itinerary> getItineraries() {
+        return itineraryDao.getItineraries();
     }
 
     @GetMapping("/myitinerary/{itineraryId}")
