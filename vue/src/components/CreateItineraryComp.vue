@@ -13,7 +13,7 @@
         </div>
         <div class="actions">
             <button v-on:click="resetForm()" type="button">Reset</button>
-            <button type="submit">Submit</button>
+            <button v-on:click="iteneraryIsCreated()" type="submit">Submit</button>
         </div>
     </form>
   </div>
@@ -29,8 +29,7 @@ export default {
       return {
         createdItinerary: {
           itineraryName: "", 
-          startingLocation: "",
-          isAnItinerary: false
+          startingLocation: ""
         },
         newItinerary: {}
       }
@@ -52,9 +51,11 @@ export default {
         this.createdItinerary = {
           itineraryId: "",
           itineraryName: "", 
-          startingLocation: "",
-          isAnItinerary: false
+          startingLocation: ""
         };
+      },
+      itineraryIsCreated() {
+        this.newItinerary.isAnItinerary = true;
       }
     }
 }
