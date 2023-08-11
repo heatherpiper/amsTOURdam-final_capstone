@@ -19,10 +19,9 @@ CREATE TABLE landmarks (
     category varchar(50),
 	name varchar(50) NOT NULL UNIQUE,
 	street varchar (100) NOT NULL,
-	house_number varchar NOT NULL,
+	house_number varchar(12),
 	postal_code varchar (10) NOT NULL,
     city varchar(50) NOT NULL,
-	country varchar(50) NOT NULL,
 	latitude_coordinates decimal NOT NULL,
 	longitude_coordinates decimal NOT NULL,
 	image_name varchar(255) NOT NULL,
@@ -36,9 +35,11 @@ CREATE TABLE landmarks (
 
 CREATE TABLE itineraries (
 	itinerary_id SERIAL,
-	itinerary_name varchar(50) NOT NULL,
-	starting_location_address varchar(100) NOT NULL,
-	is_an_itinerary boolean NOT NULL,
+	name varchar(50),
+	starting_location_address varchar(75),
+	starting_location_latitude decimal,
+	starting_location_longitude decimal,
+	has_an_itinerary boolean,
 	CONSTRAINT PK_itinerary PRIMARY KEY (itinerary_id)
 );
 
