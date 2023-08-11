@@ -1,5 +1,6 @@
 <template>
   <header>
+    <span></span>
     <div id="nav">
       <router-link class="navlink" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>&nbsp;|&nbsp;
@@ -24,27 +25,32 @@ export default {
 
 <style scoped>
 header {
-  background-color: rgb(146, 141, 144);
+  background-color: #f1eff9;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
   height: 100px;
-  border: 2px rgb(58, 2, 58) solid;
 }
 
 #nav {
     padding: 20px;
     font-size: 20px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .navlink {
     text-decoration: none;
-    color:rgb(32, 7, 56);
+    color: black;
 }
 
 .navlink:hover {
-    color:deeppink
+    color: #519bcb;
+}
+
+#logo {
+  max-width: 10px;
 }
 
 </style>
