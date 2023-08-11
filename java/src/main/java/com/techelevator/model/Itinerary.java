@@ -5,11 +5,13 @@ public class Itinerary {
     private int itineraryId;
     private String itineraryName;
     private String startingLocation;
+    private boolean isAnItinerary = false;
 
-    public Itinerary(int itineraryId, String itineraryName, String startingLocation) {
+    public Itinerary(int itineraryId, String itineraryName, String startingLocation, boolean isAnItinerary) {
         this.itineraryId = itineraryId;
         this.itineraryName = itineraryName;
         this.startingLocation = startingLocation;
+        this.isAnItinerary = isAnItinerary;
     }
 
     public Itinerary() {
@@ -38,5 +40,13 @@ public class Itinerary {
 
     public void setStartingLocation(String startingLocation) {
         this.startingLocation = startingLocation;
+    }
+
+    public boolean isAnItinerary() {
+        return isAnItinerary;
+    }
+
+    public void setIsAnItinerary(boolean isAnItinerary) {
+        this.isAnItinerary = isAnItinerary;
     }
 }

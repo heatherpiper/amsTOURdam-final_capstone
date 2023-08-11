@@ -14,9 +14,7 @@ export default {
   data() {
     return {
       itineraryId: 0,
-      itinerary: {},
-      landmarkId: 0,
-      landmark: {},
+      itinerary: {}
     };
   },
   created() {

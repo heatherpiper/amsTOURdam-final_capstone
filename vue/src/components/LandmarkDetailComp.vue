@@ -2,7 +2,8 @@
   <div class="landmark">
       <h2 class="landmark-name">{{ landmark.name }}</h2>
       <div class="img">
-        <img class="landmark-image" v-bind:src="require('../media/assets/' + landmark.imageName)" alt="" >
+      
+       <img class="landmark-image" v-bind:src="landmark.imageName">
       </div>
       <h3 class="address">Address: {{ landmark.address.street }} {{ landmark.address.houseNumber }} {{ landmark.address.postalCode }} {{ landmark.address.city }} {{ landmark.address.town }}</h3>
       <h3 class="description">Description: {{ landmark.description }}</h3>
