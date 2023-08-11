@@ -29,4 +29,19 @@ INSERT INTO landmarks (category, name, street, house_number, postal_code, city, 
 INSERT INTO landmarks (category, name, street, house_number, postal_code, city, country, latitude_coordinates, longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews) VALUES ('Park', 'Vondelpark', 'Vondelpark', NULL, '1071 AA', 'Amsterdam', 'The Netherlands', '52.358', '4.868639', 'https://i.imgur.com/kHnXbRm.jpg', 'Public urban park that covers 120 acres in the heart of Amsterdam and features an open-air theatre, playground, ponds, trails, and several food service facilities.', 'Opened in 1865 as Nieuwe Park ("New Park") but was later renamed in honor of 17th century playwright and poet Joost van den Vondel.', '0.00', '1', '0');
 INSERT INTO landmarks (category, name, street, house_number, postal_code, city, country, latitude_coordinates, longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews) VALUES ('Zoo or Garden', 'Hortus Botanicus Amsterdam', 'Plantage Middenlaan', '2A', '1018 DD', 'Amsterdam', 'The Netherlands', '52.367295', '4.908167', 'https://i.imgur.com/fPhqqPa.jpg', 'The Hortus Botanicus offers a tranquil haven from the hustle and bustle of the city surrounding it and contains over 6,000 different indigenous and non-native trees and plants. In addition to a gorgeous cafe, outdoor gardens, and a ‘hothouse’ that emulates three different tropical environments.', 'Originally founded in 1638 to serve as an herb garden for the city''s doctors and pharmacists, it is one of the oldest botanical gardens in the world.', '12.50', '2', '0');
 
+INSERT INTO itineraries (itinerary_name, starting_location_address, starting_location_latitude, starting_location_longitude)
+VALUES ('Bills Itinerary', 'Museumplein 6 1071 DJ Amsterdam, The Netherlands', 52.357920, 4.881320);
+
+INSERT INTO itineraries (itinerary_name, starting_location_address, starting_location_latitude, starting_location_longitude)
+VALUES ('Jeffs Itinerary', 'Museumplein 6 1071 DJ Amsterdam, The Netherlands', 52.357920, 4.881320);
+
+INSERT INTO itineraries (itinerary_name, starting_location_address, starting_location_latitude, starting_location_longitude)
+VALUES ('Wandas Itinerary', 'Museumplein 6 1071 DJ Amsterdam, The Netherlands', 52.357920, 4.881320);
+
+INSERT INTO user_itinerary (user_id, itinerary_id)
+VALUES (1, 3), (1, 1), (1, 2), (2, 3), (2,2);
+
+INSERT INTO itinerary_landmarks (itinerary_id, landmark_id)
+VALUES (1, 3), (1, 1), (1, 2), (2,3), (3, 2);
+
 COMMIT TRANSACTION;
