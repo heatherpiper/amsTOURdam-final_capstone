@@ -27,7 +27,7 @@ props: ['landmarks']
 .LandmarksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 20px; 
+  gap: 40px; 
 }
 
 .LandmarksList {
@@ -45,6 +45,7 @@ h2 {
 
 div.landmark-image-container {
   display: flex;
+  
 }
 
 img.landmark-image {

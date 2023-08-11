@@ -85,7 +85,7 @@ const router = new Router({
       }
     },
     {
-      path: 'myitinerary/:id',
+      path: '/myitinerary/:id',
       name: 'myitinerary',
       component: MyItinerary,
       meta: {
@@ -93,7 +93,7 @@ const router = new Router({
       }
     },
     {
-      path: 'myitinerary/createitinerary',
+      path: '/myitinerary/createitinerary',
       name: 'createitinerary',
       component: CreateItinerary,
       meta: {

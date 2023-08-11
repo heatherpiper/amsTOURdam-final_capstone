@@ -75,7 +75,7 @@ export default {
     font-family: Georgia, 'Times New Roman', Times, serif;
     border-radius: 10px
   }
-
+  
   .input-name {
     font-size: 30px;
     
