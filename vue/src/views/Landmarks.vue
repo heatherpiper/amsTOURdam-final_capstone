@@ -42,7 +42,7 @@ div.landmarksvue {
 }
 div.landmarksvue h1 {
   text-align: center;
-  font-size: 60px;
+  font-size: 14px;
   border: 2px solid #519BCB;
   font-family: Georgia, "Times New Roman", Times, serif;
   background-color: white;
