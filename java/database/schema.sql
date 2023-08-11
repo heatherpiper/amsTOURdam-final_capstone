@@ -22,6 +22,7 @@ CREATE TABLE landmarks (
 	house_number varchar(12),
 	postal_code varchar (10) NOT NULL,
     city varchar(50) NOT NULL,
+    country varchar(50) NOT NULL,
 	latitude_coordinates decimal NOT NULL,
 	longitude_coordinates decimal NOT NULL,
 	image_name varchar(255) NOT NULL,
