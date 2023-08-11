@@ -34,6 +34,11 @@ public class LandmarkController {
         return landmarkDao.getLandmarks();
     }
 
+    @GetMapping(path="myitinerary/{id}/landmarks")
+    public List<Landmark> getLandmarksByItineraryId(@PathVariable int id) {
+        return landmarkDao.getLandmarksByItineraryId(id);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping (path = "/landmarks/addlandmarks", method = RequestMethod.POST)
     public Landmark addLandmark(@RequestBody Landmark landmark) {
