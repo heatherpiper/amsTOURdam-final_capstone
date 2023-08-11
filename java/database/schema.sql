@@ -17,10 +17,9 @@ CREATE TABLE landmarks (
     category varchar(50),
 	name varchar(50) NOT NULL UNIQUE,
 	street varchar (100) NOT NULL,
-	house_number varchar NOT NULL,
+	house_number varchar(12),
 	postal_code varchar (10) NOT NULL,
     city varchar(50) NOT NULL,
-	country varchar(50) NOT NULL
 	latitude_coordinates decimal NOT NULL,
 	longitude_coordinates decimal NOT NULL,
 	image_name varchar(255) NOT NULL,

@@ -26,7 +26,6 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     public Landmark getLandmarkById(int landmarkId) {
-
         Landmark landmark = null;
         String sql = "SELECT landmark_id, category, name, street, house_number, postal_code, city, country , latitude_coordinates, longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews \n" +
                 "FROM landmarks WHERE landmark_id = ?";
@@ -35,7 +34,6 @@ public class JdbcLandmarkDao implements LandmarkDao {
             if (results.next()) {
                 landmark = mapRowToLandmark(results);
             }
-
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database.", e);
         }
@@ -45,7 +43,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
     public List<Landmark> getLandmarks() {
         List<Landmark> landmarks = new ArrayList<>();
         String sql = "SELECT landmark_id, category, name, street, house_number, postal_code, city, country, latitude_coordinates, " +
-                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews\n" +
+                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews " +
                 "FROM landmarks;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -60,8 +58,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
     public Landmark addLandmark(Landmark landmark) {
         Landmark newLandmark = null;
         String sql = "INSERT into landmarks (category, name, street, house_number, postal_code, city, country, latitude_coordinates, " +
-                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews) \n" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n" +
+                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
                 "RETURNING landmark_id;";
         try {
 
@@ -84,7 +82,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         landmark.setName(rs.getString("name"));
         Address address = new Address();
         address.setStreet(rs.getString("street"));
-        address.setHouseNumber(rs.getInt("house_number"));
+        address.setHouseNumber(rs.getString("house_number"));
         address.setPostalCode(rs.getString("postal_code"));
         address.setCity(rs.getString("city"));
         address.setCountry(rs.getString("country"));
