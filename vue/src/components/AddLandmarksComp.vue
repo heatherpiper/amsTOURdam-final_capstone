@@ -3,6 +3,10 @@
 <h1> Add New Landmark</h1>
 <form id="form" v-on:submit.prevent="addNewLandmark">
   <div class="form-element">
+      <label for="category">Category:</label>
+      <input id="category" type="text" v-model="newLandmark.category" />
+  </div>
+  <div class="form-element">
       <label for="name">Name:</label>
       <input id="name" type="text" v-model="newLandmark.name" />
   </div>
@@ -12,19 +16,15 @@
   </div>
   <div class="form-element">
       <label for="houseNumber">House Number:</label>
-      <input id="houseNumber" type="text" v-model.number="newLandmark.address.houseNumber" />
+      <input id="houseNumber" type="text" v-model="newLandmark.address.houseNumber" />
   </div>
   <div class="form-element">
       <label for="postalCode">Postal Code:</label>
-      <input id="postalCode" type="text" v-model.number="newLandmark.address.postalCode" />
+      <input id="postalCode" type="text" v-model="newLandmark.address.postalCode" />
   </div>
   <div class="form-element">
       <label for="city">City:</label>
       <input id="city" type="text" v-model="newLandmark.address.city" />
-  </div>
-  <div class="form-element">
-      <label for="town">Town:</label>
-      <input id="town" type="text" v-model="newLandmark.address.town" />
   </div>
   <div class="form-element">
       <label for="latitudeCoordinates">Latitude Coordinates:</label>
@@ -51,6 +51,10 @@
       <input id="costOfEntry" type="text" v-model="newLandmark.costOfEntry" />
   </div>
   <div class="form-element">
+      <label for="duration">Duration:</label>
+      <input id="duration" type="text" v-model="newLandmark.duration" />
+  </div>
+  <div class="form-element">
       <label for="reviews">Reviews:</label>
       <input id="reviews" type="text" v-model="newLandmark.reviews" />
   </div>
@@ -70,14 +74,14 @@ export default {
   data() {
     return {
       newLandmark: {
-        landmarkId: "",
-        name: "",
-        address: {
+         landmarkId: "",
+         category: "",
+         name: "",
+         address: {
           street: "",
           houseNumber: "",
           postalCode: "",
           city: "",
-          town: "",
         },
         coordinates: {
           latitude: "",
@@ -87,6 +91,7 @@ export default {
         description: "",
         historicDetails: "",
         costOfEntry: "",
+        duration: "",
         reviews: "",
       },
     };
@@ -106,14 +111,14 @@ export default {
     },
     resetForm() {
       this.newLandmark = {
-        landmarkId: "",
+          landmarkId: "",
+          category: "",
           name: "",
           address: {
-          street: "",
-          houseNumber: "",
-          postalCode: "",
-          city: "",
-          town: "",
+            street: "",
+            houseNumber: "",
+            postalCode: "",
+            city: "",
         },
         coordinates: {
           latitude: "",
@@ -123,6 +128,7 @@ export default {
         description: "",
         historicDetails: "",
         costOfEntry: "",
+        duration: "",
         reviews: "",
       };
     },
