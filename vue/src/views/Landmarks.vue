@@ -6,6 +6,7 @@
     <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks" />
   </div>
 </template>
+
 <script>
 import LandmarksComp from "../components/LandmarksComp.vue";
 import LandmarksService from "../services/LandmarksService";
@@ -35,19 +36,18 @@ export default {
 </script>
 
 <style scoped>
+
+div.landmarksvue {
+  background-color: #F1EFF9;
+}
 div.landmarksvue h1 {
   text-align: center;
   font-size: 60px;
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
-  color: rgb(58, 2, 58);
+  border: 2px solid #519BCB;
   font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: rgb(231, 163, 17);
+  background-color: white;
   width: 400px;
   margin: 0 auto;
   border-radius: 5px;
 }
-/* div.landmarksvue {
-   background-image: url("../media/assets/HomeBG.jpg");;
-} */
 </style>
