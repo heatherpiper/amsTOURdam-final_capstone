@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       center: { lat: 52.377956, lng: 4.89707 },
-      currentPlace: null,
+      currentPlace: "",
       markers: [],
       places: []
     };
@@ -45,7 +45,7 @@ export default {
     },
     addMarker() {
       if (this.currentPlace) {
-        const marker = {
+        let marker = {
           lat: this.currentPlace.geometry.location.lat(),
           lng: this.currentPlace.geometry.location.lng(),
         };
@@ -122,7 +122,7 @@ div.map-container {
   border: 10px solid rgb(102, 3, 89);
   border-style: double;
   border-radius: 20px;
-  color: rgb(231, 163, 17);
+  color: rgb(102, 3, 89);
   background-color: rgb(231, 163, 17);
   line-height: 40px;
 }
