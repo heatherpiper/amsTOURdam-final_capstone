@@ -88,11 +88,13 @@ export default {
         this.markers.push({ position: location });
       });
     },
+    
   },
   created() {
     this.createMarkersFromLandmarks();
   },
 };
+
 </script>
 
 <style scoped>
