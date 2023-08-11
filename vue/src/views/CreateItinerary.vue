@@ -7,7 +7,7 @@ import CreateItineraryComp from "../components/CreateItineraryComp.vue";
 
 export default {
     components: {
-        CreateItineraryComp
+        CreateItineraryComp,
     }
 }
 </script>
