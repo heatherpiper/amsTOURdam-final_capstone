@@ -7,8 +7,6 @@
 
 <script>
 
-
-
 export default {
   name: "home",
   components: {
@@ -35,6 +33,7 @@ h1 {
   margin: 0 auto;
   border-radius: 5px;
 }
+
 /* div.home {
    background-image: url("../media/assets/HomeBG.jpg");
 } */
