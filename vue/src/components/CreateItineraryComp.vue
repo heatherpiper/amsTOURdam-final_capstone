@@ -5,11 +5,11 @@
     <form id="itinerary" v-on:submit.prevent="createItinerary()">
         <div class="input-name">
             <label for="name">Itinerary Name:</label>
-            <input id="name" type="text" v-model="createMyItinerary.itineraryName" />
+            <input id="name" type="text" v-model="createdItinerary.name" />
         </div>
         <div class="input-starting-location">
             <label for="name">Starting Location:</label>
-            <input id="starting-location" type="text" v-model="createMyItinerary.startingLocation" />
+            <input id="starting-location" type="text" v-model="createdItinerary.startingLocation" />
         </div>
         <div class="actions">
             <button v-on:click="resetForm()" type="button">Reset</button>
@@ -27,8 +27,8 @@ export default {
     name: "create-itenerary",
     data() {
       return {
-        createMyItinerary: {
-          itineraryName: "", 
+        createdItinerary: {
+          name: "", 
           startingLocation: ""
         },
         newItinerary: {}
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
       createItinerary() {
-        ItineraryService.createItinerary(this.createMyItinerary)
+        ItineraryService.createItinerary(this.createdItinerary)
           .then((response) => {
             if(response.status === 201) {
               this.newItinerary = response.data;
@@ -48,9 +48,9 @@ export default {
           .catch((err) => console.error(err));
       },
       resetForm() {
-        this.createMyItinerary = {
+        this.createdItinerary = {
           itineraryId: "",
-          itineraryName: "", 
+          name: "", 
           startingLocation: ""
         };
       }
