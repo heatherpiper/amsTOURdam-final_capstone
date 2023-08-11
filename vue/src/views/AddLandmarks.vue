@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div class="BG">
     <AddLandmarksComp />
-      
   </div>
 </template>
 
@@ -16,5 +15,7 @@ export default {
 </script>
 
 <style>
-
+/* div.BG {
+  background-image: url("../media/assets/HomeBG.jpg");
+} */
 </style>
