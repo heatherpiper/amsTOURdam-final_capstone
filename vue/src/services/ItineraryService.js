@@ -7,5 +7,9 @@ export default {
 
     getMyItinerary(itineraryId) {
         return axios.get(`/myitinerary/${itineraryId}`);
+    },
+
+    getItineraries() {
+        return axios.get('/myitinerary/');
     }
 }
