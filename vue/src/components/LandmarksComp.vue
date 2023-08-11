@@ -3,12 +3,12 @@
     <div class="LandmarksGrid">
       <div class="LandmarksList" v-for="landmark in landmarks" :key="landmark.landmark_id">
         <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }">
-          <h1>{{ landmark.name }}</h1>
+          <h2>{{ landmark.name }}</h2>
         </router-link>
         <div class="landmark-image-container">
          <img class="landmark-image" v-bind:src="landmark.imageName">
         </div>
-        <h2>{{ landmark.description }}</h2>
+        <main>{{ landmark.description }}</main>
 
       </div>
     </div>
@@ -40,7 +40,7 @@ props: ['landmarks']
 }
 
 h2 {
-  font-size: 19px;
+  font-size: 20px;
 }
 
 div.landmark-image-container {
