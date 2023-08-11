@@ -1,6 +1,10 @@
 <template>
 <div class="addlandmarks">
 <h1> Add New Landmark</h1>
+<div v-show="response.status !== 201">
+<h2>Server Error</h2>
+<h2>{{formErrorMessage}}</h2>
+</div>
 <form id="form" v-on:submit.prevent="addNewLandmark">
   <div class="form-element">
       <label for="category">Category:</label>
@@ -27,6 +31,10 @@
       <input id="city" type="text" v-model="newLandmark.address.city" />
   </div>
   <div class="form-element">
+      <label for="country">Country:</label>
+      <input id="country" type="text" v-model="newLandmark.address.country" />
+  </div>
+  <div class="form-element">
       <label for="latitudeCoordinates">Latitude Coordinates:</label>
       <input id="latitudeCoordinates" type="text" v-model.number="newLandmark.coordinates.latitude" />
   </div>
@@ -36,7 +44,7 @@
   </div>
   <div class="form-element">
       <label for="imageName">Image Name:</label>
-      <input id="imageName" type="text" v-model="newLandmark.imageName" />
+      <input id="imageName" type="url" v-model="newLandmark.imageName" />
   </div>
   <div class="form-element">
       <label for="description">Description:</label>
@@ -75,13 +83,14 @@ export default {
     return {
       newLandmark: {
          landmarkId: "",
-         category: "",
-         name: "",
-         address: {
+          category: "",
+          name: "",
+          address: {
           street: "",
           houseNumber: "",
           postalCode: "",
           city: "",
+          country: "",
         },
         coordinates: {
           latitude: "",
@@ -94,6 +103,8 @@ export default {
         duration: "",
         reviews: "",
       },
+      formError: false,
+      formErrorMessage: "There was a problem with your submission. Please try again."
     };
   },
   methods: {
@@ -107,7 +118,15 @@ export default {
             });
           }
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          const response = err.response;
+          this.formError = true;
+          if(response.status === 500){
+            this.formErrorMessage = "Server Error.";
+            console.log(this.formErrorMessage);
+          } 
+          console.log(this.formErrorMessage);
+        });
     },
     resetForm() {
       this.newLandmark = {
@@ -119,6 +138,7 @@ export default {
             houseNumber: "",
             postalCode: "",
             city: "",
+            country: "",
         },
         coordinates: {
           latitude: "",
@@ -205,5 +225,8 @@ textarea {
   margin: 20px;
   padding: 10px;
   align-items: center;
+}
+h2 {
+  text-align: center;
 }
 </style>
