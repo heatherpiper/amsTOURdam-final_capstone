@@ -12,7 +12,7 @@ public interface LandmarkDao {
 
     Landmark addLandmark(Landmark landmark);
 
-
+    List<Landmark> getLandmarksByItineraryId(int itineraryId);
 
 
 
