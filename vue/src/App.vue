@@ -24,6 +24,6 @@ export default {
 </script>
 <style scoped>
 #app {
-  background-color:lightsalmon;
+  background-color: #F1EFF9;
 }
 </style>
