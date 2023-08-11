@@ -12,4 +12,6 @@ public interface ItineraryDao {
 
     Itinerary createItinerary(Itinerary itinerary);
 
+    List<Itinerary> getItinerariesByUserId(int userId);
+
 }
