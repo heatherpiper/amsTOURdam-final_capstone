@@ -2,8 +2,8 @@
   <div class="landmarksvue">
     <h1>Landmarks</h1>
     <br />
-    <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks" />
     <GoogleMapsComp v-if="!isLoading" v-bind:landmarks="landmarks" />
+    <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks" />
   </div>
 </template>
 <script>
@@ -47,4 +47,7 @@ div.landmarksvue h1 {
   margin: 0 auto;
   border-radius: 5px;
 }
+/* div.landmarksvue {
+   background-image: url("../media/assets/HomeBG.jpg");;
+} */
 </style>
