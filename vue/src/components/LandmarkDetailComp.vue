@@ -39,15 +39,14 @@ export default {
 <style scoped>
 
 div.landmark {
-    background-color: rgb(231, 163, 17);
+    background-color: white;
     text-align: center;
     width: 700px;
     margin: 0 auto;
-    border: 10px solid rgb(102, 3, 89);
-    border-style: double;
-    color: rgb(58, 2, 58);
+    border: 10px solid #519bcb;
+    color: #519bcb;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border-radius: 10px
+    border-radius: 20px
 }
 
 img.landmark-image {
