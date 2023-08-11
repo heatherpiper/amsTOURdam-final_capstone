@@ -4,12 +4,14 @@ import com.techelevator.dao.LandmarkDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Landmark;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin
 @RestController
+//@PreAuthorize("isAuthenticated()")
 public class LandmarkController {
 
 
