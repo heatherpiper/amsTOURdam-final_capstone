@@ -143,11 +143,5 @@ button.pin-button {
 button.pin-button:hover {
   background-color: rgb(91, 47, 109);
 }
-
-.ui.button,
-.dot.circle.icon {
-  background-color: #ff5a5f;
-  color: white;
-}
 </style>
 

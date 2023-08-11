@@ -1,34 +1,20 @@
 <template>
   <div class="home">
     <h1>Welcome To Amsterdam!</h1>
-    <br>
-    <br>
-    <div class="googlemap-container">
-      <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks" />
-      <GoogleMapsCompVue v-if="!isLoading" v-bind:landmarks="landmarks" />
-      <Landmarks />  
-    </div>
+    <!-- <img src="../media/assets/HomeBG.jpg" alt=""> -->
   </div>
 </template>
 
 <script>
 
-import GoogleMapsCompVue from "../components/GoogleMapsComp.vue";
-import LandmarksComp from "../components/LandmarksComp.vue";
-import Landmarks from "@/views/Landmarks.vue";
-
-
 export default {
   name: "home",
   components: {
-    GoogleMapsCompVue,
-    LandmarksComp,
-    Landmarks
+   
   },
   data() {
     return {
-      landmarks: [],
-      isLoading: true,
+     
     }
   }
   };
@@ -46,24 +32,9 @@ h1 {
   width: 800px;
   margin: 0 auto;
   border-radius: 5px;
-  
 }
 
-div home {
-  position: relative;
-}
-
-div .googlemap-container {
-  position: absolute;
-  left: 35%;
-  width: 800px;
-  height: 500px;
-  
-}
-#map {
-width: 500px;
-height: 500px;
-
-}
-
+/* div.home {
+   background-image: url("../media/assets/HomeBG.jpg");
+} */
 </style>
