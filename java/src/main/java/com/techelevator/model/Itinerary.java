@@ -5,13 +5,16 @@ public class Itinerary {
     private int itineraryId;
     private String itineraryName;
     private String startingLocation;
-    private boolean isAnItinerary = false;
+    private double startingLocationLatitude;
+    private double startingLocationLongitude;
 
-    public Itinerary(int itineraryId, String itineraryName, String startingLocation, boolean isAnItinerary) {
+
+    public Itinerary(int itineraryId, String itineraryName, String startingLocation, double startingLocationLatitude, double startingLocationLongitude) {
         this.itineraryId = itineraryId;
         this.itineraryName = itineraryName;
         this.startingLocation = startingLocation;
-        this.isAnItinerary = isAnItinerary;
+        this.startingLocationLatitude = startingLocationLatitude;
+        this.startingLocationLongitude = startingLocationLatitude;
     }
 
     public Itinerary() {
@@ -42,11 +45,19 @@ public class Itinerary {
         this.startingLocation = startingLocation;
     }
 
-    public boolean isAnItinerary() {
-        return isAnItinerary;
+    public double getStartingLocationLatitude() {
+        return startingLocationLatitude;
     }
 
-    public void setIsAnItinerary(boolean isAnItinerary) {
-        this.isAnItinerary = isAnItinerary;
+    public void setStartingLocationLatitude(double startingLocationLatitude) {
+        this.startingLocationLatitude = startingLocationLatitude;
+    }
+
+    public double getStartingLocationLongitude() {
+        return startingLocationLongitude;
+    }
+
+    public void setStartingLocationLongitude(double startingLocationLongitude) {
+        this.startingLocationLongitude = startingLocationLongitude;
     }
 }
