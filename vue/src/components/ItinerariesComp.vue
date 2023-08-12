@@ -21,23 +21,24 @@ export default {
   },
   data() {
     return {
-      userId: 0,
+      userId: "",
       itineraries: []
     }
   },
-  //   created() {
-  //   ItineraryService.getItineraries().then((response) => {
-  //     this.itineraries = response.data;
-  //     console.log(this.itineraries);
-      
-  //   });
-  // },
-  created() {
-    ItineraryService.getItinerariesByUserId(this.userId).then((response) => {
+    created() {
+    ItineraryService.getItineraries().then((response) => {
       this.itineraries = response.data;
+      this.userId = this.itineraries.userId;
       console.log(this.itineraries);
+      
     });
-  }
+  },
+//   created() {
+//     ItineraryService.getItinerariesByUserId(this.userId).then((response) => {
+//       this.itineraries = response.data;
+//       console.log(this.itineraries);
+//     });
+//   }
 }
 </script>
 
