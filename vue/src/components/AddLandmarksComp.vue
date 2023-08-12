@@ -1,10 +1,10 @@
 <template>
 <div class="addlandmarks">
 <h1> Add New Landmark</h1>
-<div v-show="response.status !== 201">
+<!-- <div v-show="response.status !== 201">
 <h2>Server Error</h2>
 <h2>{{formErrorMessage}}</h2>
-</div>
+</div> -->
 <form id="form" v-on:submit.prevent="addNewLandmark">
   <div class="form-element">
       <label for="category">Category:</label>
