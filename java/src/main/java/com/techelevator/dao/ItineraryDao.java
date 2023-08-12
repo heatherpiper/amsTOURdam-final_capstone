@@ -14,4 +14,10 @@ public interface ItineraryDao {
 
     List<Itinerary> getItinerariesByUserId(int userId);
 
+    int deleteItineraryByItineraryId(int itineraryId);
+
+    Itinerary updateItinerary(Itinerary itinerary);
+
+
+
 }
