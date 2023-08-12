@@ -34,7 +34,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -86,7 +86,7 @@ const router = new Router({
       }
     },
     {
-      path: "/myitinerary/",
+      path: "/myitineraries",
       name: 'myitineraries',
       component: MyItineraries,
       meta: {
@@ -102,9 +102,16 @@ const router = new Router({
       }
     },
     {
-      path: '/myitinerary/createitinerary',
+      path: '/createitinerary',
       name: 'createitinerary',
       component: CreateItinerary,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/itineraries',
+      name: 'getallitineraries',
       meta: {
         requiresAuth: true
       }

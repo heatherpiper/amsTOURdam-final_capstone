@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
+
 Vue.use(Vuex)
 
 /*
@@ -21,11 +22,12 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     landmarks: [],
-    itineraryCreated: false,
     itinerary: {
+      id: "",
       itineraryName: "", 
       startingLocation: "",
-      isAnItinerary: false
+      latitude: "",
+      longitude: ""
     },
     itineraries: {}
   },
@@ -46,12 +48,9 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    ITINERARY_CREATED(state) {
-      state.itineraryCreated = true;
-    },
     ADD_ITINERARY(state, itinerary) {
       state.itinerary = itinerary;
-      state.itinerary.isAnItinerary = true;
-    }
+    },
+    
   }
 })

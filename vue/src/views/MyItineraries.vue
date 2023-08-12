@@ -1,9 +1,11 @@
 <template>
-  <MyItinerariesComp />
+  <div>
+     <MyItinerariesComp />
+  </div>
 </template>
 
 <script>
-import MyItinerariesComp from '../components/MyItinerariesComp.vue'
+import MyItinerariesComp from '../components/ItinerariesComp.vue'
 
 export default {
     components: {
