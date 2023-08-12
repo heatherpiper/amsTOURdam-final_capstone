@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     createItinerary(itinerary) {
-        return axios.post('/myitinerary/createitinerary', itinerary);
+        return axios.post('/createitinerary', itinerary);
     },
 
     getMyItinerary(itineraryId) {
@@ -10,10 +10,10 @@ export default {
     },
 
     getItineraries() {
-        return axios.get('/myitinerary/');
+        return axios.get('/itineraries');
     },
 
     getItinerariesByUserId(userId) {
-        return axios.get(`/user/${userId}/myitinerary`)
+        return axios.get(`/myitineraries/${userId}`);
     }
 }
