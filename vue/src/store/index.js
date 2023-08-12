@@ -23,7 +23,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     landmarks: [],
     itinerary: {
-      id: "",
+      itineraryId: "",
       itineraryName: "", 
       startingLocation: "",
       latitude: "",
@@ -51,6 +51,7 @@ export default new Vuex.Store({
     ADD_ITINERARY(state, itinerary) {
       state.itinerary = itinerary;
     },
+
     
   }
 })
