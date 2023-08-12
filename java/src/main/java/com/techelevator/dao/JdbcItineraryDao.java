@@ -30,7 +30,7 @@ public class JdbcItineraryDao implements ItineraryDao {
                 "WHERE users.user_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
-        while(results.next()) {
+        while (results.next()) {
             Itinerary itinerary = mapRowToItinerary(results);
             itinerariesByUserId.add(itinerary);
         }
@@ -43,8 +43,8 @@ public class JdbcItineraryDao implements ItineraryDao {
         String sql = "SELECT itineraries.itinerary_id, itineraries.itinerary_name, itineraries.starting_location_address, itineraries.starting_location_latitude, itineraries.starting_location_longitude " +
                 "FROM itineraries";
 
-        SqlRowSet results =jdbcTemplate.queryForRowSet(sql);
-        while(results.next()) {
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
             Itinerary itinerary = mapRowToItinerary(results);
             itineraries.add(itinerary);
         }
@@ -70,8 +70,8 @@ public class JdbcItineraryDao implements ItineraryDao {
 
     public Itinerary createItinerary(Itinerary itinerary) {
         String sql = "INSERT INTO itineraries (itinerary_name, starting_location_address, starting_location_latitude, starting_location_longitude)   " +
-                    "VALUES (?, ?, ?, ?) " +
-                    "RETURNING itinerary_id;";
+                "VALUES (?, ?, ?, ?) " +
+                "RETURNING itinerary_id;";
         try {
             int newItineraryId = jdbcTemplate.queryForObject(sql, int.class, itinerary.getItineraryName(), itinerary.getStartingLocation(), itinerary.getStartingLocationLatitude(), itinerary.getStartingLocationLongitude());
             itinerary.setItineraryId(newItineraryId);
@@ -82,6 +82,45 @@ public class JdbcItineraryDao implements ItineraryDao {
         }
         return itinerary;
     }
+    public int deleteItineraryByItineraryId(int itineraryId){
+        int numberOfRows = 0;
+       String sql = "DELETE FROM itineraries WHERE itinerary_id = ?;";
+       try {
+           numberOfRows = jdbcTemplate.update(sql, itineraryId);
+       } catch (CannotGetJdbcConnectionException e) {
+           throw new DaoException("Unable to connect to server or database", e);
+       } catch (DataIntegrityViolationException e) {
+           throw new DaoException("Data integrity violation", e);
+       }
+       return numberOfRows;
+    }
+
+    public Itinerary updateItinerary(Itinerary itinerary){
+        Itinerary updatedItinerary = null;
+        String sql =    "UPDATE itineraries " +
+                        "SET name = ?, starting_location_address = ?, " +
+                        "starting_location_latitude = ? , starting_location_longitude = ?" +
+                        "WHERE itinerary_id = ?;";
+            try {
+                int numberOfRows = jdbcTemplate.update(sql, itinerary.getItineraryName(), itinerary.getStartingLocation(),
+                        itinerary.getStartingLocationLatitude(), itinerary.getStartingLocationLongitude());
+
+                if (numberOfRows == 0) {
+                    throw new DaoException("Zero rows affected, expected at least one.");
+                } else {
+                    updatedItinerary = getMyItinerary(itinerary.getItineraryId());
+                }
+            } catch (CannotGetJdbcConnectionException e) {
+                throw new DaoException("Unable to connect to server or database", e);
+            }catch (DataIntegrityViolationException e){
+                throw new DaoException("Data Integrity Violation", e);
+            }
+            return updatedItinerary;
+
+    }
+
+
+
 
     private Itinerary mapRowToItinerary(SqlRowSet rs) {
         Itinerary itinerary = new Itinerary();
