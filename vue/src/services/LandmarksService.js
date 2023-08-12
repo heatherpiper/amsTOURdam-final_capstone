@@ -14,7 +14,7 @@ export default {
         return axios.get(`/landmarks/${landmarkId}`);
     },
 
-    getLandmarksByItineraryId(itineraryId) {
-        return axios.get(`myitinerary/${itineraryId}/landmarks`)
+    getLandmarksByItineraryId(id) {
+        return axios.get(`myitinerary/${id}/landmarks`)
     }
 }

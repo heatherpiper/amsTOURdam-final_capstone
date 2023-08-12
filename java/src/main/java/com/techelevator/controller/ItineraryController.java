@@ -35,7 +35,7 @@ public class ItineraryController {
         return itinerary;
     }
 
-    @GetMapping("/{userId}/myitinerary/")
+    @GetMapping("/user/{userId}/myitinerary")
     public List<Itinerary>  getItinerariesByUserId(Principal principal) {
         String username = principal.getName();
         int userId = userDao.findIdByUsername(username);

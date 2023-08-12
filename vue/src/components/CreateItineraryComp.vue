@@ -13,7 +13,7 @@
         </div>
         <div class="actions">
             <button v-on:click="resetForm()" type="button">Reset</button>
-            <button v-on:click="iteneraryIsCreated()" type="submit">Submit</button>
+            <button type="submit">Submit</button>
         </div>
     </form>
   </div>
@@ -24,14 +24,16 @@ import ItineraryService from "@/services/ItineraryService";
 
 
 export default {
-    name: "create-itenerary",
+    name: "create-itinerary",
     data() {
       return {
         createdItinerary: {
+          id: "",
           itineraryName: "", 
-          startingLocation: ""
-        },
-        newItinerary: {}
+          startingLocation: "",
+          latitude: "",
+          longitude: ""
+        }
       }
     },
     methods: {
@@ -39,23 +41,22 @@ export default {
         ItineraryService.createItinerary(this.createdItinerary)
           .then((response) => {
             if(response.status === 201) {
-              this.newItinerary = response.data;
-              this.$store.commit('ADD_ITINERARY', this.newItinerary);
-              console.log(this.newItinerary)
-              this.$router.push({ name: 'myitinerary', params: {id: this.newItinerary.id}});
+              this.createdItinerary = response.data;
+              this.$store.commit('ADD_ITINERARY', this.createdItinerary);
+              console.log(this.createdItinerary)
+              this.$router.push({ name: 'myitinerary', params: {id: this.createdItinerary.id}});
             }
           })
           .catch((err) => console.error(err));
       },
       resetForm() {
         this.createdItinerary = {
-          itineraryId: "",
+          id: "",
           itineraryName: "", 
-          startingLocation: ""
+          startingLocation: "",
+          latitude: "",
+          longitude: ""
         };
-      },
-      itineraryIsCreated() {
-        this.newItinerary.isAnItinerary = true;
       }
     }
 }

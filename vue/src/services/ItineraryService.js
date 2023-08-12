@@ -11,5 +11,9 @@ export default {
 
     getItineraries() {
         return axios.get('/myitinerary/');
+    },
+
+    getItinerariesByUserId(userId) {
+        return axios.get(`/user/${userId}/myitinerary`)
     }
 }

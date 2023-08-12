@@ -1,5 +1,7 @@
 <template>
-  <MyItinerariesComp />
+  <div>
+     <MyItinerariesComp />
+  </div>
 </template>
 
 <script>
