@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.DaoException;
 import com.techelevator.dao.ItineraryDao;
 import com.techelevator.dao.LandmarkDao;
 import com.techelevator.dao.UserDao;
@@ -7,6 +8,7 @@ import com.techelevator.model.Itinerary;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.List;
@@ -47,4 +49,26 @@ public class ItineraryController {
     public Itinerary createItinerary(@RequestBody Itinerary itinerary) {
         return itineraryDao.createItinerary(itinerary);
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/itinerary/{itineraryId}", method = RequestMethod.DELETE)
+    public void deleteItinerary(@PathVariable int itineraryId){
+        itineraryDao.deleteItineraryByItineraryId(itineraryId);
+
+
+    }
+
+    @RequestMapping(path = "/itinerary/{itineraryId}", method = RequestMethod.PUT)
+    public Itinerary update(@RequestBody Itinerary itinerary, @PathVariable int itineraryId){
+        itinerary.setItineraryId(itineraryId);
+        try {
+            Itinerary updatedItinerary = itineraryDao.updateItinerary(itinerary);
+            return updatedItinerary;
+        } catch (DaoException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Itinerary not found.");
+
+        }
+    }
+
+
 }
