@@ -14,12 +14,17 @@ export default {
   // props: ["itinerary"],
   data() {
     return {
-      itineraryId: "",
-      itinerary: {}
+      itinerary: {
+        itineraryId: "",
+        itineraryName: "",
+        startingLocation: "",
+        latitude: "",
+        longitude: "",
+      }
     };
   },
   created() {
-    ItineraryService.getMyItinerary(this.$store.state.itinerary.id).then((response) => {
+    ItineraryService.getMyItinerary(this.$store.state.itinerary.itineraryId).then((response) => {
       this.itinerary = response.data;
       
       console.log(this.itinerary);

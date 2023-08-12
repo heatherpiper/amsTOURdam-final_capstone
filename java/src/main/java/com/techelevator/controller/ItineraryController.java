@@ -24,7 +24,7 @@ public class ItineraryController {
         this.userDao = userDao;
     }
 
-    @GetMapping("/myitinerary/")
+    @GetMapping("/itineraries")
     public List<Itinerary> getItineraries() {
         return itineraryDao.getItineraries();
     }
@@ -35,15 +35,15 @@ public class ItineraryController {
         return itinerary;
     }
 
-    @GetMapping("/user/{userId}/myitinerary")
-    public List<Itinerary>  getItinerariesByUserId(Principal principal) {
-        String username = principal.getName();
-        int userId = userDao.findIdByUsername(username);
-        return itineraryDao.getItinerariesByUserId(userId);
+    @GetMapping("/myitineraries/{userId}")
+    public List<Itinerary>  getItinerariesByUserId(@PathVariable int userId, Principal principal) {
+
+        List <Itinerary> itineraries = itineraryDao.getItinerariesByUserId(userId);
+        return itineraries;
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "/myitinerary/createitinerary")
+    @PostMapping(value = "/createitinerary")
     public Itinerary createItinerary(@RequestBody Itinerary itinerary) {
         return itineraryDao.createItinerary(itinerary);
     }
