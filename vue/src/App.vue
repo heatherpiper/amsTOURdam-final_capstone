@@ -2,7 +2,7 @@
   <div id="app">
   <Header />
   <br>
-  <main>
+  <main class="flexbox">
     <router-view />
   </main> 
   </div>
@@ -13,10 +13,10 @@ import Header from './components/Header.vue'
 
 
 
+
 export default {
   components: {
-    Header
-    
+    Header,
     }
 
 }
