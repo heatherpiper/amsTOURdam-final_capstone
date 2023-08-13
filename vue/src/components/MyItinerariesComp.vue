@@ -3,10 +3,12 @@
     <h1>My Itineraries:</h1>
     <div class="id-test">USER ID (TEST): {{ this.$store.state.user.id }}</div>
     <div class="itinerayList">
-      <div
+      <router-link
         v-for="itinerary in itinerariesByUserId"
         v-bind:key="itinerary.id"
         v-bind:itinerary="itinerary"
+        :to="`/myitinerary/${itinerary.itineraryId}`"
+        class="itinerary-item"
       >
         <ul>
           <li>Id: {{ itinerary.itineraryId }}</li>
@@ -15,7 +17,7 @@
           <li>Starting Location (Latitude): {{ itinerary.latitude }}</li>
           <li>Starting Location (Longitude): {{ itinerary.longitude }}</li>
         </ul>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
