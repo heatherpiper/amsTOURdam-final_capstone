@@ -1,15 +1,19 @@
 <template>
   <div>
-     <MyItineraries />
+    <MyItinerariesComp />
+    <CreateItineraryComp />
   </div>
 </template>
 
 <script>
-import MyItineraries from '../components/MyItinerariesComp.vue'
+import MyItinerariesComp from '../components/MyItinerariesComp.vue'
+import CreateItineraryComp from "../components/CreateItineraryComp.vue";
+
 
 export default {
     components: {
-        MyItineraries
+        CreateItineraryComp,
+        MyItinerariesComp
     }
 }
 </script>
