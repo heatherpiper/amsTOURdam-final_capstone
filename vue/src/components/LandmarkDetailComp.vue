@@ -41,16 +41,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 div.landmark {
     background-color: white;
     text-align: center;
     width: 700px;
     margin: 0 auto;
-    border: 10px solid #519bcb;
-    color: #519bcb;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 2px solid #298a91;
+    color: #298a91;
     border-radius: 20px
 }
 

@@ -38,19 +38,6 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 
-div.landmarksvue {
-  background-color: #F1EFF9;
-}
-div.landmarksvue h1 {
-  text-align: center;
-  font-size: 60px;
-  border: 2px solid #519BCB;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: white;
-  width: 400px;
-  margin: 0 auto;
-  border-radius: 5px;
-}
 </style>

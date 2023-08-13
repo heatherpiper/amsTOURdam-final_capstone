@@ -18,7 +18,7 @@
     <br />
     <div class="pin-location-container">
       <GmapAutocomplete @place_changed="setPlace" class="autocompletebox" />
-      <button @click="addMarker" class="pin-button">Pin A New Location</button>
+      <button @click="addMarker" class="pin-button">Pin a new location</button>
     </div>
   </div>
 </template>
@@ -100,50 +100,28 @@ export default {
 <style scoped>
 div.locationsofinterest {
   text-align: center;
-  border: 1px solid rgb(231, 163, 17);
-  color: rgb(231, 163, 17);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: rgb(102, 3, 89);
-  border-radius: 10px;
-  font-size: 20px;
-
-  line-height: 1px;
-}
-
-div.map-container {
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
-  color: rgb(58, 2, 58);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: rgb(231, 163, 17);
-  border-radius: 5px;
 }
 
 .autocompletebox {
   font-size: 16px;
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
   border-radius: 20px;
-  color: rgb(102, 3, 89);
-  background-color: rgb(231, 163, 17);
   line-height: 40px;
+  padding-left: 5px;
 }
 
 button.pin-button {
-  border: 3px solid rgb(231, 163, 17);
-  color: rgb(231, 163, 17);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: rgb(102, 3, 89);
-  margin: 20px;
+  color: black;
+  background-color: #2ac1d7;
+  margin: 10px;
+  padding: 10px;
   font-size: 20px;
   border-radius: 20px;
   font-weight: bold;
-
   line-height: 30px;
 }
 
 button.pin-button:hover {
-  background-color: rgb(91, 47, 109);
+  background-color: #2ac1d7;
 }
 </style>
 
