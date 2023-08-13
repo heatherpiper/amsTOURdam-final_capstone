@@ -152,7 +152,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .addlandmarks {
     display: flex;
     align-items: center;
