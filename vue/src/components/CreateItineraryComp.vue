@@ -40,6 +40,7 @@
         <input v-on:click.prevent="hideForm" type="button" value="Cancel"  />
         <input v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
         <input type="submit" value="Submit Form" v-bind:disabled="!isFormValid" />
+        
       </div>
     </form>
   </div>
@@ -53,6 +54,7 @@ export default {
   data() {
     return {
       showForm: false,
+      userId: "",
       createdItinerary: {
         itineraryId: "",
         itineraryName: "",
@@ -70,7 +72,7 @@ export default {
     },
   methods: {
     createItinerary() {
-      this.createdItinerary.userId = this.$store.state.user.id;
+      this.userId = this.$store.state.user.id;
       console.log(this.createdItinerary.userId);
       ItineraryService.createItinerary(this.createdItinerary)
         .then((response) => {
@@ -106,27 +108,12 @@ export default {
     hideForm() {
     this.showForm = false;
     this.resetForm(); 
+    },
   }
-  },
 };
 </script>
 
 <style scoped>
-h1 {
-  font-size: 40px;
-}
-
-/* #create-itinerary {
-  background-color: rgb(231, 163, 17);
-  text-align: center;
-  width: 700px;
-  margin: 0 auto;
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
-  color: rgb(58, 2, 58);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  border-radius: 10px;
-} */
 
   h1 {
     text-align: center;
