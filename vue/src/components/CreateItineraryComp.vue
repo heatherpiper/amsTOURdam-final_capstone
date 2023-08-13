@@ -40,7 +40,6 @@
         <input v-on:click.prevent="hideForm" type="button" value="Cancel"  />
         <input v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
         <input type="submit" value="Submit Form" v-bind:disabled="!isFormValid" />
-        
       </div>
     </form>
   </div>
@@ -108,8 +107,8 @@ export default {
     hideForm() {
     this.showForm = false;
     this.resetForm(); 
-    },
   }
+  },
 };
 </script>
 

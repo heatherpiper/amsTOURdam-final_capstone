@@ -47,6 +47,7 @@ export default new Vuex.Store({
     },
     ADD_ITINERARIES(state, itineraries) {
       state.itineraries = itineraries;
-    }
+    },
+    
   }
 })
