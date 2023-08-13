@@ -150,6 +150,14 @@ h1 {
     border-radius: 5px;
 }
 
+a {
+   text-decoration: none;
+}
+
+h2:hover {
+  color:darksalmon;
+}
+
 form {
     text-align: center;
     font-size: 40px;

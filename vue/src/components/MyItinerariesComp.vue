@@ -86,6 +86,10 @@ h1 {
 
 }
 
+div.itinerary-box:hover {
+  color: darksalmon;
+}
+
 ul.itinerary-info {
   list-style: none;
   padding: 0;
