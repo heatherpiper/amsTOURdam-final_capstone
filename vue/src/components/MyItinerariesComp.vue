@@ -21,6 +21,8 @@
           <li class="info-item">Starting Location (Address): {{ itinerary.startingLocation }}</li>
           <li class="info-item">Starting Location (Latitude): {{ itinerary.latitude }}</li>
           <li class="info-item">Starting Location (Longitude): {{ itinerary.longitude }}</li>
+          <input type="button" value="Edit Itinerary" />
+          <input v-on:click="deleteItinerary(itineraryId)" type="button" value="Delete Itinerary" />
         </ul>
       </div>
       </router-link>
@@ -36,7 +38,7 @@ export default {
   components: {},
   data() {
     return {
-      itinerariesByUserId: [],
+      itinerariesByUserId: [], 
     };
   },
   created() {
@@ -47,6 +49,16 @@ export default {
       }
     );
   },
+  methods: {
+    deleteItinerary(itineraryId){
+      itineraryId = this.itinerary.itineraryId
+      this.ItineraryService.deleteItinerary(itineraryId)
+      .then(()=>{
+        //re-display user list of itineraries
+        this.getItinerariesByUserId();
+      });
+    }
+  }
 };
 </script>
 
@@ -84,6 +96,10 @@ h1 {
   border-radius: 5px;
   margin: 10px; 
 
+}
+
+div.itinerary-box:hover {
+  color: darksalmon;
 }
 
 ul.itinerary-info {

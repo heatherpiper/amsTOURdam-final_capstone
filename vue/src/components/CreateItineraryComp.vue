@@ -53,6 +53,7 @@ export default {
   data() {
     return {
       showForm: false,
+      userId: "",
       createdItinerary: {
         itineraryId: "",
         itineraryName: "",
@@ -70,16 +71,15 @@ export default {
     },
   methods: {
     createItinerary() {
-      this.createdItinerary.userId = this.$store.state.user.id;
-      console.log(this.createdItinerary.userId);
-      ItineraryService.createItinerary(this.createdItinerary)
+      this.userId = this.$store.state.user.id;
+      
+      ItineraryService.createItineraryByUserId(this.userId, this.createdItinerary)
         .then((response) => {
           if (response.status === 201) {
             if (response.data && response.data.itineraryId) {
               this.createdItinerary = response.data;
               this.$store.commit("ADD_ITINERARY", this.createdItinerary);
               console.log(this.createdItinerary);
-              console.log(this.$store.state.user.itinerary);
               this.$router.push({
                 name: "myitinerary",
                 params: { id: this.createdItinerary.itineraryId },
@@ -112,21 +112,6 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-size: 40px;
-}
-
-/* #create-itinerary {
-  background-color: rgb(231, 163, 17);
-  text-align: center;
-  width: 700px;
-  margin: 0 auto;
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
-  color: rgb(58, 2, 58);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  border-radius: 10px;
-} */
 
   h1 {
     text-align: center;
@@ -148,6 +133,14 @@ h1 {
     background-color: #ffffffdd;
     margin: 0 auto;
     border-radius: 5px;
+}
+
+a {
+   text-decoration: none;
+}
+
+h2:hover {
+  color:darksalmon;
 }
 
 form {
