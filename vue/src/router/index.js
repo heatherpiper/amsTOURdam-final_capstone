@@ -117,6 +117,14 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/myitinerary/:itineraryid',
+      name: 'deleteitinerary',
+      component: MyItineraries,
+      meta: {
+        requiresAuth: true
+      }
     }
     
   ]
