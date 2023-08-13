@@ -43,20 +43,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .LandmarksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
+  text-decoration: none;
 }
 
 .LandmarksList {
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
+  border: 2px solid #2ac1d7;
   padding: 20px;
-  background-color: rgb(231, 163, 17);
-  color: rgb(58, 2, 58);
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: 'Inter', sans-serif;
 }
 
 h2 {
@@ -70,6 +68,7 @@ div.landmark-image-container {
 img.landmark-image {
   display: block;
   margin: 0 auto;
+  padding-bottom: 20px;
   max-width: 300px;
   max-height: 300px;
 }
