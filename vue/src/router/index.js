@@ -11,6 +11,7 @@ import LandmarkDetails from '../components/LandmarkDetailComp.vue'
 import MyItinerary from '@/views/MyItinerary.vue'
 import CreateItinerary from '@/views/CreateItinerary.vue'
 import MyItineraries from '@/views/MyItineraries.vue'
+import AdminItineraries from '@/views/AdminItineraries.vue'
 
 
 
@@ -34,7 +35,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -82,7 +83,7 @@ const router = new Router({
       name: "landmarkdetail",
       component: LandmarkDetails,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -111,7 +112,8 @@ const router = new Router({
     },
     {
       path: '/itineraries',
-      name: 'getallitineraries',
+      name: 'adminitineraries',
+      component: AdminItineraries,
       meta: {
         requiresAuth: true
       }
@@ -128,7 +130,10 @@ router.beforeEach((to, from, next) => {
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
     next("/login");
-  } else {
+  } else if (to.name ==='addlandmark' && store.state.user.authorities[0].name !== 'ROLE_ADMIN') {
+    next('/');
+  }
+  else {
     // Else let them go to their next destination
     next();
   }
