@@ -38,6 +38,14 @@ public class JdbcItineraryDao implements ItineraryDao {
         return itinerariesByUserId;
     }
 
+//    public Itinerary createItineraryByUserId(Itinerary itinerary, int userId) {
+//        String sql = "INSERT INTO itineraries (itinerary_name, starting_location_address, starting_location_latitude, starting_location_longitude)   " +
+//                "VALUES (?, ?, ?, ?) " +
+//                "RETURNING itinerary_id;";
+//
+//
+//    }
+
     public List<Itinerary> getItineraries() {
         List<Itinerary> itineraries = new ArrayList<Itinerary>();
         String sql = "SELECT itineraries.itinerary_id, itineraries.itinerary_name, itineraries.starting_location_address, itineraries.starting_location_latitude, itineraries.starting_location_longitude " +
