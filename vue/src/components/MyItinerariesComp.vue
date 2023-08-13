@@ -38,7 +38,7 @@ export default {
   components: {},
   data() {
     return {
-      itinerariesByUserId: [],
+      itinerariesByUserId: [], 
     };
   },
   created() {
@@ -51,10 +51,11 @@ export default {
   },
   methods: {
     deleteItinerary(itineraryId){
+      itineraryId = this.itinerary.itineraryId
       this.ItineraryService.deleteItinerary(itineraryId)
       .then(()=>{
-        //re-display list of itineraries instead of resetting form
-        this.resetForm();
+        //re-display user list of itineraries
+        this.getItinerariesByUserId();
       });
     }
   }
