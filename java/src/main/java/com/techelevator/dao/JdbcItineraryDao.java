@@ -38,13 +38,27 @@ public class JdbcItineraryDao implements ItineraryDao {
         return itinerariesByUserId;
     }
 
-//    public Itinerary createItineraryByUserId(Itinerary itinerary, int userId) {
-//        String sql = "INSERT INTO itineraries (itinerary_name, starting_location_address, starting_location_latitude, starting_location_longitude)   " +
-//                "VALUES (?, ?, ?, ?) " +
-//                "RETURNING itinerary_id;";
-//
-//
-//    }
+    public Itinerary createItineraryByUserId(int userId, Itinerary itinerary) {
+        String sql = "INSERT INTO itineraries (itinerary_name, starting_location_address, starting_location_latitude, starting_location_longitude) " +
+                "VALUES (?, ?, ?, ?) " +
+                "RETURNING itinerary_id;";
+
+        try {
+            int newItineraryId = jdbcTemplate.queryForObject(sql, int.class, itinerary.getItineraryName(), itinerary.getStartingLocation(), itinerary.getStartingLocationLatitude(), itinerary.getStartingLocationLongitude());
+            itinerary.setItineraryId(newItineraryId);
+
+            // Associate the user_id with the created itinerary
+            String userItinerarySql = "INSERT INTO user_itinerary (user_id, itinerary_id) VALUES (?, ?)";
+            jdbcTemplate.update(userItinerarySql, userId, newItineraryId);
+
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database.", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data Integrity Violation", e);
+        }
+        return itinerary;
+    }
+
 
     public List<Itinerary> getItineraries() {
         List<Itinerary> itineraries = new ArrayList<Itinerary>();
