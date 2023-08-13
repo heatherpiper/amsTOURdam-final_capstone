@@ -67,9 +67,6 @@ h1 {
   text-align: center;
   font-size: 60px;
   border: 2px solid;
-  color: #519BCB;
-  font-family: Arial, 'Times New Roman', Times, serif;
-  background-color: #ffffffdd;
   margin: 0 auto;
   border-radius: 5px;
 }
@@ -91,7 +88,6 @@ h1 {
   padding: 20px;
   border: 2px solid;
   color: #519BCB;
-  font-family: Arial, 'Times New Roman', Times, serif;
   background-color: #ffffffdd;
   border-radius: 5px;
   margin: 10px; 
@@ -108,8 +104,7 @@ ul.itinerary-info {
   margin: 0;
   font-size: 20px;
   text-align: left;
-
-   display: flex;
+  display: flex;
   flex-direction: column;
 }
 
