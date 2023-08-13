@@ -84,9 +84,13 @@ public class JdbcItineraryDao implements ItineraryDao {
     }
     public int deleteItineraryByItineraryId(int itineraryId){
         int numberOfRows = 0;
-       String sql = "DELETE FROM itineraries WHERE itinerary_id = ?;";
+        String sqlDeleteUserItinerary = "DELETE FROM user_itinerary WHERE itinerary_id =?;";
+        String sqlDeleteItineraryLandmarks = "DELETE FROM itinerary_landmarks WHERE itinerary_id = ?;";
+        String sqlDeleteItinerary = "DELETE FROM itineraries WHERE itinerary_id = ?;";
        try {
-           numberOfRows = jdbcTemplate.update(sql, itineraryId);
+           jdbcTemplate.update(sqlDeleteUserItinerary, itineraryId);
+           jdbcTemplate.update(sqlDeleteItineraryLandmarks, itineraryId);
+           numberOfRows = jdbcTemplate.update(sqlDeleteItinerary, itineraryId);
        } catch (CannotGetJdbcConnectionException e) {
            throw new DaoException("Unable to connect to server or database", e);
        } catch (DataIntegrityViolationException e) {
@@ -98,7 +102,7 @@ public class JdbcItineraryDao implements ItineraryDao {
     public Itinerary updateItinerary(Itinerary itinerary){
         Itinerary updatedItinerary = null;
         String sql =    "UPDATE itineraries " +
-                        "SET name = ?, starting_location_address = ?, " +
+                        "SET itinerary_name = ?, starting_location_address = ?, " +
                         "starting_location_latitude = ? , starting_location_longitude = ?" +
                         "WHERE itinerary_id = ?;";
             try {
