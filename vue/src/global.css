@@ -1,0 +1,19 @@
+:root {
+    --body-text-color: black;
+    --accent-color-light: #2ac1d7;
+    --accent-color-dark: #298a91;
+}
+
+body {
+    background-color: white;
+    border-color: var(--accent-color-dark);
+    border-radius: 20%;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: var(--accent-color-light);
+    text-decoration: none;
+}
