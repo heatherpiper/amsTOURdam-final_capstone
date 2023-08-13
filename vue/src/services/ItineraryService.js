@@ -5,6 +5,10 @@ export default {
         return axios.post('/createitinerary', itinerary);
     },
 
+    createItineraryByUserId(userId, itinerary) {
+        return axios.post(`/createitinerarybyuser/${userId}`, itinerary);
+    },
+
     getMyItinerary(itineraryId) {
         return axios.get(`/myitinerary/${itineraryId}`);
     },
