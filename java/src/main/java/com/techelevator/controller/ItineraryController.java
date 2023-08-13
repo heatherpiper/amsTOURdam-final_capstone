@@ -58,7 +58,7 @@ public class ItineraryController {
 
     }
 
-    @RequestMapping(path = "/myitinerary/{itineraryId}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/itinerary/{itineraryId}", method = RequestMethod.PUT)
     public Itinerary update(@RequestBody Itinerary itinerary, @PathVariable int itineraryId){
         itinerary.setItineraryId(itineraryId);
         try {
