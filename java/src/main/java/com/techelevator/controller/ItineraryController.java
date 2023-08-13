@@ -70,5 +70,14 @@ public class ItineraryController {
         }
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/createitinerarybyuser")
+    public Itinerary createItineraryByUserId(Principal principal, @RequestBody Itinerary itinerary) {
+
+        String username = principal.getName();
+        int userId = userDao.findIdByUsername(username);
+
+        return itineraryDao.createItineraryByUserId(userId, itinerary);    }
+
 
 }

@@ -5,8 +5,6 @@
     </div>
     <br>
     <div class="id-test">USER ID (TEST): {{ this.$store.state.user.id }}</div>
-    <input type="button" value="Edit Itinerary" />
-    <input v-on:click="deleteItinerary(itineraryId)" type="button" value="Delete Itinerary" />
     <br>
     <div class="itineray-grid">
       <router-link
@@ -49,15 +47,6 @@ export default {
       }
     );
   },
-  methods: {
-    deleteItinerary(itineraryId){
-      this.ItineraryService.deleteItinerary(itineraryId)
-      .then(()=>{
-        //re-display list of itineraries instead of resetting form
-        this.resetForm();
-      });
-    }
-  }
 };
 </script>
 
