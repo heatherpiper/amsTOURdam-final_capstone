@@ -71,7 +71,7 @@ public class ItineraryController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "/createitinerarybyuser")
+    @PostMapping(value = "/createitinerarybyuser/{userId}")
     public Itinerary createItineraryByUserId(Principal principal, @RequestBody Itinerary itinerary) {
 
         String username = principal.getName();
