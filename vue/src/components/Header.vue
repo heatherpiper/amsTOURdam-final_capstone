@@ -1,6 +1,6 @@
 <template>
   <header>
-    <span></span>
+    
     <div id="nav">
       <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>&nbsp;|&nbsp;
@@ -33,9 +33,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 header {
-  background-color: #f1eff9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,22 +44,17 @@ header {
 #nav {
     padding: 20px;
     font-size: 20px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: white;
+    font-family: 'Inter', sans-serif;
     border-radius: 10px;
 }
 
 .navlink {
     text-decoration: none;
-    color: black;
+    color: #298a91;
 }
 
 .navlink:hover {
-    color: #519bcb;
-}
-
-#logo {
-  max-width: 10px;
+    color: #2ac1d7;
 }
 
 </style>
