@@ -1,10 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.DaoException;
-import com.techelevator.model.Address;
-import com.techelevator.model.Coordinates;
-import com.techelevator.model.Landmark;
-import com.techelevator.model.User;
+import com.techelevator.model.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -91,6 +88,11 @@ public class JdbcLandmarkDao implements LandmarkDao {
         }
         return newLandmark;
     }
+
+//    private Landmark addLandmarkToMyItinerary(int userId, int itineraryId, Landmark landmark) {
+//
+//        return null;
+//    }
 
     private Landmark mapRowToLandmark(SqlRowSet rs) {
         Landmark landmark = new Landmark();

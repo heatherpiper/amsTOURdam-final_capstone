@@ -47,7 +47,6 @@ public class JdbcItineraryDao implements ItineraryDao {
             int newItineraryId = jdbcTemplate.queryForObject(sql, int.class, itinerary.getItineraryName(), itinerary.getStartingLocation(), itinerary.getStartingLocationLatitude(), itinerary.getStartingLocationLongitude());
             itinerary.setItineraryId(newItineraryId);
 
-            // Associate the user_id with the created itinerary
             String userItinerarySql = "INSERT INTO user_itinerary (user_id, itinerary_id) VALUES (?, ?)";
             jdbcTemplate.update(userItinerarySql, userId, newItineraryId);
 
