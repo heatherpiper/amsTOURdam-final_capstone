@@ -1,8 +1,12 @@
 <template>
   <div id="create-itinerary">
-    <h1>Create an Itinerary:</h1>
+    <div v-show="!showForm">
+            <a href="#" v-on:click.prevent="showForm = true">
+              <h1>Create an Itinerary:</h1>
+            </a>
+        </div>
     <br />
-    <form id="itinerary" v-on:submit.prevent="createItinerary()">
+    <form id="itinerary" v-on:submit.prevent="createItinerary()" v-if="showForm">
       <div class="input-name">
         <label for="name">Itinerary Name:</label>
         <input id="name" type="text" v-model="createdItinerary.itineraryName" />
@@ -15,9 +19,26 @@
           v-model="createdItinerary.startingLocation"
         />
       </div>
+
+       <div class="input-latitude">
+        <label for="latitudeInput">Latitude Coordinates:</label>
+        <input
+          type="number" step="0.000001" min="-90" max="90" name="latitudeInput" id="latitudeInput"
+          v-model="createdItinerary.latitude"
+        />
+      </div>
+
+        <div class="input-longitude">
+        <label for="longitudeInput">Longitude Coordinates:</label>
+        <input
+           type="number" step="0.000001" min="-90" max="90" name="longitudeInput" id="longitudeInput"
+          v-model="createdItinerary.longitude"
+        />
+      </div>
+
       <div class="actions">
-        <button v-on:click="resetForm()" type="button">Reset</button>
-        <button type="submit">Submit</button>
+        <input v-on:click.prevent="resetForm()" type="button" value="Reset" />
+        <input type="submit" value="Submit" v-bind:disabled="!isFormValid" />
       </div>
     </form>
   </div>
@@ -30,6 +51,7 @@ export default {
   name: "create-itinerary",
   data() {
     return {
+      showForm: false,
       createdItinerary: {
         itineraryId: "",
         itineraryName: "",
@@ -39,6 +61,12 @@ export default {
       },
     };
   },
+   computed: {
+        isFormValid() {
+           return this.createdItinerary.itineraryName 
+           && this.createdItinerary.startingLocation   
+        }
+    },
   methods: {
     createItinerary() {
       this.createdItinerary.userId = this.$store.state.user.id;
@@ -55,6 +83,7 @@ export default {
                 name: "myitinerary",
                 params: { id: this.createdItinerary.itineraryId },
               });
+              this.resetForm();
             } else {
               console.error("Response data is missing 'id' property:", response.data);
             }
