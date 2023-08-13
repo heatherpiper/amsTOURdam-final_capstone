@@ -51,14 +51,14 @@ public class ItineraryController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/itinerary/{itineraryId}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/myitinerary/{itineraryId}", method = RequestMethod.DELETE)
     public void deleteItinerary(@PathVariable int itineraryId){
         itineraryDao.deleteItineraryByItineraryId(itineraryId);
 
 
     }
 
-    @RequestMapping(path = "/itinerary/{itineraryId}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/myitinerary/{itineraryId}", method = RequestMethod.PUT)
     public Itinerary update(@RequestBody Itinerary itinerary, @PathVariable int itineraryId){
         itinerary.setItineraryId(itineraryId);
         try {
