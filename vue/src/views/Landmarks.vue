@@ -3,7 +3,7 @@
     <h1>Landmarks</h1>
     <br />
     <GoogleMapsComp v-if="!isLoading" v-bind:landmarks="landmarks" />
-    <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks" />
+    <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks"/>
   </div>
 </template>
 
@@ -12,11 +12,14 @@ import LandmarksComp from "../components/LandmarksComp.vue";
 import LandmarksService from "../services/LandmarksService";
 import GoogleMapsComp from "../components/GoogleMapsComp.vue";
 
+
+
 export default {
 
   components: {
     LandmarksComp,
     GoogleMapsComp,
+    
   },
   data() {
     return {

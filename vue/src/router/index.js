@@ -34,7 +34,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -82,7 +82,7 @@ const router = new Router({
       name: "landmarkdetail",
       component: LandmarkDetails,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       }
     },
     {
@@ -128,7 +128,10 @@ router.beforeEach((to, from, next) => {
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
     next("/login");
-  } else {
+  } else if (to.name ==='addlandmark' && store.state.user.authorities[0].name !== 'ROLE_ADMIN') {
+    next('/');
+  }
+  else {
     // Else let them go to their next destination
     next();
   }
