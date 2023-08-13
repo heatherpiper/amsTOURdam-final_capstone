@@ -11,6 +11,7 @@ import LandmarkDetails from '../components/LandmarkDetailComp.vue'
 import MyItinerary from '@/views/MyItinerary.vue'
 import CreateItinerary from '@/views/CreateItinerary.vue'
 import MyItineraries from '@/views/MyItineraries.vue'
+import AdminItineraries from '@/views/AdminItineraries.vue'
 
 
 
@@ -111,7 +112,8 @@ const router = new Router({
     },
     {
       path: '/itineraries',
-      name: 'getallitineraries',
+      name: 'adminitineraries',
+      component: AdminItineraries,
       meta: {
         requiresAuth: true
       }
