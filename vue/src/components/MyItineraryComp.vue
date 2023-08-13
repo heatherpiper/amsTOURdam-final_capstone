@@ -34,10 +34,6 @@ export default {
       if (response.status === 200) {
             if (response.data) {
               this.itinerary = response.data;
-              this.$router.push({
-                name: "myitinerary",
-                params: { selectedItineraryId },
-              });
               console.log(this.itinerary);
             } else {
               console.error("Response data is missing 'id' property:", response.data);
