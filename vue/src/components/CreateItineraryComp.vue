@@ -40,7 +40,6 @@
         <input v-on:click.prevent="hideForm" type="button" value="Cancel"  />
         <input v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
         <input type="submit" value="Submit Form" v-bind:disabled="!isFormValid" />
-        
       </div>
     </form>
   </div>
@@ -73,15 +72,14 @@ export default {
   methods: {
     createItinerary() {
       this.userId = this.$store.state.user.id;
-      console.log(this.createdItinerary.userId);
-      ItineraryService.createItinerary(this.createdItinerary)
+      
+      ItineraryService.createItineraryByUserId(this.userId, this.createdItinerary)
         .then((response) => {
           if (response.status === 201) {
             if (response.data && response.data.itineraryId) {
               this.createdItinerary = response.data;
               this.$store.commit("ADD_ITINERARY", this.createdItinerary);
               console.log(this.createdItinerary);
-              console.log(this.$store.state.user.itinerary);
               this.$router.push({
                 name: "myitinerary",
                 params: { id: this.createdItinerary.itineraryId },
@@ -108,8 +106,8 @@ export default {
     hideForm() {
     this.showForm = false;
     this.resetForm(); 
-    },
   }
+  },
 };
 </script>
 

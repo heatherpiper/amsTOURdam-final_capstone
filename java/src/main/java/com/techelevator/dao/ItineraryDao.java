@@ -18,6 +18,7 @@ public interface ItineraryDao {
 
     Itinerary updateItinerary(Itinerary itinerary);
 
+    Itinerary createItineraryByUserId(int userId, Itinerary itinerary);
 
 
 }
