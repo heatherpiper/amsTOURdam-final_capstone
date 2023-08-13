@@ -15,5 +15,9 @@ export default {
 
     getItinerariesByUserId(userId) {
         return axios.get(`/myitineraries/${userId}`);
+    },
+
+    deleteItinerary(itineraryId) {
+        return axios.delete(`/myitinerary/${itineraryId}`);
     }
 }
