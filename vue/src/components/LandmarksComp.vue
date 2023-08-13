@@ -17,20 +17,20 @@
         <main>{{ landmark.description }}</main>
       </div>
     </div>
-    <draggable v-model="landmarklist" group="destinations" @start="drag=true" @end="drag=false">
+    <!-- <draggable v-model="landmarklist" group="destinations" @start="drag=true" @end="drag=false">
       <div v-for="element in landmarklist" :key="element.id">{{element.name}}</div>
-    </draggable>
+    </draggable> -->
   </div>
 </template>
 
 <script>
-import draggable from 'vuedraggable';
+// import draggable from 'vuedraggable';
 
 export default {
   name: "landmarks",
   props: ["landmarks"],
   components: {
-    draggable
+    // draggable
   },
   data() {
     return {
