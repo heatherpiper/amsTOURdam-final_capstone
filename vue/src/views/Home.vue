@@ -20,7 +20,7 @@ export default {
   };
 </script>
 
-<style>
+<style >
 h1 {
   text-align: center;
   font-size: 60px;
@@ -28,9 +28,11 @@ h1 {
   color: #519BCB;
   font-family: Arial, 'Times New Roman', Times, serif;
   background-color: #ffffffdd;
-  width: 800px;
   margin: 0 auto;
   border-radius: 5px;
+}
+.home h1 {
+    width: 800px;
 }
 
 </style>
