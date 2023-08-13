@@ -49,8 +49,7 @@ div.landmark {
     width: 700px;
     margin: 0 auto;
     border: 2px solid #298a91;
-    color: #298a91;
-    border-radius: 20px
+    border-radius: 20px;
 }
 
 img.landmark-image {

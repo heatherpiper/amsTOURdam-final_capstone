@@ -5,8 +5,8 @@
       <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'adminitineraries'}">Admin Itineraries</router-link>&nbsp;|&nbsp;
-      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">My Itineraries | </router-link>
-      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'addlandmark' }" v-if="isAdmin()">Add Landmark | </router-link>
+      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">My Itineraries</router-link>&nbsp;|&nbsp;
+      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'addlandmark' }" v-if="isAdmin()">Add Landmark</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link>
       <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''" >Login</router-link>
     </div>
@@ -45,12 +45,13 @@ header {
     padding: 20px;
     font-size: 20px;
     font-family: 'Inter', sans-serif;
+    font-weight: 600;
     border-radius: 10px;
 }
 
 .navlink {
     text-decoration: none;
-    color: #298a91;
+    color: #2ac1d7;
 }
 
 .navlink:hover {
