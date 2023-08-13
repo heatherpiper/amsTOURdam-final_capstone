@@ -36,9 +36,10 @@
         />
       </div>
 
-      <div class="actions">
-        <input v-on:click.prevent="resetForm()" type="button" value="Reset" />
-        <input type="submit" value="Submit" v-bind:disabled="!isFormValid" />
+      <div class="create-buttons">
+        <input v-on:click.prevent="hideForm" type="button" value="Cancel"  />
+        <input v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
+        <input type="submit" value="Submit Form" v-bind:disabled="!isFormValid" />
       </div>
     </form>
   </div>
@@ -78,7 +79,7 @@ export default {
               this.createdItinerary = response.data;
               this.$store.commit("ADD_ITINERARY", this.createdItinerary);
               console.log(this.createdItinerary);
-              console.log(this.$store.state.user.itineraries);
+              console.log(this.$store.state.user.itinerary);
               this.$router.push({
                 name: "myitinerary",
                 params: { id: this.createdItinerary.itineraryId },
@@ -102,6 +103,10 @@ export default {
         longitude: "",
       };
     },
+    hideForm() {
+    this.showForm = false;
+    this.resetForm(); 
+  }
   },
 };
 </script>
