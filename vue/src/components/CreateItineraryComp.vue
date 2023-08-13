@@ -8,7 +8,7 @@
         <input id="name" type="text" v-model="createdItinerary.itineraryName" />
       </div>
       <div class="input-starting-location">
-        <label for="name">Starting Location:</label>
+        <label for="name">Starting Location (Address):</label>
         <input
           id="starting-location"
           type="text"
@@ -41,6 +41,8 @@ export default {
   },
   methods: {
     createItinerary() {
+      this.createdItinerary.userId = this.$store.state.user.id;
+      console.log(this.createdItinerary.userId);
       ItineraryService.createItinerary(this.createdItinerary)
         .then((response) => {
           if (response.status === 201) {
@@ -48,6 +50,7 @@ export default {
               this.createdItinerary = response.data;
               this.$store.commit("ADD_ITINERARY", this.createdItinerary);
               console.log(this.createdItinerary);
+              console.log(this.$store.state.user.itineraries);
               this.$router.push({
                 name: "myitinerary",
                 params: { id: this.createdItinerary.itineraryId },

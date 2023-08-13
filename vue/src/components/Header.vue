@@ -4,7 +4,8 @@
     <div id="nav">
       <router-link class="navlink" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>&nbsp;|&nbsp;
-      <router-link class="navlink" v-bind:to="{ name: 'createitinerary'}">My Itineraries</router-link>&nbsp;|&nbsp;
+      <router-link class="navlink" v-bind:to="{ name: 'adminitineraries'}">Admin Itineraries</router-link>&nbsp;|&nbsp;
+      <router-link class="navlink" v-bind:to="{ name: 'myitineraries'}">My Itineraries</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" v-bind:to="{ name: 'addlandmark' }">Add Landmark</router-link>&nbsp;|&nbsp;
       <router-link class="navlink" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link>
     </div>
