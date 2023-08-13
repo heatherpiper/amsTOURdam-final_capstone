@@ -28,9 +28,11 @@ h1 {
   color: #519BCB;
   font-family: Arial, 'Times New Roman', Times, serif;
   background-color: #ffffffdd;
-  width: 800px;
   margin: 0 auto;
   border-radius: 5px;
+}
+.home h1 {
+    width: 800px;
 }
 
 </style>
