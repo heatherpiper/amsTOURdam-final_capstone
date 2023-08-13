@@ -1,8 +1,12 @@
 <template>
   <div id="my-itineraries">
+    <div>
     <h1>My Itineraries:</h1>
+    </div>
+    <br>
     <div class="id-test">USER ID (TEST): {{ this.$store.state.user.id }}</div>
-    <div class="itinerayList">
+    <br>
+    <div class="itineray-grid">
       <router-link
         v-for="itinerary in itinerariesByUserId"
         v-bind:key="itinerary.id"
@@ -10,13 +14,15 @@
         :to="`/myitinerary/${itinerary.itineraryId}`"
         class="itinerary-item"
       >
-        <ul>
-          <li>Id: {{ itinerary.itineraryId }}</li>
-          <li>Itinerary Name: {{ itinerary.itineraryName }}</li>
-          <li>Starting Location (Address): {{ itinerary.startingLocation }}</li>
-          <li>Starting Location (Latitude): {{ itinerary.latitude }}</li>
-          <li>Starting Location (Longitude): {{ itinerary.longitude }}</li>
+      <div class="itinerary-box">
+        <ul class="itinerary-info">
+          <li class="info-item">Id: {{ itinerary.itineraryId }}</li>
+          <li class="info-item">Itinerary Name: {{ itinerary.itineraryName }}</li>
+          <li class="info-item">Starting Location (Address): {{ itinerary.startingLocation }}</li>
+          <li class="info-item">Starting Location (Latitude): {{ itinerary.latitude }}</li>
+          <li class="info-item">Starting Location (Longitude): {{ itinerary.longitude }}</li>
         </ul>
+      </div>
       </router-link>
     </div>
   </div>
@@ -33,12 +39,6 @@ export default {
       itinerariesByUserId: [],
     };
   },
-  // computed: {
-  //   filteredItineraries() {
-  //     const itineraries = this.itineraries;
-
-  //   }
-  // },
   created() {
     ItineraryService.getItinerariesByUserId(this.$store.state.user.id).then(
       (response) => {
@@ -50,5 +50,56 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+h1 {
+  text-align: center;
+  font-size: 60px;
+  border: 2px solid;
+  color: #519BCB;
+  font-family: Arial, 'Times New Roman', Times, serif;
+  background-color: #ffffffdd;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.itinerary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+.itinerary-item {
+  text-decoration: none;
+
+}
+
+.itinerary-box {
+  align-items: center;
+  padding: 20px;
+  border: 2px solid;
+  color: #519BCB;
+  font-family: Arial, 'Times New Roman', Times, serif;
+  background-color: #ffffffdd;
+  border-radius: 5px;
+  margin: 10px; 
+
+}
+
+ul.itinerary-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  text-align: left;
+
+   display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  padding: 5px 0;
+}
+
+
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div id="create-itinerary">
-    <div v-show="!showForm">
+    <div class="create-form-button" v-show="!showForm">
             <a href="#" v-on:click.prevent="showForm = true">
-              <h1>Create an Itinerary:</h1>
+              <h2>Create an Itinerary:</h2>
             </a>
         </div>
     <br />
@@ -116,7 +116,7 @@ h1 {
   font-size: 40px;
 }
 
-#create-itinerary {
+/* #create-itinerary {
   background-color: rgb(231, 163, 17);
   text-align: center;
   width: 700px;
@@ -126,17 +126,50 @@ h1 {
   color: rgb(58, 2, 58);
   font-family: Georgia, "Times New Roman", Times, serif;
   border-radius: 10px;
+} */
+
+  h1 {
+    text-align: center;
+    font-size: 60px;
+    border: 2px solid;
+    color: #519BCB;
+    font-family: Arial, 'Times New Roman', Times, serif;
+    background-color: #ffffffdd;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 40px;
+    border: 2px solid;
+    color: #519BCB;
+    font-family: Arial, 'Times New Roman', Times, serif;
+    background-color: #ffffffdd;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
-.input-name {
-  font-size: 30px;
+form {
+    text-align: center;
+    font-size: 40px;
+    border: 2px solid;
+    color: #519BCB;
+    font-family: Arial, 'Times New Roman', Times, serif;
+    background-color: #ffffffdd;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
-.input-starting-location {
-  font-size: 30px;
+div.create-form-button {
+  margin: 0 auto;
 }
 
+#my-itineraries {
+    width: 800px;
+}
+/* 
 label {
   padding: 20px;
-}
+} */
 </style>
