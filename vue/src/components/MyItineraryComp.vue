@@ -29,7 +29,6 @@ import ItineraryService from "@/services/ItineraryService.js";
 
 export default {
   name: "my-itinerary",
-  //props: ['itinerary'],
   data() {
     return {
       itinerary: {
