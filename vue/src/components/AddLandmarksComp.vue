@@ -1,10 +1,6 @@
 <template>
 <div class="addlandmarks">
 <h1> Add New Landmark</h1>
-<!-- <div v-show="response.status !== 201">
-<h2>Server Error</h2>
-<h2>{{formErrorMessage}}</h2>
-</div> -->
 <form id="form" v-on:submit.prevent="addNewLandmark">
   <div class="form-element">
       <label for="category">Category:</label>
@@ -109,7 +105,6 @@ export default {
   },
   methods: {
     addNewLandmark() {
-      console.log(this.newLandmark);
       LandmarksService.addLandmark(this.newLandmark)
         .then((response) => {
           if (response.status === 201) {
@@ -122,10 +117,11 @@ export default {
           const response = err.response;
           this.formError = true;
           if(response.status === 500){
-            this.formErrorMessage = "Server Error.";
-            console.log(this.formErrorMessage);
-          } 
-          console.log(this.formErrorMessage);
+            this.formErrorMessage = "Server Error:" + response.message;
+            alert(this.formErrorMessage);
+          } else
+          alert(this.formErrorMessage);
+          
         });
     },
     resetForm() {
@@ -180,17 +176,6 @@ height: 2.50vw;
     padding: 10px;
     align-items:center;
     
-}
-div.addlandmarks h1 {
-    text-align: center;
-    font-size: 60px;
-    border: 10px solid rgb(102, 3, 89);
-    border-style: double;
-    color: rgb(58, 2, 58);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: rgb(231, 163, 17);
-    width: 900px;
-    margin: 0 auto;
 }
 .form-element label {
     font-weight: bolder;
