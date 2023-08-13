@@ -21,6 +21,8 @@
           <li class="info-item">Starting Location (Address): {{ itinerary.startingLocation }}</li>
           <li class="info-item">Starting Location (Latitude): {{ itinerary.latitude }}</li>
           <li class="info-item">Starting Location (Longitude): {{ itinerary.longitude }}</li>
+          <input type="button" value="Edit Itinerary" />
+          <input v-on:click="deleteItinerary(itineraryId)" type="button" value="Delete Itinerary" />
         </ul>
       </div>
       </router-link>
