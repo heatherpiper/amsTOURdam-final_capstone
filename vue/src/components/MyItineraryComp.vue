@@ -7,6 +7,7 @@
     <div>Starting Location (Latitude): {{ itinerary.startingLocationLatitude }}</div>
     <div>Starting Location (Longitude): {{ itinerary.startingLocationLongitude }}</div>
     <div>TESTING ITINERARY ID: {{ this.$route.params.id }}</div>
+    <div>TESTING USER ID: {{ this.$store.state.user.id }}</div>
   </div>
 </template>
 
