@@ -21,7 +21,6 @@
         class="navlink"
         @click.prevent.stop
         v-bind:to="{ name: 'landmarks' }"
-        v-if="$store.state.token !== ''"
       >
         <div>
           <h2>Return To Landmarks</h2>
