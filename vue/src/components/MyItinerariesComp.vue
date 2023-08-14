@@ -6,7 +6,7 @@
     <br>
     <!-- <div class="id-test">USER ID (TEST): {{ this.$store.state.user.id }}</div> -->
     <br>
-    <div class="itineray-grid">
+    <div class="itinerary-grid">
       <router-link
         v-for="itinerary in itinerariesByUserId"
         v-bind:key="itinerary.id"
@@ -75,7 +75,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
-  justify-content: center;
 }
 
 .itinerary-item {
@@ -90,7 +89,8 @@ h1 {
   color: #519BCB;
   background-color: #ffffffdd;
   border-radius: 5px;
-  margin: 10px; 
+  flex: 0 0 calc(33.33% - 20px);
+  width: 300px;
 
 }
 
@@ -110,6 +110,7 @@ ul.itinerary-info {
 
 .info-item {
   padding: 5px 0;
+  font-size: 15px;
 }
 
 
