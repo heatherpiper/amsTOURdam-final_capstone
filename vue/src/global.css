@@ -1,0 +1,22 @@
+:root {
+    --body-text-color: white;
+    --accent-color-light: #2ac1d7;
+    --accent-color-dark: #298a91;
+    border-radius: 20%;
+    text-decoration: none;
+}
+
+body {
+    border-color: var(--accent-color-dark);
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    color: var(--accent-color-light);
+}
+
+h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
