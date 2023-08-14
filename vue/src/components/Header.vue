@@ -7,9 +7,9 @@
       <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>
       </li>
-      <li>
+      <!-- <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'adminitineraries'}">Admin Itineraries</router-link>
-      </li>
+      </li> -->
       <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">My Itineraries</router-link>
       </li>
