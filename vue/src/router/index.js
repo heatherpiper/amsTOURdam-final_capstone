@@ -12,6 +12,8 @@ import MyItinerary from '@/views/MyItineraryView.vue'
 import CreateItinerary from '@/views/CreateItineraryView.vue'
 import MyItineraries from '@/views/MyItinerariesView.vue'
 import AdminItineraries from '@/views/AdminItinerariesView.vue'
+import EditItinerary from '../components/EditItineraryComp.vue'
+
 
 
 
@@ -125,7 +127,15 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
-    }
+    },
+    {
+      path: 'myitinerary/:itineraryid/edit',
+      name: 'edititinerary',
+      component: EditItinerary,
+      meta: {
+        requiresAuth: true
+      }
+    },
     
   ]
 
