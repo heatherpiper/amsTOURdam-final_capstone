@@ -33,7 +33,9 @@ export default {
         return axios.put(`/myitinerary/${itineraryId}`);
     },
 
-    
+    addLandmarkToItinerary(itineraryId, landmarkId) {
+        return axios.post(`/myitinerary/${itineraryId}`, landmarkId);
+    }
 
 
 }
