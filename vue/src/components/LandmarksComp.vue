@@ -1,7 +1,8 @@
 <template>
 <div class="landmarks">
     <div class="LandmarksGrid">
-       <!-- <draggable v-model="landmarks" @start="drag=true" @end="drag=false"> -->
+       <!-- <draggable v-model="landmarklist" @start="drag=true" @end="drag=false"> -->
+
       <div
         class="LandmarksList"
         v-for="landmark in landmarks"
@@ -25,9 +26,11 @@
 </template>
 
 <script>
+
 // import draggable from 'vuedraggable';
 import LandmarksService from '../services/LandmarksService';
 
+  
 export default {
   name: "landmarks",
   // props: ["landmarks"],
