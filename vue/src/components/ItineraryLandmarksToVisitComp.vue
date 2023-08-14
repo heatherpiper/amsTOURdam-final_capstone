@@ -18,6 +18,7 @@
         <!-- <div class="landmark-description">{{ landmark.description }}</div> -->
         <br>
         <!-- <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button> -->
+        <!-- <button @click="removeDestinationFromItinerary()">Remove Destination From Itinerary</button> -->
       </div>
     </div>
   </div>
@@ -43,7 +44,9 @@ export default {
   //  addLandmarkToItinerary(landmark) {            // Figure something like this out ??
   //   this.$store.commit('ADD_LANDMARK_TO_ITINERARY', landmark);
   // },
-    
+    // addNewDestinationToItinerary() {
+    //   ItineraryService.addLandmarkToItinerary(this.itineraryId, this.landmarkId)
+    // }
   },
   created() {
     this.userId = this.$store.state.user.id;
@@ -78,9 +81,9 @@ h2 {
   font-size: 20px;
 }
 
-div.landmark-image-container {
+/* div.landmark-image-container {
   /* display: flex; */
-}
+/* } */ 
 
 img.landmark-image {
   display: block;
