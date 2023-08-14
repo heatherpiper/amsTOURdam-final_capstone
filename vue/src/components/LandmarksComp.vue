@@ -25,24 +25,35 @@
 </template>
 
 <script>
+import LandmarksService from '../services/LandmarksService';
 // import draggable from 'vuedraggable';
-
+  
 export default {
   name: "landmarks",
-  props: ["landmarks"],
+  // props: ["landmarks"],
   components: {
     // draggable
   },
   data() {
     return {
-      landmarklist: this.landmarks,
+      // landmarklist: this.landmarks,
+      landmarks: []
     };
   },
   methods: {
-   addLandmarkToItinerary(landmark) {     // Implement something like this for button above ???
-      this.landmarklist.push(landmark);
-    },
+  //  addLandmarkToItinerary(landmark) {            // Figure something like this out ??
+  //   this.$store.commit('ADD_LANDMARK_TO_ITINERARY', landmark);
+  // },
+    
   },
+  created() {
+    LandmarksService.getAllLandmarks().then( (response) => {
+      this.landmarks = response.data;
+      console.log(this.landmarks);
+    }
+
+    )
+  }
 }
 </script>
 
