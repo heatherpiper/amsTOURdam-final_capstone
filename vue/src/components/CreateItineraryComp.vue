@@ -113,35 +113,6 @@ export default {
 
 <style scoped>
 
-  h1 {
-    text-align: center;
-    font-size: 60px;
-    border: 2px solid;
-    color: #519BCB;
-    font-family: Arial, 'Times New Roman', Times, serif;
-    background-color: #ffffffdd;
-    margin: 0 auto;
-    border-radius: 5px;
-  }
-
-  h2 {
-    text-align: center;
-    font-size: 40px;
-    border: 2px solid;
-    color: #519BCB;
-    font-family: Arial, 'Times New Roman', Times, serif;
-    background-color: #ffffffdd;
-    margin: 0 auto;
-    border-radius: 5px;
-}
-
-a {
-   text-decoration: none;
-}
-
-h2:hover {
-  color:darksalmon;
-}
 
 form {
     text-align: center;

@@ -1,21 +1,35 @@
 <template>
-  <header>
-    <span></span>
-    <div id="nav">
-      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>&nbsp;|&nbsp;
-      <!-- <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'adminitineraries'}">Admin Itineraries</router-link>&nbsp;|&nbsp; -->
-      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">My Itineraries | </router-link>
-      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'addlandmark' }" v-if="isAdmin()">Add Landmark | </router-link>
-      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link>
-      <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''" >Login</router-link>
-    </div>
-  </header>
+  <nav>
+    <ul>
+      <li>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>
+      </li>
+      <li>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>
+      </li>
+      <li>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'adminitineraries'}">Admin Itineraries</router-link>
+      </li>
+      <li>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">My Itineraries</router-link>
+      </li>
+      <li>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'addlandmark' }" v-if="isAdmin()">Add Landmark</router-link>
+      </li>
+      <li>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" >Logout</router-link>
+      </li>
+      <li>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''" >Login</router-link>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
 import store from '../store/index'
 export default {
+  name: 'NavigationBar',
 
   data() {
     return {
@@ -33,34 +47,39 @@ export default {
 };
 </script>
 
-<style scoped>
-header {
-  background-color: #f1eff9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
+<style>
+
+nav {
+  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+  margin: 0 auto;
+  padding: 50px 0;
 }
 
-#nav {
-    padding: 20px;
-    font-size: 20px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    background-color: white;
-    border-radius: 10px;
+nav ul {
+  text-align: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  width: 100%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
 }
 
-.navlink {
-    text-decoration: none;
-    color: black;
+nav ul li {
+  display: inline-block;
 }
 
-.navlink:hover {
-    color: #519bcb;
+nav ul li a {
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+  font-size: 22px;
+  text-decoration: none;
+  display: block;
 }
 
-#logo {
-  max-width: 10px;
+nav ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rbga(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 </style>
