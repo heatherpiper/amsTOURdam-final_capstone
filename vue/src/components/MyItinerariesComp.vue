@@ -4,7 +4,7 @@
     <h1>My Itineraries:</h1>
     </div>
     <br>
-    <div class="id-test">USER ID (TEST): {{ this.$store.state.user.id }}</div>
+    <!-- <div class="id-test">USER ID (TEST): {{ this.$store.state.user.id }}</div> -->
     <br>
     <div class="itineray-grid">
       <router-link
