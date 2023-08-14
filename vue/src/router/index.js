@@ -125,7 +125,15 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
-    }
+    },
+    // {
+    //   path: '/myitinerary/:itineraryId/addlandmark/:landmarkId',
+    //   name: 'addlandmarktoitinerary',
+    //   component: AddLandmarksToMyItinerary, 
+    //   meta: {
+    //     requiresAuth: true
+    //   }
+    // }
     
   ]
 
