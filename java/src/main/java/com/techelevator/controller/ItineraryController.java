@@ -5,6 +5,7 @@ import com.techelevator.dao.ItineraryDao;
 import com.techelevator.dao.LandmarkDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Itinerary;
+import com.techelevator.model.Landmark;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -50,12 +51,17 @@ public class ItineraryController {
         return itineraryDao.createItinerary(itinerary);
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/myitinerary/{itineraryId}/addlandmark/{landmarkId}")
+    public void addLandmarkToUserListByItineraryId(@PathVariable int itineraryId, @PathVariable int landmarkId) {
+
+        itineraryDao.addLandmarkToUserListByItineraryId(itineraryId, landmarkId);
+    }
+
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/myitinerary/{itineraryId}", method = RequestMethod.DELETE)
     public void deleteItinerary(@PathVariable int itineraryId){
         itineraryDao.deleteItineraryByItineraryId(itineraryId);
-
-
     }
 
     @RequestMapping(path = "/myitinerary/{itineraryId}", method = RequestMethod.PUT)
@@ -66,7 +72,6 @@ public class ItineraryController {
             return updatedItinerary;
         } catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Itinerary not found.");
-
         }
     }
 
@@ -77,7 +82,10 @@ public class ItineraryController {
         String username = principal.getName();
         int userId = userDao.findIdByUsername(username);
 
-        return itineraryDao.createItineraryByUserId(userId, itinerary);    }
+        return itineraryDao.createItineraryByUserId(userId, itinerary);
+    }
+
+
 
 
 }

@@ -18,7 +18,7 @@
         </div>
         <div class="landmark-description">{{ landmark.description }}</div>
         <br>
-        <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button>
+        <button @click="addNewDestinationToItinerary()">Add Landmark to Itinerary</button>
       </div>
       <!-- </draggable> -->
     </div>
@@ -29,7 +29,7 @@
 
 // import draggable from 'vuedraggable';
 import LandmarksService from '../services/LandmarksService';
-
+import ItineraryService from '../services/ItineraryService';
   
 export default {
   name: "landmarks",
@@ -47,7 +47,9 @@ export default {
   //  addLandmarkToItinerary(landmark) {            // Figure something like this out ??
   //   this.$store.commit('ADD_LANDMARK_TO_ITINERARY', landmark);
   // },
-    
+    addNewDestinationToItinerary() {
+      ItineraryService.addLandmarkToItinerary(this.itineraryId, this.landmarkId)
+    }
   },
   created() {
     LandmarksService.getAllLandmarks().then( (response) => {
