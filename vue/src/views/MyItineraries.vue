@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import MyItinerariesComp from '../components/MyItinerariesComp.vue'
+import MyItinerariesComp from '../components/MyItinerariesComp.vue';
 import CreateItineraryComp from "../components/CreateItineraryComp.vue";
 
 
