@@ -20,7 +20,7 @@ export default {
   };
 </script>
 
-<style>
+<style >
 h1 {
   text-align: center;
   font-size: 60px;

@@ -51,14 +51,14 @@ public class ItineraryController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/itinerary/{itineraryId}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/myitinerary/{itineraryId}", method = RequestMethod.DELETE)
     public void deleteItinerary(@PathVariable int itineraryId){
         itineraryDao.deleteItineraryByItineraryId(itineraryId);
 
 
     }
 
-    @RequestMapping(path = "/itinerary/{itineraryId}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/myitinerary/{itineraryId}/edit", method = RequestMethod.PUT)
     public Itinerary update(@RequestBody Itinerary itinerary, @PathVariable int itineraryId){
         itinerary.setItineraryId(itineraryId);
         try {
@@ -69,6 +69,15 @@ public class ItineraryController {
 
         }
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/createitinerarybyuser/{userId}")
+    public Itinerary createItineraryByUserId(Principal principal, @RequestBody Itinerary itinerary) {
+
+        String username = principal.getName();
+        int userId = userDao.findIdByUsername(username);
+
+        return itineraryDao.createItineraryByUserId(userId, itinerary);    }
 
 
 }
