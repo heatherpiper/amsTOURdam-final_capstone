@@ -18,7 +18,10 @@
         </div>
         <div class="landmark-description">{{ landmark.description }}</div>
         <br>
-        <button @click="addNewDestinationToItinerary()">Add Landmark to Itinerary</button>
+        <div>
+          <!-- <AddLandmarksToMyItinerary /> -->
+        </div>
+        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)">Add Landmark to Itinerary</button>
       </div>
       <!-- </draggable> -->
     </div>
@@ -30,12 +33,14 @@
 // import draggable from 'vuedraggable';
 import LandmarksService from '../services/LandmarksService';
 import ItineraryService from '../services/ItineraryService';
+// import AddLandmarksToMyItinerary from '../components/AddLandmarksToMyItinerary.vue';
   
 export default {
   name: "landmarks",
   // props: ["landmarks"],
   components: {
     // draggable
+    // AddLandmarksToMyItinerary  
   },
   data() {
     return {
@@ -43,18 +48,35 @@ export default {
       landmarks: []
     };
   },
+  computed: {
+    itineraryId() {
+      return this.$route.params.id;
+    }
+  },
   methods: {
   //  addLandmarkToItinerary(landmark) {            // Figure something like this out ??
   //   this.$store.commit('ADD_LANDMARK_TO_ITINERARY', landmark);
   // },
-    addNewDestinationToItinerary() {
-      ItineraryService.addLandmarkToItinerary(this.itineraryId, this.landmarkId)
-    }
+    addNewDestinationToItinerary(itineraryId, landmarkId) {
+      ItineraryService.addLandmarkToUserListByItineraryId(itineraryId, landmarkId).then((response) => {
+        if(response.status == 201) {
+          alert('hark! alert!');
+        }
+      }).catch(error => {
+        console.log(error);
+      })
+    },
+    // refreshLandmarks() {
+    //   LandmarksService.getLandmarksByUserAndItineraryId().then( (response) => {
+    //   this.landmarks = response.data;
+ 
+    // })
+    // }
   },
   created() {
     LandmarksService.getAllLandmarks().then( (response) => {
       this.landmarks = response.data;
-      console.log(this.landmarks);
+
     }
 
     )
