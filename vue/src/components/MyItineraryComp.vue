@@ -2,6 +2,8 @@
   <div>
     <div id="my-itinerary">
       <h1>My Intinerary:</h1>
+      <br>
+      <br>
       <div>Itinerary Id: {{ itinerary.itineraryId }}</div>
       <div>Itinerary Name: {{ itinerary.itineraryName }}</div>
       <div>Starting Location (Address) {{ itinerary.startingLocation }}</div>
@@ -11,8 +13,8 @@
       <div>
         Starting Location (Longitude): {{ itinerary.startingLocationLongitude }}
       </div>
-      <div>TESTING ITINERARY ID: {{ this.$route.params.id }}</div>
-      <div>TESTING USER ID: {{ this.$store.state.user.id }}</div>
+      <!-- <div>TESTING ITINERARY ID: {{ this.$route.params.id }}</div>
+      <div>TESTING USER ID: {{ this.$store.state.user.id }}</div> -->
     </div>
     <div id="my-itineraries-button">
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">
