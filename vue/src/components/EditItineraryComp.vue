@@ -39,7 +39,7 @@
       <div class="create-buttons">
         <input v-on:click.prevent="hideForm" type="button" value="Cancel"  />
         <input v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
-        <input type="submit" value="Submit Form" v-bind:disabled="!isFormValid" />
+        <button v-on:click="updateItinerary">Update</button>
       </div>
     </form>
   </div>
@@ -63,26 +63,31 @@ export default {
       },
     };
   },
-   computed: {
+  computed: {
         isFormValid() {
            return this.editedItinerary.itineraryName 
            && this.editedItinerary.startingLocation   
         }
     },
+  mounted(){
+    //console.log(this.$route.params.itineraryId);
+    this.getItineraryData(this.$route.params.itineraryId)
+
+  },
   methods: {
-    editItinerary() {
-      this.userId = this.$store.state.user.id;
+    updateItinerary() {
+      this.itineraryId = this.$store.state.itinerary.id;
       
-      ItineraryService.createItineraryByUserId(this.userId, this.createdItinerary)
+      ItineraryService.updateItineraryByItineraryId(this.itineraryId, this.itinerary)
         .then((response) => {
-          if (response.status === 201) {
+          if (response.status === 200) {
             if (response.data && response.data.itineraryId) {
-              this.createdItinerary = response.data;
-              this.$store.commit("ADD_ITINERARY", this.createdItinerary);
-              console.log(this.createdItinerary);
+              this.editedItinerary = response.data;
+              this.$store.commit("UPDATE_ITINERARY", this.editedItinerary);
+              console.log(this.editedItinerary);
               this.$router.push({
                 name: "myitinerary",
-                params: { id: this.createdItinerary.itineraryId },
+                params: { id: this.editedItinerary.itineraryId },
               });
               this.resetForm();
             } else {
@@ -107,6 +112,21 @@ export default {
     this.showForm = false;
     this.resetForm(); 
   }
+  },
+  getItineraryData(itineraryId){
+    ItineraryService.updateItineraryByItineraryId(itineraryId).then(response =>{
+        //console.log(response.data.itinerary);
+        this.editedItinerary = response.data.itinerary;
+    })
+    .catch (function (error){
+      if(error.response){
+        if(error.response.status == 404){
+          alert(error.response.data.message);
+
+        }
+      }
+    })
+
   },
 };
 </script>
