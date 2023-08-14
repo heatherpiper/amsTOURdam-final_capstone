@@ -23,5 +23,9 @@ export default {
 
     deleteItinerary(itineraryId) {
         return axios.delete(`/myitinerary/${itineraryId}`);
+    },
+
+    getLandmarksByUserAndItineraryId(userId, itineraryId) {
+        return axios.get(`myitinerary/${itineraryId}/addlandmarks/${userId}`);
     }
 }
