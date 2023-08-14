@@ -1,7 +1,7 @@
 <template>
 <div class="landmarks">
     <div class="LandmarksGrid">
-       <draggable v-model="landmarklist" @start="drag=true" @end="drag=false">
+       <!-- <draggable v-model="landmarklist" @start="drag=true" @end="drag=false"> -->
       <div
         class="LandmarksList"
         v-for="landmark in landmarklist"
@@ -19,19 +19,19 @@
         <br>
         <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button>
       </div>
-      </draggable>
+      <!-- </draggable> -->
     </div>
   </div>
 </template>
 
 <script>
-import draggable from 'vuedraggable';
+// import draggable from 'vuedraggable';
 
 export default {
   name: "landmarks",
   props: ["landmarks"],
   components: {
-    draggable
+    // draggable
   },
   data() {
     return {
