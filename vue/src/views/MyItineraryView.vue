@@ -1,6 +1,7 @@
 <template>
   <div>
     <MyItineraryComp />
+    <EditItineraryComp/>
     <!-- <ItineraryLandmarksToVisitComp /> -->
     <br>
     <br>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import EditItineraryComp from "../components/EditItineraryComp.vue"
 import MyItineraryComp from "../components/MyItineraryComp.vue";
 import LandmarksComp from "../components/LandmarksComp.vue";
 // import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
@@ -21,6 +23,7 @@ export default {
     MyItineraryComp,
     // ItineraryLandmarksToVisitComp,
     LandmarksComp,
+    EditItineraryComp,
   },
 };
 </script>

@@ -55,7 +55,10 @@ export default new Vuex.Store({
     ADD_LANDMARK(state, landmark) {
       state.landmark = landmark;
     },
-
+    ADD_LANDMARK_TO_ITINERARY(state, itineraryId, landmarkId) {
+      state.itineraryId = itineraryId;
+      state.landmarkId = landmarkId;
+    }
     
   }
 })
