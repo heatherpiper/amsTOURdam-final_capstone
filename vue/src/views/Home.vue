@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <h1>Welcome to amsTOURdam</h1>
-    <div class="white"></div>
+    <div class="home-card">
+      <h2>Discover YOUR Amsterdam</h2>
+      <body>Build the perfefct itinerary to suit your individual needs from our curated list of landmarks and attractions</body>
+    </div>
   </div>
 </template>
 
@@ -20,19 +22,19 @@ export default {
   };
 </script>
 
-<style >
-h1 {
-  text-align: center;
-  font-size: 60px;
-  border: 2px solid;
-  color: #519BCB;
-  font-family: Arial, 'Times New Roman', Times, serif;
-  background-color: #ffffffdd;
+<style scoped>
+
+h2 {
+  text-align: left;
+  font-size: 86px;
   margin: 0 auto;
   border-radius: 5px;
 }
-.home h1 {
-    width: 800px;
+
+#home-card {
+  border-width: 1px;
+
 }
+
 
 </style>
