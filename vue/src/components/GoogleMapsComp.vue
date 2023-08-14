@@ -1,24 +1,25 @@
 <template>
-  <div>
-    <div class="locationsofinterest">
-      <h2>Locations Of Interest:</h2>
-    </div>
-    <br />
+  <div id="map-container">
+    <div class="map-content">
+      <div class="locationsofinterest">
+        <h2>Locations Of Interest:</h2>
+      </div>
 
-    <div class="map-container">
-      <GmapMap :center="center" :zoom="13" style="width: 475px; height: 375px">
-        <GmapMarker
-          :key="index"
-          v-for="(m, index) in markers"
-          :position="m.position"
-          @click="center = m.position"
-        />
-      </GmapMap>
-    </div>
-    <br />
-    <div class="pin-location-container">
-      <GmapAutocomplete @place_changed="setPlace" class="autocompletebox" />
-      <button @click="addMarker" class="pin-button">Pin a new location</button>
+      <div class="map-container">
+        <GmapMap :center="center" :zoom="13" style="width: 475px; height: 375px">
+          <GmapMarker
+            :key="index"
+            v-for="(m, index) in markers"
+            :position="m.position"
+            @click="center = m.position"
+          />
+        </GmapMap>
+      </div>
+      <br />
+      <div class="pin-location-container">
+        <GmapAutocomplete @place_changed="setPlace" class="autocompletebox" />
+        <button @click="addMarker" class="pin-button">Pin a new location</button>
+      </div>
     </div>
   </div>
 </template>
@@ -33,7 +34,7 @@ export default {
       center: { lat: 52.377956, lng: 4.89707 },
       currentPlace: "",
       markers: [],
-      places: []
+      places: [],
     };
   },
   mounted() {
@@ -74,7 +75,7 @@ export default {
             console.log(error.message);
           }
         );
-     } else {
+      } else {
         console.log("Your browser does not support geolocation API ");
       }
     },
@@ -88,16 +89,24 @@ export default {
         this.markers.push({ position: location });
       });
     },
-    
   },
   created() {
     this.createMarkersFromLandmarks();
   },
 };
-
 </script>
 
 <style scoped>
+#map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background-color: #f2f2f2;
+  padding: 15px;
+  margin: 30px;
+}
+
 div.locationsofinterest {
   text-align: center;
 }
