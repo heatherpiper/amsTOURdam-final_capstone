@@ -14,7 +14,9 @@
         <div class="landmark-image-container">
           <img class="landmark-image" v-bind:src="landmark.imageName" />
         </div>
-        <main>{{ landmark.description }}</main>
+        <div class="landmark-description">{{ landmark.description }}</div>
+        <br>
+        <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button>
       </div>
     </div>
     <draggable v-model="landmarklist" group="destinations" @start="drag=true" @end="drag=false">
@@ -38,7 +40,9 @@ export default {
     };
   },
   methods: {
-   
+   addLandmarkToItinerary(landmark) {     // Implement something like this for button above ???
+      this.landmarklist.push(landmark);
+    },
   },
 }
 </script>

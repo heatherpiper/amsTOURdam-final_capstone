@@ -90,7 +90,7 @@ h1 {
   background-color: #ffffffdd;
   border-radius: 5px;
   flex: 0 0 calc(33.33% - 20px);
-  width: 300px;
+  width: 365px;
 
 }
 
