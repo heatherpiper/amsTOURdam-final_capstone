@@ -128,7 +128,7 @@ public class JdbcItineraryDao implements ItineraryDao {
                         "WHERE itinerary_id = ?;";
             try {
                 int numberOfRows = jdbcTemplate.update(sql, itinerary.getItineraryName(), itinerary.getStartingLocation(),
-                        itinerary.getStartingLocationLatitude(), itinerary.getStartingLocationLongitude());
+                        itinerary.getStartingLocationLatitude(), itinerary.getStartingLocationLongitude(), itinerary.getItineraryId());
 
                 if (numberOfRows == 0) {
                     throw new DaoException("Zero rows affected, expected at least one.");
