@@ -1,5 +1,12 @@
 <template>
   <div>
+        <div id="my-itineraries-button">
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">
+          <div>
+             <h2>Return To My Itineraries</h2>
+          </div>
+        </router-link>
+    </div>
     <div id="my-itinerary">
       <h1>My Intinerary:</h1>
       <br>
@@ -16,27 +23,22 @@
       <!-- <div>TESTING ITINERARY ID: {{ this.$route.params.id }}</div>
       <div>TESTING USER ID: {{ this.$store.state.user.id }}</div> -->
     </div>
-    <div id="my-itineraries-button">
-        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">
-          <div>
-             <h2>Return To My Itineraries</h2>
-          </div>
-        </router-link>
+
+     <div class="my-itinerary-landmarks">
+      <ItineraryLandmarksToVisitComp />
     </div>
-    <!-- <div>
-      <LandmarksComp />
-    </div> -->
+
   </div>
 </template>
 
 <script>
 import ItineraryService from "@/services/ItineraryService.js";
-// import LandmarksComp from "../components/LandmarksComp.vue";
+import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
 
 export default {
   name: "my-itinerary",
   components: {
-    // LandmarksComp
+    ItineraryLandmarksToVisitComp
   },
   data() {
     return {
@@ -74,4 +76,8 @@ export default {
 </script>
 
 <style>
+
+#my-itineraries-button {
+  text-align: center;
+}
 </style>
