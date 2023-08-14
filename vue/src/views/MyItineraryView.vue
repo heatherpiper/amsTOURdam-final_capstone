@@ -15,6 +15,7 @@
 import EditItineraryComp from "../components/EditItineraryComp.vue"
 import MyItineraryComp from "../components/MyItineraryComp.vue";
 import LandmarksComp from "../components/LandmarksComp.vue";
+
 // import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
 
 export default {
