@@ -27,5 +27,11 @@ export default {
 
     getLandmarksByUserAndItineraryId(userId, itineraryId) {
         return axios.get(`myitinerary/${itineraryId}/addlandmarks/${userId}`);
+    },
+    
+    updateItineraryByItineraryId(itineraryId) {
+        return axios.put(`/myitinerary/${itineraryId}`);
     }
+
+
 }
