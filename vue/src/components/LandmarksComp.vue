@@ -1,9 +1,10 @@
 <template>
 <div class="landmarks">
     <div class="LandmarksGrid">
+       <draggable v-model="landmarklist" @start="drag=true" @end="drag=false">
       <div
         class="LandmarksList"
-        v-for="landmark in landmarks"
+        v-for="landmark in landmarklist"
         :key="landmark.landmark_id"
       >
         <router-link
@@ -14,12 +15,12 @@
         <div class="landmark-image-container">
           <img class="landmark-image" v-bind:src="landmark.imageName" />
         </div>
-        <main>{{ landmark.description }}</main>
+        <div class="landmark-description">{{ landmark.description }}</div>
+        <br>
+        <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button>
       </div>
+      </draggable>
     </div>
-    <draggable v-model="landmarklist" group="destinations" @start="drag=true" @end="drag=false">
-      <div v-for="element in landmarklist" :key="element.id">{{element.name}}</div>
-    </draggable>
   </div>
 </template>
 
@@ -38,12 +39,14 @@ export default {
     };
   },
   methods: {
-   
+   addLandmarkToItinerary(landmark) {     // Implement something like this for button above ???
+      this.landmarklist.push(landmark);
+    },
   },
 }
 </script>
 
-<style>
+<style scoped>
 .LandmarksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
