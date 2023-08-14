@@ -14,6 +14,6 @@ public interface LandmarkDao {
 
     List<Landmark> getLandmarksByItineraryId(int itineraryId);
 
-
+    List<Landmark> getLandmarksByUserAndItineraryId(int userId, int itineraryId);
 
 }

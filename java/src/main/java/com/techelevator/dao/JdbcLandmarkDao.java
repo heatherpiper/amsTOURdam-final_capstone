@@ -89,18 +89,23 @@ public class JdbcLandmarkDao implements LandmarkDao {
         return newLandmark;
     }
 
-//    private Landmark addLandmarkToMyItinerary(int userId, int itineraryId, Landmark landmark) {
-//
-//        String sql = "SELECT itineraries.itinerary_id, users.user_id, landmarks.landmark_id, itineraries.itinerary_name,  itineraries.starting_location_address, itineraries.starting_location_latitude, itineraries.starting_location_longitude, landmarks.category, landmarks.name, landmarks.street, landmarks.house_number, landmarks.postal_code, landmarks.city, landmarks.country, landmarks.latitude_coordinates, " +
-//                "landmarks.longitude_coordinates, landmarks.image_name, landmarks.description, landmarks.historic_details, landmarks.cost_of_entry, landmarks.duration, landmarks.reviews " +
-//                "FROM itineraries " +
-//                "JOIN user_itinerary ON itineraries.itinerary_id = user_itinerary.itinerary_id " +
-//                "JOIN users ON user_itinerary.user_id = users.user_id " +
-//                "JOIN itinerary_landmarks ON itineraries.itinerary_id = itinerary_landmarks.itinerary_id  " +
-//                "JOIN landmarks ON landmarks.landmark_id = itinerary_landmarks.landmark_id  " +
-//                "WHERE users.user_id = ?";
-//        return null;
-//    }
+    public List<Landmark> getLandmarksByUserAndItineraryId(int userId, int itineraryId) {
+        List<Landmark> landmarksByUserAndItineraryId = new ArrayList<>();
+        String sql = "SELECT landmarks.landmark_id, category, landmarks.name, street, house_number, postal_code, city, country, latitude_coordinates, " +
+                "longitude_coordinates, image_name, description, historic_details, cost_of_entry, duration, reviews " +
+                "FROM landmarks " +
+                "JOIN itinerary_landmarks ON landmarks.landmark_id = itinerary_landmarks.landmark_id " +
+                "JOIN itineraries ON itinerary_landmarks.itinerary_id = itineraries.itinerary_id " +
+                "JOIN user_itinerary ON itineraries.itinerary_id = user_itinerary.itinerary_id " +
+                "WHERE user_itinerary.user_id = ? AND itineraries.itinerary_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, itineraryId);
+        while (results.next()) {
+            Landmark landmark = mapRowToLandmark(results);
+            landmarksByUserAndItineraryId.add(landmark);
+        }
+        return landmarksByUserAndItineraryId;
+    }
 
     private Landmark mapRowToLandmark(SqlRowSet rs) {
         Landmark landmark = new Landmark();
