@@ -21,7 +21,7 @@
         <div>
           <!-- <AddLandmarksToMyItinerary /> -->
         </div>
-        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)">Add Landmark to Itinerary</button>
+        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="$store.state.token !== ''">Add Landmark to Itinerary</button>
       </div>
       <!-- </draggable> -->
     </div>

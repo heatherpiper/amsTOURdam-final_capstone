@@ -2,7 +2,7 @@
   <div class="home">
     <div class="home-card">
       <h2>Discover YOUR Amsterdam</h2>
-      <body>Build the perfefct itinerary to suit your individual needs from our curated list of landmarks and attractions</body>
+      <body>Build the perfect itinerary to suit your individual needs from our curated list of landmarks and attractions</body>
     </div>
   </div>
 </template>
