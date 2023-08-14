@@ -23,14 +23,21 @@
           </div>
         </router-link>
     </div>
+    <!-- <div>
+      <LandmarksComp />
+    </div> -->
   </div>
 </template>
 
 <script>
 import ItineraryService from "@/services/ItineraryService.js";
+// import LandmarksComp from "../components/LandmarksComp.vue";
 
 export default {
   name: "my-itinerary",
+  components: {
+    // LandmarksComp
+  },
   data() {
     return {
       itinerary: {
