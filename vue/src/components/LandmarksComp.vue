@@ -1,6 +1,8 @@
 <template>
 <div class="landmarks">
     <div class="LandmarksGrid">
+       <!-- <draggable v-model="landmarklist" @start="drag=true" @end="drag=false"> -->
+
       <div
         class="LandmarksList"
         v-for="landmark in landmarks"
@@ -18,32 +20,43 @@
         <br>
         <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button>
       </div>
+      <!-- </draggable> -->
     </div>
-    <draggable v-model="landmarklist" group="destinations" @start="drag=true" @end="drag=false">
-      <div v-for="element in landmarklist" :key="element.id">{{element.name}}</div>
-    </draggable>
   </div>
 </template>
 
 <script>
-import draggable from 'vuedraggable';
 
+// import draggable from 'vuedraggable';
+import LandmarksService from '../services/LandmarksService';
+
+  
 export default {
   name: "landmarks",
-  props: ["landmarks"],
+  // props: ["landmarks"],
   components: {
-    draggable
+    // draggable
   },
   data() {
     return {
-      landmarklist: this.landmarks,
+      // landmarklist: this.landmarks,
+      landmarks: []
     };
   },
   methods: {
-   addLandmarkToItinerary(landmark) {     // Implement something like this for button above ???
-      this.landmarklist.push(landmark);
-    },
+  //  addLandmarkToItinerary(landmark) {            // Figure something like this out ??
+  //   this.$store.commit('ADD_LANDMARK_TO_ITINERARY', landmark);
+  // },
+    
   },
+  created() {
+    LandmarksService.getAllLandmarks().then( (response) => {
+      this.landmarks = response.data;
+      console.log(this.landmarks);
+    }
+
+    )
+  }
 }
 </script>
 
