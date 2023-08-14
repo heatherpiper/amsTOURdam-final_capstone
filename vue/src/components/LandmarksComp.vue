@@ -48,7 +48,7 @@ export default {
   //   this.$store.commit('ADD_LANDMARK_TO_ITINERARY', landmark);
   // },
     addNewDestinationToItinerary() {
-      ItineraryService.addLandmarkToItinerary(this.itineraryId, this.landmarkId)
+      ItineraryService.addLandmarkToUserListByItineraryId(this.itineraryId, this.landmarkId)
     }
   },
   created() {

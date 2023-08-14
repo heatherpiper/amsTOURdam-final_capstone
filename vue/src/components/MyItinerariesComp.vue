@@ -22,16 +22,12 @@
           <li class="info-item">Starting Location (Address): {{ itinerary.startingLocation }}</li>
           <li class="info-item">Starting Location (Latitude): {{ itinerary.latitude }}</li>
           <li class="info-item">Starting Location (Longitude): {{ itinerary.longitude }}</li>
-          
         </ul>
         </router-link>
         <button v-for="itinerary in itinerariesByUserId" :key="itinerary.id" value="Edit Itinerary" >Edit Itinerary</button>
         <button v-for="itinerary in itinerariesByUserId" :key="itinerary.id" v-on:click="deleteItinerary(itinerary.itineraryId)" >Delete Itinerary</button>
       </div>
-      
-      
     </div>
-    
   </div>
 </template>
 
