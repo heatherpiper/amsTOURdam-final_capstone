@@ -1,6 +1,7 @@
 <template>
   <div>
     <MyItinerariesComp />
+    <br>
     <CreateItineraryComp />
   </div>
 </template>

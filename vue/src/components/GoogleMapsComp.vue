@@ -1,24 +1,25 @@
 <template>
-  <div>
-    <div class="locationsofinterest">
-      <h2>Locations Of Interest:</h2>
-    </div>
-    <br />
+  <div id="map-container">
+    <div class="map-content">
+      <div class="locationsofinterest">
+        <h2>Locations Of Interest:</h2>
+      </div>
 
-    <div class="map-container">
-      <GmapMap :center="center" :zoom="13" style="width: 475px; height: 375px">
-        <GmapMarker
-          :key="index"
-          v-for="(m, index) in markers"
-          :position="m.position"
-          @click="center = m.position"
-        />
-      </GmapMap>
-    </div>
-    <br />
-    <div class="pin-location-container">
-      <GmapAutocomplete @place_changed="setPlace" class="autocompletebox" />
-      <button @click="addMarker" class="pin-button">Pin A New Location</button>
+      <div class="map-container">
+        <GmapMap :center="center" :zoom="13" style="width: 475px; height: 375px">
+          <GmapMarker
+            :key="index"
+            v-for="(m, index) in markers"
+            :position="m.position"
+            @click="center = m.position"
+          />
+        </GmapMap>
+      </div>
+      <br />
+      <div class="pin-location-container">
+        <GmapAutocomplete @place_changed="setPlace" class="autocompletebox" />
+        <button @click="addMarker" class="pin-button">Pin a new location</button>
+      </div>
     </div>
   </div>
 </template>
@@ -33,7 +34,7 @@ export default {
       center: { lat: 52.377956, lng: 4.89707 },
       currentPlace: "",
       markers: [],
-      places: []
+      places: [],
     };
   },
   mounted() {
@@ -74,7 +75,7 @@ export default {
             console.log(error.message);
           }
         );
-     } else {
+      } else {
         console.log("Your browser does not support geolocation API ");
       }
     },
@@ -88,62 +89,48 @@ export default {
         this.markers.push({ position: location });
       });
     },
-    
   },
   created() {
     this.createMarkersFromLandmarks();
   },
 };
-
 </script>
 
 <style scoped>
-div.locationsofinterest {
-  text-align: center;
-  border: 1px solid rgb(231, 163, 17);
-  color: rgb(231, 163, 17);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: rgb(102, 3, 89);
-  border-radius: 10px;
-  font-size: 20px;
-
-  line-height: 1px;
+#map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background-color: #f2f2f2;
+  padding: 15px;
+  margin: 30px;
 }
 
-div.map-container {
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
-  color: rgb(58, 2, 58);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: rgb(231, 163, 17);
-  border-radius: 5px;
+div.locationsofinterest {
+  text-align: center;
 }
 
 .autocompletebox {
   font-size: 16px;
-  border: 10px solid rgb(102, 3, 89);
-  border-style: double;
   border-radius: 20px;
-  color: rgb(102, 3, 89);
-  background-color: rgb(231, 163, 17);
   line-height: 40px;
+  padding-left: 5px;
 }
 
 button.pin-button {
-  border: 3px solid rgb(231, 163, 17);
-  color: rgb(231, 163, 17);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: rgb(102, 3, 89);
-  margin: 20px;
+  color: black;
+  background-color: #2ac1d7;
+  margin: 10px;
+  padding: 10px;
   font-size: 20px;
   border-radius: 20px;
   font-weight: bold;
-
   line-height: 30px;
 }
 
 button.pin-button:hover {
-  background-color: rgb(91, 47, 109);
+  background-color: #2ac1d7;
 }
 </style>
 
