@@ -4,7 +4,7 @@
        <!-- <draggable v-model="landmarklist" @start="drag=true" @end="drag=false"> -->
       <div
         class="LandmarksList"
-        v-for="landmark in landmarklist"
+        v-for="landmark in landmarks"
         :key="landmark.landmark_id"
       >
         <router-link
