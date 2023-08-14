@@ -22,7 +22,7 @@ export default {
 
 <style>
 #app {
-  background-image: url("media/assets/HomeBG.jpg");
+  background-image: url("media/assets/HomeBG.jpg"); 
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
