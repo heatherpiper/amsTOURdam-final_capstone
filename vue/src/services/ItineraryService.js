@@ -31,7 +31,9 @@ export default {
     
     updateItineraryByItineraryId(itineraryId) {
         return axios.put(`/myitinerary/${itineraryId}`);
-    }
+    },
+
+    
 
 
 }
