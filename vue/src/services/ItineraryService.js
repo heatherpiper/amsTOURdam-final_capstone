@@ -29,8 +29,8 @@ export default {
         return axios.get(`myitinerary/${itineraryId}/addlandmarks/${userId}`);
     },
     
-    updateItineraryByItineraryId(itineraryId) {
-        return axios.put(`/myitinerary/${itineraryId}`);
+    updateItineraryByItineraryId(itinerary) {
+        return axios.put(`/myitinerary/${itinerary.itineraryId}`, itinerary);
     },
 
     addLandmarkToUserListByItineraryId(itineraryId, landmarkId) {
