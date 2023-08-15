@@ -28,6 +28,6 @@ export default {
   background-attachment: fixed;
   background-position: center;
   background-size: auto;
-} */
+}
 
 </style>
