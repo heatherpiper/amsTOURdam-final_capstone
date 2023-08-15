@@ -19,7 +19,6 @@
         <div class="landmark-description">{{ landmark.description }}</div>
         <br>
         <div>
-          <!-- <AddLandmarksToMyItinerary /> -->
         </div>
         <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="$store.state.token !== ''">Add Landmark to Itinerary</button>
       </div>
@@ -33,19 +32,17 @@
 // import draggable from 'vuedraggable';
 import LandmarksService from '../services/LandmarksService';
 import ItineraryService from '../services/ItineraryService';
-// import AddLandmarksToMyItinerary from '../components/AddLandmarksToMyItinerary.vue';
   
 export default {
   name: "landmarks",
-  // props: ["landmarks"],
   components: {
     // draggable
-    // AddLandmarksToMyItinerary  
   },
   data() {
     return {
-      // landmarklist: this.landmarks,
-      landmarks: []
+      landmarks: [],
+      itinerary: [],
+      addedLandmarks: []
     };
   },
   computed: {
@@ -54,21 +51,27 @@ export default {
     }
   },
   methods: {
-  //  addLandmarkToItinerary(landmark) {            // Figure something like this out ??
-  //   this.$store.commit('ADD_LANDMARK_TO_ITINERARY', landmark);
-  // },
     addNewDestinationToItinerary(itineraryId, landmarkId) {
+
+      if (this.addedLandmarks.includes(landmarkId)) {
+        alert('This location is already in your itinerary.');
+        return;         //Only works if you don't refresh the page
+      }
+
       ItineraryService.addLandmarkToUserListByItineraryId(itineraryId, landmarkId).then((response) => {
+
         if(response.status == 201) {
-          alert('hark! alert!');
+          // this.refreshItinerary();
+          this.addedLandmarks.push(landmarkId);
+          alert('This location has been added to your itinerary!');
         }
       }).catch(error => {
         console.log(error);
       })
     },
-    // refreshLandmarks() {
-    //   LandmarksService.getLandmarksByUserAndItineraryId().then( (response) => {
-    //   this.landmarks = response.data;
+    // refreshItinerary() {
+    //   ItineraryService.getLandmarksByUserAndItineraryId().then( (response) => {
+    //   this.itinerary = response.data;
  
     // })
     // }
@@ -76,6 +79,7 @@ export default {
   created() {
     LandmarksService.getAllLandmarks().then( (response) => {
       this.landmarks = response.data;
+      //  this.refreshItinerary(); 
 
     }
 
