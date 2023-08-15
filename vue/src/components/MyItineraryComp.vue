@@ -26,6 +26,7 @@
 
      <div class="my-itinerary-landmarks">
       <ItineraryLandmarksToVisitComp />
+      <!-- <EditItineraryComp /> -->
     </div>
 
   </div>
@@ -35,10 +36,13 @@
 import ItineraryService from "@/services/ItineraryService.js";
 import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
 
+// import EditItineraryComp from '../components/EditItineraryComp.vue';
+
 export default {
   name: "my-itinerary",
   components: {
-    ItineraryLandmarksToVisitComp
+    ItineraryLandmarksToVisitComp,
+    // EditItineraryComp
   },
   data() {
     return {
