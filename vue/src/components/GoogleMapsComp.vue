@@ -14,6 +14,7 @@
             @click="center = m.position"
           />
         </GmapMap>
+
       </div>
       <br />
       <div class="pin-location-container">
