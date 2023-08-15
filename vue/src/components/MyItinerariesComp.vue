@@ -1,5 +1,6 @@
 <template>
   <div id="my-itineraries">
+    <!-- <EditItineraryCompVue /> -->
     <div>
     <h1>My Itineraries:</h1>
     </div>
@@ -23,11 +24,10 @@
           <li class="info-item">Starting Location (Latitude): {{ itinerary.latitude }}</li>
           <li class="info-item">Starting Location (Longitude): {{ itinerary.longitude }}</li>
         </ul>
-         <button  v-on:click="$router.push('myitinerary/'+itinerary.itineraryId+'/edit')"  value="Edit Itinerary" >Edit Itinerary</button>
         </router-link>
       
         
-       
+        <button  v-on:click="$router.push('myitinerary/'+itinerary.itineraryId)"  value="Edit Itinerary" >Edit Itinerary</button>
         <button  v-on:click="deleteItinerary(itinerary.itineraryId)" >Delete Itinerary</button>
       </div>
     </div>
@@ -36,10 +36,13 @@
 
 <script>
 import ItineraryService from "@/services/ItineraryService.js";
+// import EditItineraryCompVue from '../components/EditItineraryComp.vue';
 
 export default {
   name: "my-itineraries",
-  components: {},
+  components: {
+    // EditItineraryCompVue
+  },
   data() {
     return {
       itinerariesByUserId: [], 
