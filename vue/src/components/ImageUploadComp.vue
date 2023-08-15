@@ -1,54 +1,22 @@
 <template>
     <div>
-        <div>
-            <input type="file" @change="uploadImage">
-        </div>
-        <div v-if="uploadedImageUrl">
-            <img :src="uploadedImageUrl" alt="Uploaded Image" width="300">
-        </div>
+        <button id="upload_widget" class="cloudinary-button">Upload photos</button>
     </div>
 </template>
 
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
 
-
-<script>
-import axios from 'axios';
-
-export default {
-    data() {
-        return {
-            uploadedImageUrl: null,
-            errorMessage: null
-        };
-    },
-    methods: {
-        async uploadImage(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const formData = new FormData();
-            formData.append('file', file);
-
-            try {
-                const response = await axios.post('/upload', formData);
-                this.uploadedImageUrl = response.data.imageUrl;
-                this.errorMessage = null;
-            } catch (error) {
-                this.errorMessage = "Failed to upload image.";
-                console.error("Upload error:", error);
-            }
-        }
+<script type="text/javascript">  
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: 'my_cloud_name', 
+  uploadPreset: 'my_preset'}, (error, result) => { 
+    if (!error && result && result.event === "success") { 
+      console.log('Done! Here is the image info: ', result.info); 
     }
-}
+  }
+)
 
+document.getElementById("upload_widget").addEventListener("click", function(){
+    myWidget.open();
+  }, false);
 </script>
-
-
-
-<style scoped>
-.error {
-    color: red;
-    margin-top: 10px;
-}
-
-</style>
