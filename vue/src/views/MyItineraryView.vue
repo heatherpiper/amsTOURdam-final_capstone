@@ -1,16 +1,14 @@
 <template>
   <div>
-     
     <MyItineraryComp />
-    <EditItineraryComp />
-   
-    
-    <!-- <ItineraryLandmarksToVisitComp /> -->
     <br>
     <br>
-    <h1>Add Landmarks To Itinerary:</h1>
+     <ItineraryLandmarksToVisitComp />
+    <br>
+    <br>
      <LandmarksComp />
-  </div>
+     </div>
+  
 
 </template>
 
@@ -18,16 +16,13 @@
 
 import MyItineraryComp from "../components/MyItineraryComp.vue";
 import LandmarksComp from "../components/LandmarksComp.vue";
-import EditItineraryComp from "../components/EditItineraryComp.vue";
-
-// import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
+import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
 
 export default {
   components: {
     
     MyItineraryComp,
-    EditItineraryComp,
-    // ItineraryLandmarksToVisitComp,
+    ItineraryLandmarksToVisitComp,
     LandmarksComp,
     
   },
