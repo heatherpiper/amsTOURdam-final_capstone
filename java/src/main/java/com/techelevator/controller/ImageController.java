@@ -14,6 +14,14 @@ import java.util.Map;
 @RestController
 public class ImageController {
 
+    public ImageController(CloudinaryService cloudinaryService) {
+        this.cloudinaryService = cloudinaryService;
+    }
+
+    public ImageController() {
+    }
+
+
     @Autowired
     private CloudinaryService cloudinaryService;
 
