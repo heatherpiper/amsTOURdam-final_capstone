@@ -1,8 +1,8 @@
 <template>
   <div id="map-container">
     <div class="map-content">
-      <div class="locationsofinterest">
-        <h2>Locations Of Interest:</h2>
+      <div class="locations-of-interest">
+        <h2>Locations of interest:</h2>
       </div>
 
       <div class="map-container">
@@ -102,13 +102,14 @@ export default {
   justify-content: center;
   align-items: center;
   min-height: 70vh;
-  background-color: #f2f2f2;
+  background-color: rgba(13, 13, 17, 0.667);
   padding: 15px;
   margin: 30px;
 }
 
-div.locationsofinterest {
+div.locations-of-interest {
   text-align: center;
+  color:#2ac1d7;
 }
 
 .autocompletebox {

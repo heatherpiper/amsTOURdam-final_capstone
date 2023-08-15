@@ -21,13 +21,19 @@ export default {
 
 
 <style>
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   background-image: url("media/assets/HomeBG.jpg");
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-size: auto;
+  background-size: cover;
 }
 
 </style>
