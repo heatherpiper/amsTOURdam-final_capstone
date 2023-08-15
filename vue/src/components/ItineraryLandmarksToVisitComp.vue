@@ -2,7 +2,7 @@
 <div class="landmarks">
     <div class="LandmarksGrid">
         <h1>Landmarks On My Itinerary: </h1>
-         <draggable v-model="landmarklist" group="cards" @start="drag=true" @end="drag=false">
+         <draggable v-model="landmarks" group="cards" @start="drag=true" @end="drag=false">
       <div class="LandmarksList" v-for="landmark in landmarks" :key="landmark.landmark_id" >
         <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }" >
           <h2>{{ landmark.name }}</h2>
@@ -29,7 +29,6 @@ export default {
   },
   data() {
     return {
-
       landmarks: [],
       itinerary: []
     };

@@ -2,7 +2,7 @@
 <div class="landmarks">
   <h1>Landmarks</h1>
     <div class="LandmarksGrid">
-       <draggable v-model="landmarklist" group="cards" @start="drag=true" @end="drag=false">
+       <draggable v-model="landmarks" group="cards" @start="drag=true" @end="drag=false">
       <div
         class="LandmarksList"
         v-for="landmark in landmarks"
