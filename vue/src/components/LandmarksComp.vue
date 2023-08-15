@@ -1,7 +1,7 @@
 <template>
 <div class="landmarks">
     <div class="LandmarksGrid">
-       <!-- <draggable v-model="landmarklist" @start="drag=true" @end="drag=false"> -->
+       <draggable v-model="landmarklist" @start="drag=true" @end="drag=false">
 
       <div
         class="LandmarksList"
@@ -23,14 +23,14 @@
         </div>
         <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="$store.state.token !== ''">Add Landmark to Itinerary</button>
       </div>
-      <!-- </draggable> -->
+      </draggable>
     </div>
   </div>
 </template>
 
 <script>
 
-// import draggable from 'vuedraggable';
+import draggable from 'vuedraggable';
 import LandmarksService from '../services/LandmarksService';
 import ItineraryService from '../services/ItineraryService';
 // import AddLandmarksToMyItinerary from '../components/AddLandmarksToMyItinerary.vue';
@@ -39,7 +39,7 @@ export default {
   name: "landmarks",
   // props: ["landmarks"],
   components: {
-    // draggable
+    draggable
     // AddLandmarksToMyItinerary  
   },
   data() {
