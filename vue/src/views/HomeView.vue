@@ -22,18 +22,24 @@ export default {
   };
 </script>
 
+
 <style scoped>
 
 h2 {
   text-align: left;
   font-size: 86px;
   margin: 0 auto;
-  border-radius: 5px;
+  color: #2ac1d7;
 }
 
 #home-card {
-  border-width: 1px;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color:  rgba(13, 13, 17, 0.667);
+}
 
+body {
+  color: white;
 }
 
 

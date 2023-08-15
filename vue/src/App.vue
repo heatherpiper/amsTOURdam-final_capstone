@@ -21,7 +21,7 @@ export default {
 
 
 <style>
-/* #app {
+ /* #app {
   background-image: url("media/assets/HomeBG.jpg"); 
   margin: 0;
   background-repeat: no-repeat;

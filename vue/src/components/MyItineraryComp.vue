@@ -36,14 +36,14 @@ export default {
   },
   data() {
     return {
-      itinerary: {
-        itineraryId: "",
-        itineraryName: "",
-        startingLocation: "",
-        startingLocationLatitude: "",
-        startingLocationLongitude: "",
-      },
+      
     };
+  },
+  computed:{
+    itinerary(){
+     return this.$store.getters.itinerary
+    }
+
   },
   created() {
     const selectedItineraryId = this.$route.params.id;
@@ -52,7 +52,8 @@ export default {
       .then((response) => {
         if (response.status === 200) {
           if (response.data) {
-            this.itinerary = response.data;
+            this.$store.commit("ADD_ITINERARY", response.data)
+            // this.itinerary = response.data;
             console.log(this.itinerary);
           } else {
             console.error(
