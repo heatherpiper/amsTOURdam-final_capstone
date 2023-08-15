@@ -27,7 +27,7 @@
         </router-link>
       
         
-        <button  v-on:click="$router.push('myitinerary/'+itinerary.itineraryId)"  value="Edit Itinerary" >Edit Itinerary</button>
+        <!-- <button  v-on:click="$router.push('myitinerary/'+itinerary.itineraryId)"  value="Edit Itinerary" >Edit Itinerary</button> -->
         <button  v-on:click="deleteItinerary(itinerary.itineraryId)" >Delete Itinerary</button>
       </div>
     </div>
