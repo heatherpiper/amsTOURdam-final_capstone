@@ -144,4 +144,8 @@ img.landmark-image {
   max-width: 300px;
   max-height: 300px;
 }
+
+.draggable-landmarks {
+  display: contents; 
+}
 </style>
