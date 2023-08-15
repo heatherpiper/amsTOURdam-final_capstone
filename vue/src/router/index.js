@@ -16,7 +16,6 @@ import EditItinerary from '../components/EditItineraryComp.vue'
 
 
 
-
 Vue.use(Router)
 
 /**
