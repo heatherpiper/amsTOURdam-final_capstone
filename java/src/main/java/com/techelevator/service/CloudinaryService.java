@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.Map;
 
 @Service
 public class CloudinaryService {
@@ -30,8 +31,13 @@ public class CloudinaryService {
         ));
     }
 
-    public String uploadImage(byte[] imageBytes) {
-
+    // takes in the byte representation of the image being uploaded, obtained from MultipartFile object in ImageController
+    // Uploads image using the image data as an argument then gets and returns the image URL.
+    // The controller will send the URL to be stored in the database.
+    // If we want to add specific options or configurations for uploading, we can add them to the (currently) emptyMap object.
+    public String uploadImage(byte[] imageBytes) throws Exception {
+        Map<String, Object> uploadResult = cloudinary.uploader().upload(imageBytes, ObjectUtils.emptyMap());
+        return (String) uploadResult.get("url");
     }
 
 }
