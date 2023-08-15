@@ -20,13 +20,9 @@
       <div>
         Starting Location (Longitude): {{ itinerary.startingLocationLongitude }}
       </div>
-      <!-- <div>TESTING ITINERARY ID: {{ this.$route.params.id }}</div>
-      <div>TESTING USER ID: {{ this.$store.state.user.id }}</div> -->
     </div>
 
      <div class="my-itinerary-landmarks">
-      <ItineraryLandmarksToVisitComp />
-      <!-- <EditItineraryComp /> -->
     </div>
 
   </div>
@@ -34,15 +30,9 @@
 
 <script>
 import ItineraryService from "@/services/ItineraryService.js";
-import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
-
-// import EditItineraryComp from '../components/EditItineraryComp.vue';
-
 export default {
   name: "my-itinerary",
   components: {
-    ItineraryLandmarksToVisitComp,
-    // EditItineraryComp
   },
   data() {
     return {
