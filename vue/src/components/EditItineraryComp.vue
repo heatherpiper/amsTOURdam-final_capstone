@@ -75,11 +75,11 @@ export default {
 
 
       editedItinerary: {
-        itineraryId: "",
-        itineraryName: "",
-        startingLocation: "",
-        latitude: "",
-        longitude: "",
+        itineraryId: '',
+        itineraryName: '',
+        startingLocation: '',
+        latitude: '',
+        longitude: '',
       },
     };
   },
@@ -141,7 +141,7 @@ export default {
     ItineraryService.getMyItinerary(itineraryId)
       .then((response) => {
         //console.log(response.data.itinerary);
-        this.editedItinerary = response.data.itinerary;
+        this.editedItinerary = response.data;
       })
       .catch(function (error) {
         if (error.response) {
@@ -151,9 +151,10 @@ export default {
         }
       });
   },
-  mounted() {
-    this.getItineraryData(this.$route.params.id);
+  async mounted() {
+    this.getItineraryData(this.$route.params.itineraryid);
     //console.log(this.$route.params.itineraryId);
+    console.warn(this.$route.params.itineraryId)
   },
 };
 </script>
