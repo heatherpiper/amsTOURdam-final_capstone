@@ -55,4 +55,12 @@ CREATE TABLE user_itinerary (
     itinerary_id INT REFERENCES itineraries(itinerary_id)
 );
 
+CREATE TABLE landmark_images (
+    image_id SERIAL PRIMARY KEY,
+    image_url VARCHAR(512) NOT NULL,
+    user_id INT REFERENCES users(user_id),
+    landmark_id INT REFERENCES landmarks(landmark_id),
+    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 COMMIT TRANSACTION;
