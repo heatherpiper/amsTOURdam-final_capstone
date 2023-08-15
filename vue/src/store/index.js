@@ -26,6 +26,11 @@ export default new Vuex.Store({
     itinerary: {},
     itineraries: {}
   },
+  getters: {
+    itinerary(state){
+      return state.itinerary
+    }
+  },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
