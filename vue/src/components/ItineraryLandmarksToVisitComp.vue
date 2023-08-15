@@ -8,6 +8,7 @@
         </router-link>
         <br>
       </div>
+      <!-- </draggable> -->
     </div>
   </div>
 </template>
@@ -19,6 +20,7 @@ import ItineraryService from "@/services/ItineraryService.js";
 export default {
   name: "landmarks",
   components: {
+    // draggable
   },
   data() {
     return {
@@ -54,12 +56,12 @@ export default {
 </script>
 
 <style scoped>
-/* .LandmarksGrid {
+.LandmarksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
   text-decoration: none;
-} */
+}
 
 .LandmarksList {
   /* border: 2px solid #2ac1d7;
