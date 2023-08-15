@@ -1,5 +1,6 @@
 <template>
 <div class="landmarks">
+      <h1>Landmarks On My Itinerary: </h1>
     <div class="LandmarksGrid">
         <h1>Landmarks On My Itinerary: </h1>
          <draggable v-model="landmarks" group="cards" @start="drag=true" @end="drag=false">
@@ -33,12 +34,18 @@ export default {
       itinerary: []
     };
   },
+  computed: {
+     itineraryId() {
+      return this.$route.params.id;
+    }
+  },
   methods: {
     //   refreshItinerary() {
     //   ItineraryService.getLandmarksByUserAndItineraryId().then( (response) => {
     //   this.itinerary = response.data;
     //   })
-    // }
+    // },
+
   },
   created() {
     this.userId = this.$store.state.user.id;
@@ -52,9 +59,7 @@ export default {
       console.log(this.itinerary);
         // this.refreshItinerary();
 
-    }
-
-    )
+    })
   }
 }
 </script>
@@ -63,7 +68,7 @@ export default {
 .LandmarksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
+  gap: 5px;
   text-decoration: none;
 }
 
@@ -73,8 +78,9 @@ export default {
   font-family: 'Inter', sans-serif;
 }
 
+
 h2 {
-  font-size: 20px;
+  font-size: 17px;
 }
 
 /* div.landmark-image-container {
