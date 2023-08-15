@@ -5,7 +5,6 @@
     </div>
 
     <div class="LandmarksGrid">
-        <h1>Landmarks On My Itinerary: </h1>
          <draggable v-model="landmarks" group="cards" @start="drag=true" @end="drag=false">
       <div class="LandmarksList" v-for="landmark in landmarks" :key="landmark.landmark_id" >
         <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }" >
@@ -100,4 +99,5 @@ img.landmark-image {
   max-width: 300px;
   max-height: 300px;
 }
+
 </style>
