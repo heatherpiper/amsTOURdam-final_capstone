@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.DaoException;
 import com.techelevator.model.Itinerary;
+import com.techelevator.model.Landmark;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -128,7 +129,7 @@ public class JdbcItineraryDao implements ItineraryDao {
                         "WHERE itinerary_id = ?;";
             try {
                 int numberOfRows = jdbcTemplate.update(sql, itinerary.getItineraryName(), itinerary.getStartingLocation(),
-                        itinerary.getStartingLocationLatitude(), itinerary.getStartingLocationLongitude());
+                        itinerary.getStartingLocationLatitude(), itinerary.getStartingLocationLongitude(), itinerary.getItineraryId());
 
                 if (numberOfRows == 0) {
                     throw new DaoException("Zero rows affected, expected at least one.");
@@ -144,7 +145,18 @@ public class JdbcItineraryDao implements ItineraryDao {
 
     }
 
+    public void addLandmarkToUserListByItineraryId(int itineraryId, int landmarkId) {
+        String sql = "INSERT INTO itinerary_landmarks (itinerary_id, landmark_id)  " +
+                "VALUES (?,?) ";
 
+        try {
+            jdbcTemplate.update(sql, itineraryId, landmarkId);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database.", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data Integrity Violation", e);
+        }
+    }
 
 
     private Itinerary mapRowToItinerary(SqlRowSet rs) {

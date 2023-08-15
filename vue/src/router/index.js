@@ -1,17 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import Logout from '../views/Logout.vue'
-import Register from '../views/Register.vue'
-import Landmarks from '../views/Landmarks.vue'
-import AddLandmarks from '../views/AddLandmarks.vue'
+import Home from '../views/HomeView.vue'
+import Login from '../views/LoginView.vue'
+import Logout from '../views/LogoutView.vue'
+import Register from '../views/RegisterView.vue'
+import Landmarks from '../views/LandmarksView.vue'
+import AddLandmarks from '../views/AddLandmarksView.vue'
 import store from '../store/index'
 import LandmarkDetails from '../components/LandmarkDetailComp.vue'
-import MyItinerary from '@/views/MyItinerary.vue'
-import CreateItinerary from '@/views/CreateItinerary.vue'
-import MyItineraries from '@/views/MyItineraries.vue'
-import AdminItineraries from '@/views/AdminItineraries.vue'
+import MyItinerary from '@/views/MyItineraryView.vue'
+import CreateItinerary from '@/views/CreateItineraryView.vue'
+import MyItineraries from '@/views/MyItinerariesView.vue'
+import AdminItineraries from '@/views/AdminItinerariesView.vue'
+import EditItinerary from '../components/EditItineraryComp.vue'
+
 
 
 
@@ -121,11 +123,19 @@ const router = new Router({
     {
       path: '/myitinerary/:itineraryid',
       name: 'deleteitinerary',
-      component: MyItineraries,
+      component: MyItinerary,
       meta: {
         requiresAuth: true
       }
-    }
+    },
+    {
+      path: '/myitinerary/:itineraryid',
+      name: 'edititinerary',
+      component: EditItinerary,
+      meta: {
+        requiresAuth: true
+      }
+    },
     
   ]
 

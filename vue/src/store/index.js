@@ -21,6 +21,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    landmark: {},
     landmarks: [],
     itinerary: {},
     itineraries: {}
@@ -48,7 +49,19 @@ export default new Vuex.Store({
     ADD_ITINERARIES(state, itineraries) {
       state.itineraries = itineraries;
     },
-
+    ADD_LANDMARKS(state, landmarks) {
+      state.landmarks = landmarks;
+    },
+    ADD_LANDMARK(state, landmark) {
+      state.landmark = landmark;
+    },
+    ADD_LANDMARK_TO_ITINERARY(state, itineraryId, landmarkId) {
+      state.itineraryId = itineraryId;
+      state.landmarkId = landmarkId;
+    },
+    UPDATE_ITINERARY(state, itinerary) {
+      state.itinerary = itinerary;
+    }
     
   }
 })

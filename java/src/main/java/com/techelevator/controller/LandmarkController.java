@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @CrossOrigin
@@ -45,5 +46,11 @@ public class LandmarkController {
     @RequestMapping (path = "/landmarks/addlandmarks", method = RequestMethod.POST)
     public Landmark addLandmark(@RequestBody Landmark landmark) {
         return landmarkDao.addLandmark(landmark);
+    }
+
+    @GetMapping(path="myitinerary/{itineraryId}/addlandmarks/{userId}")
+    public List<Landmark> getLandmarksByUserAndItineraryId(@PathVariable int itineraryId, @PathVariable int userId, Principal principal) {
+        List<Landmark> landmark = landmarkDao.getLandmarksByUserAndItineraryId(userId, itineraryId);
+        return landmark;
     }
 }
