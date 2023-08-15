@@ -42,7 +42,7 @@ export default {
     return {
       landmarks: [],
       itinerary: [],
-      addedLandmarks: []
+      addedLandmarks: [],
     };
   },
   computed: {
@@ -55,7 +55,7 @@ export default {
 
       if (this.addedLandmarks.includes(landmarkId)) {
         alert('This location is already in your itinerary.');
-        return;         //Only works if you don't refresh the page
+        return;         //Only barely works, and that's if you don't refresh the page
       }
 
       ItineraryService.addLandmarkToUserListByItineraryId(itineraryId, landmarkId).then((response) => {
