@@ -1,8 +1,8 @@
 <template>
   <div class="landmarksvue">
-    <h1>Landmarks</h1>
-    <br />
     <GoogleMapsComp v-if="!isLoading" v-bind:landmarks="landmarks" />
+    <br>
+    <br>
     <LandmarksComp v-if="!isLoading" v-bind:landmarks="landmarks"/>
   </div>
 </template>
@@ -19,7 +19,6 @@ export default {
   components: {
     LandmarksComp,
     GoogleMapsComp,
-    
   },
   data() {
     return {

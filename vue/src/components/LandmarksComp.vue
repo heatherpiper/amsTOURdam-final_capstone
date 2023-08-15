@@ -1,7 +1,9 @@
 <template>
 <div class="landmarks">
+  <h1>Landmarks</h1>
     <div class="LandmarksGrid">
-       <draggable v-model="landmarklist" @start="drag=true" @end="drag=false">
+
+       <draggable v-model="landmarklist" group="cards" @start="drag=true" @end="drag=false">
 
       <div
         class="LandmarksList"
@@ -20,7 +22,7 @@
         <br>
         <div>
         </div>
-        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button>
+        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="!landmarkAlreadyExistsInItinerary(landmark.landmark_id) && showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button>
       </div>
       </draggable>
     </div>
@@ -29,20 +31,22 @@
 
 <script>
 
-// import draggable from 'vuedraggable';
+import draggable from 'vuedraggable';
 import LandmarksService from '../services/LandmarksService';
 import ItineraryService from '../services/ItineraryService';
   
 export default {
   name: "landmarks",
   components: {
-    // draggable
+    draggable
   },
   data() {
     return {
       landmarks: [],
-      itinerary: [],
+      itinerary: {},
       addedLandmarks: [],
+      addedTwice: false,
+      toggleButton: false
 
     };
   },
@@ -53,9 +57,12 @@ export default {
     showAddButton() {
       return this.$route.name === 'myitinerary';
     },
+    
   },
   methods: {
     addNewDestinationToItinerary(itineraryId, landmarkId) {
+
+      console.log(this.itineraryId);
 
       if (this.addedLandmarks.includes(landmarkId)) {
         alert('This location is already in your itinerary.');
@@ -66,7 +73,7 @@ export default {
 
         if(response.status == 201) {
           // this.refreshItinerary();
-       
+            console.log(this.itineraryId);
           this.addedLandmarks.push(landmarkId);
           alert('This location has been added to your itinerary!');
         }
@@ -74,6 +81,23 @@ export default {
         console.log(error);
       })
     },
+     landmarkAlreadyExistsInItinerary(landmarkId){      //Also only works if you don't refresh the page/let's you add one once that's already there.
+
+       return this.addedLandmarks.includes(landmarkId);
+        // if (this.itineraryId.includes(this.landmark.landmark_id)) {
+        //   return true;
+        // } else {
+        //   return false;
+        // }
+     },
+    landmarksOnMyItinerary(itineraryId) {
+      LandmarksService.getLandmarksByItineraryId(itineraryId).then((response) => {
+        this.landmarks = response.data;
+        this.$store.commit("ADD_LANDMARK_TO_ITINERARY", this.itineraryId, this.landmarkId)
+        console.log(this.landmarks);
+        console.log(this.itineraryId);
+      })
+    }
     // refreshItinerary() {
     //   ItineraryService.getLandmarksByUserAndItineraryId().then( (response) => {
     //   this.itinerary = response.data;
@@ -85,8 +109,8 @@ export default {
     LandmarksService.getAllLandmarks().then( (response) => {
       this.landmarks = response.data;
       //  this.refreshItinerary(); 
-
-    }
+    },
+    
 
     )
   }
