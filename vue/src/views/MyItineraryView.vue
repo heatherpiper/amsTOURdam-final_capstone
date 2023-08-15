@@ -2,6 +2,7 @@
   <div>
     <MyItineraryComp />
     <br>
+    <GoogleMapsComp />
     <br>
      <ItineraryLandmarksToVisitComp />
     <br>
@@ -14,6 +15,7 @@
 
 <script>
 
+import GoogleMapsComp from "../components/GoogleMapsComp.vue";
 import MyItineraryComp from "../components/MyItineraryComp.vue";
 import LandmarksComp from "../components/LandmarksComp.vue";
 import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
@@ -24,6 +26,7 @@ export default {
     MyItineraryComp,
     ItineraryLandmarksToVisitComp,
     LandmarksComp,
+    GoogleMapsComp
     
   },
 };
