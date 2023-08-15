@@ -20,7 +20,7 @@
         <br>
         <div>
         </div>
-        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="$store.state.token !== ''">Add Landmark to Itinerary</button>
+        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button>
       </div>
       <!-- </draggable> -->
     </div>
@@ -43,12 +43,16 @@ export default {
       landmarks: [],
       itinerary: [],
       addedLandmarks: [],
+
     };
   },
   computed: {
     itineraryId() {
       return this.$route.params.id;
-    }
+    },
+    showAddButton() {
+      return this.$route.name === 'myitinerary';
+    },
   },
   methods: {
     addNewDestinationToItinerary(itineraryId, landmarkId) {
@@ -62,6 +66,7 @@ export default {
 
         if(response.status == 201) {
           // this.refreshItinerary();
+       
           this.addedLandmarks.push(landmarkId);
           alert('This location has been added to your itinerary!');
         }
