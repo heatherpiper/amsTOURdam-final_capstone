@@ -2,6 +2,7 @@
 <div class="landmarks">
     <div class="LandmarksGrid">
         <h1>Landmarks On My Itinerary: </h1>
+        <draggable v-model="landmarklist" @start="drag=true" @end="drag=false">
       <div
         class="LandmarksList"
         v-for="landmark in landmarks"
@@ -12,14 +13,15 @@
         >
           <h2>{{ landmark.name }}</h2>
         </router-link>
-        <!-- <div class="landmark-image-container">
+        <div class="landmark-image-container">
           <img class="landmark-image" v-bind:src="landmark.imageName" />
         </div> -->
-        <!-- <div class="landmark-description">{{ landmark.description }}</div> -->
+        <div class="landmark-description">{{ landmark.description }}</div>
         <br>
-        <!-- <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button> -->
-        <!-- <button @click="removeDestinationFromItinerary()">Remove Destination From Itinerary</button> -->
+        <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button>
+        <button @click="removeDestinationFromItinerary()">Remove Destination From Itinerary</button>
       </div>
+      </draggable>
     </div>
   </div>
 </template>
@@ -27,16 +29,17 @@
 <script>
 
 import ItineraryService from "@/services/ItineraryService.js";
-
+import draggable from 'vuedraggable';
   
 export default {
   name: "landmarks",
   // props: ["landmarks"],
   components: {
+    draggable
   },
   data() {
     return {
-      // landmarklist: this.landmarks,
+      landmarklist: this.landmarks,
       landmarks: []
     };
   },
@@ -64,12 +67,12 @@ export default {
 </script>
 
 <style scoped>
-/* .LandmarksGrid {
+.LandmarksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 40px;
   text-decoration: none;
-} */
+}
 
 .LandmarksList {
   /* border: 2px solid #2ac1d7;
