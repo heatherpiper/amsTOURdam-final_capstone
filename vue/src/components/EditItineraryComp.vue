@@ -69,6 +69,7 @@ import ItineraryService from "@/services/ItineraryService";
 
 export default {
   name: "edit-itinerary",
+  
   data() {
     return {
       showForm: false,
@@ -93,24 +94,33 @@ export default {
   },
 
   methods: {
+    getItineraryData(itineraryId) {
+    ItineraryService.getMyItinerary(itineraryId)
+      .then((response) => {
+        console.log(response);
+        this.editedItinerary = response.data;
+      })
+      .catch(function (error) {
+        if (error.response) {
+          if (error.response.status == 404) {
+            alert(error.response.data.message);
+          }
+        }
+      });
+  },
     updateItinerary() {
-      this.itineraryId = this.$store.state.itinerary.id;
+
 
       ItineraryService.updateItineraryByItineraryId(
-        this.itineraryId,
+      
         this.editedItinerary
       )
         .then((response) => {
           if (response.status === 200) {
             if (response.data) {
               this.editedItinerary = response.data;
-              // this.$store.commit("UPDATE_ITINERARY", this.editedItinerary);
-              //console.log(this.editedItinerary);
-              this.$router.push({
-                name: "myitinerary",
-                params: { id: this.editedItinerary.itineraryId },
-              });
-              this.resetForm();
+              this.$store.commit("UPDATE_ITINERARY", this.editedItinerary);
+              console.log(this.editedItinerary);
             } else {
               console.error(
                 "Response data is missing 'id' property:",
@@ -137,24 +147,11 @@ export default {
       this.resetForm();
     },
   },
-  getItineraryData: function (itineraryId) {
-    ItineraryService.getMyItinerary(itineraryId)
-      .then((response) => {
-        //console.log(response.data.itinerary);
-        this.editedItinerary = response.data;
-      })
-      .catch(function (error) {
-        if (error.response) {
-          if (error.response.status == 404) {
-            alert(error.response.data.message);
-          }
-        }
-      });
-  },
-  async mounted() {
-    this.getItineraryData(this.$route.params.itineraryid);
+  
+  created() {
+    this.getItineraryData(this.$route.params.id);
     //console.log(this.$route.params.itineraryId);
-    console.warn(this.$route.params.itineraryId)
+    console.warn("im here" + this.$route.params.id)
   },
 };
 </script>
