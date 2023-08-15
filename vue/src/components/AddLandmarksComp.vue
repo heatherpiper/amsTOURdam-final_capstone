@@ -161,7 +161,7 @@ export default {
 #form {
 width: 50vw;
 margin-top: 50px;
-background-color:aliceblue;
+background-color:rgba(13, 13, 17, 0.667);
 }
 .form-element {
 display: flex;

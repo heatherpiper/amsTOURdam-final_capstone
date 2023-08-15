@@ -119,8 +119,7 @@ form {
     font-size: 40px;
     border: 2px solid;
     color: #519BCB;
-    font-family: Arial, 'Times New Roman', Times, serif;
-    background-color: #ffffffdd;
+    background-color: rgba(13, 13, 17, 0.667);
     margin: 0 auto;
     border-radius: 5px;
 }
@@ -132,8 +131,5 @@ div.create-form-button {
 #my-itineraries {
     width: 800px;
 }
-/* 
-label {
-  padding: 20px;
-} */
+
 </style>
