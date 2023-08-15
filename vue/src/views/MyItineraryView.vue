@@ -2,6 +2,7 @@
   <div>
     <MyItineraryComp />
     <br>
+    <EditItineraryCompVue />
     <br>
      <ItineraryLandmarksToVisitComp />
     <br>
@@ -17,6 +18,7 @@
 import MyItineraryComp from "../components/MyItineraryComp.vue";
 import LandmarksComp from "../components/LandmarksComp.vue";
 import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
+import EditItineraryCompVue from '../components/EditItineraryComp.vue';
 
 export default {
   components: {
@@ -24,6 +26,7 @@ export default {
     MyItineraryComp,
     ItineraryLandmarksToVisitComp,
     LandmarksComp,
+     EditItineraryCompVue,
     
   },
 };
