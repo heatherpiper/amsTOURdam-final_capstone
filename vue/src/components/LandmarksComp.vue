@@ -1,8 +1,8 @@
 <template>
 <div class="landmarks">
+  <h1>Landmarks</h1>
     <div class="LandmarksGrid">
-       <draggable v-model="landmarklist" @start="drag=true" @end="drag=false">
-
+       <draggable v-model="landmarklist" group="cards" @start="drag=true" @end="drag=false">
       <div
         class="LandmarksList"
         v-for="landmark in landmarks"
@@ -18,8 +18,6 @@
         </div>
         <div class="landmark-description">{{ landmark.description }}</div>
         <br>
-        <div>
-        </div>
         <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="$store.state.token !== ''">Add Landmark to Itinerary</button>
       </div>
       </draggable>
@@ -29,14 +27,14 @@
 
 <script>
 
-// import draggable from 'vuedraggable';
+import draggable from 'vuedraggable';
 import LandmarksService from '../services/LandmarksService';
 import ItineraryService from '../services/ItineraryService';
   
 export default {
   name: "landmarks",
   components: {
-    // draggable
+    draggable
   },
   data() {
     return {

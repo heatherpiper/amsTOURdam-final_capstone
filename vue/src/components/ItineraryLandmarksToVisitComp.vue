@@ -2,25 +2,30 @@
 <div class="landmarks">
     <div class="LandmarksGrid">
         <h1>Landmarks On My Itinerary: </h1>
+         <draggable v-model="landmarklist" group="cards" @start="drag=true" @end="drag=false">
       <div class="LandmarksList" v-for="landmark in landmarks" :key="landmark.landmark_id" >
         <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }" >
           <h2>{{ landmark.name }}</h2>
         </router-link>
+        <div class="landmark-image-container">
+          <img class="landmark-image" v-bind:src="landmark.imageName" />
+        </div>
+        <div class="landmark-description">{{ landmark.description }}</div>
         <br>
       </div>
-      <!-- </draggable> -->
+      </draggable>
     </div>
   </div>
 </template>
 
 <script>
-
+import draggable from 'vuedraggable';
 import ItineraryService from "@/services/ItineraryService.js";
   
 export default {
   name: "landmarks",
   components: {
-    // draggable
+    draggable
   },
   data() {
     return {
@@ -64,8 +69,8 @@ export default {
 }
 
 .LandmarksList {
-  /* border: 2px solid #2ac1d7;
-  padding: 20px; */
+  border: 2px solid #2ac1d7;
+  padding: 20px;
   font-family: 'Inter', sans-serif;
 }
 
