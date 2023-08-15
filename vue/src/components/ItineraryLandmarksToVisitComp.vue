@@ -2,23 +2,11 @@
 <div class="landmarks">
     <div class="LandmarksGrid">
         <h1>Landmarks On My Itinerary: </h1>
-      <div
-        class="LandmarksList"
-        v-for="landmark in landmarks"
-        :key="landmark.landmark_id"
-      >
-        <router-link
-          :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }"
-        >
+      <div class="LandmarksList" v-for="landmark in landmarks" :key="landmark.landmark_id" >
+        <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }" >
           <h2>{{ landmark.name }}</h2>
         </router-link>
-        <!-- <div class="landmark-image-container">
-          <img class="landmark-image" v-bind:src="landmark.imageName" />
-        </div> -->
-        <!-- <div class="landmark-description">{{ landmark.description }}</div> -->
         <br>
-        <!-- <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button> -->
-        <!-- <button @click="removeDestinationFromItinerary()">Remove Destination From Itinerary</button> -->
       </div>
     </div>
   </div>
@@ -27,25 +15,23 @@
 <script>
 
 import ItineraryService from "@/services/ItineraryService.js";
-
   
 export default {
   name: "landmarks",
-  // props: ["landmarks"],
   components: {
   },
   data() {
     return {
-      // landmarklist: this.landmarks,
-      landmarks: []
+
+      landmarks: [],
+      itinerary: []
     };
   },
   methods: {
-  //  addLandmarkToItinerary(landmark) {            // Figure something like this out ??
-  //   this.$store.commit('ADD_LANDMARK_TO_ITINERARY', landmark);
-  // },
-    // addNewDestinationToItinerary() {
-    //   ItineraryService.addLandmarkToItinerary(this.itineraryId, this.landmarkId)
+    //   refreshItinerary() {
+    //   ItineraryService.getLandmarksByUserAndItineraryId().then( (response) => {
+    //   this.itinerary = response.data;
+    //   })
     // }
   },
   created() {
@@ -55,7 +41,11 @@ export default {
     console.log(selectedItineraryId);
     ItineraryService.getLandmarksByUserAndItineraryId(this.userId, selectedItineraryId).then( (response) => {
       this.landmarks = response.data;
+      this.itinerary = response.data;
       console.log(this.landmarks);
+      console.log(this.itinerary);
+        // this.refreshItinerary();
+
     }
 
     )
