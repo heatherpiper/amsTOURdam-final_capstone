@@ -4,10 +4,11 @@
     <br>
     <EditItineraryCompVue />
     <br>
+    <GoogleMapsComp v-if="!isLoading"  v-bind:landmarks="landmarks"/>
+
     <br>
      <ItineraryLandmarksToVisitComp v-if="!isLoading" v-bind:landmarks="landmarks"/>
     <br>
-    <!-- <GoogleMapsComp v-bind:landmarks="landmarks"/> -->
     <br>
      <LandmarksComp />
      </div>
@@ -22,6 +23,8 @@ import LandmarksComp from "../components/LandmarksComp.vue";
 import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
 import EditItineraryCompVue from '../components/EditItineraryComp.vue';
 import ItineraryService from '../services/ItineraryService';
+import GoogleMapsComp from "../components/GoogleMapsComp.vue";
+ 
 
 export default {
   components: {
@@ -30,6 +33,7 @@ export default {
     ItineraryLandmarksToVisitComp,
     LandmarksComp,
      EditItineraryCompVue,
+     GoogleMapsComp
     
   },
    data() {
