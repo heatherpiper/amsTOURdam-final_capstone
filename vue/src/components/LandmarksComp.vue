@@ -2,9 +2,10 @@
 <div class="landmarks">
     <div class="LandmarksGrid">
        <draggable v-model="landmarklist" @start="drag=true" @end="drag=false">
+
       <div
         class="LandmarksList"
-        v-for="landmark in landmarklist"
+        v-for="landmark in landmarks"
         :key="landmark.landmark_id"
       >
         <router-link
@@ -17,7 +18,9 @@
         </div>
         <div class="landmark-description">{{ landmark.description }}</div>
         <br>
-        <button @click="addLandmarkToItinerary(landmark)">Add Landmark to Itinerary</button>
+        <div>
+        </div>
+        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button>
       </div>
       </draggable>
     </div>
@@ -25,24 +28,68 @@
 </template>
 
 <script>
-import draggable from 'vuedraggable';
 
+// import draggable from 'vuedraggable';
+import LandmarksService from '../services/LandmarksService';
+import ItineraryService from '../services/ItineraryService';
+  
 export default {
   name: "landmarks",
-  props: ["landmarks"],
   components: {
-    draggable
+    // draggable
   },
   data() {
     return {
-      landmarklist: this.landmarks,
+      landmarks: [],
+      itinerary: [],
+      addedLandmarks: [],
+
     };
   },
-  methods: {
-   addLandmarkToItinerary(landmark) {     // Implement something like this for button above ???
-      this.landmarklist.push(landmark);
+  computed: {
+    itineraryId() {
+      return this.$route.params.id;
+    },
+    showAddButton() {
+      return this.$route.name === 'myitinerary';
     },
   },
+  methods: {
+    addNewDestinationToItinerary(itineraryId, landmarkId) {
+
+      if (this.addedLandmarks.includes(landmarkId)) {
+        alert('This location is already in your itinerary.');
+        return;         //Only barely works, and that's if you don't refresh the page
+      }
+
+      ItineraryService.addLandmarkToUserListByItineraryId(itineraryId, landmarkId).then((response) => {
+
+        if(response.status == 201) {
+          // this.refreshItinerary();
+       
+          this.addedLandmarks.push(landmarkId);
+          alert('This location has been added to your itinerary!');
+        }
+      }).catch(error => {
+        console.log(error);
+      })
+    },
+    // refreshItinerary() {
+    //   ItineraryService.getLandmarksByUserAndItineraryId().then( (response) => {
+    //   this.itinerary = response.data;
+ 
+    // })
+    // }
+  },
+  created() {
+    LandmarksService.getAllLandmarks().then( (response) => {
+      this.landmarks = response.data;
+      //  this.refreshItinerary(); 
+
+    }
+
+    )
+  }
 }
 </script>
 
