@@ -2,7 +2,6 @@
   <div class="my-itinerary-vue">
     <MyItineraryComp />
     <br>
-    <br>
     <GoogleMapsComp v-if="!isLoading" v-bind:landmarks="landmarks"/>
     <br>
     <br>
