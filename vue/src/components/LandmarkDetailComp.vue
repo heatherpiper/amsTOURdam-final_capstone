@@ -5,6 +5,10 @@
     <div class="img">
       <img class="landmark-image" v-bind:src="landmark.imageName" />
     </div>
+    <br>
+    <div class="upload-photos-button">
+      <ImageUploadComp />
+    </div>
     <h3 class="address">
       Address: {{ landmark.address?.street }}
       {{ landmark.address?.houseNumber }} {{ landmark.address?.postalCode }}
@@ -32,10 +36,14 @@
 
 <script>
 import LandmarksService from "../services/LandmarksService";
+import ImageUploadComp from './ImageUploadComp.vue';  
 
 export default {
   name: "landmark-detail",
   props: ["landmarks"],
+  components: {
+    ImageUploadComp
+  },
   data() {
     return {
       landmarkId: 0,

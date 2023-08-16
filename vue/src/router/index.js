@@ -13,7 +13,7 @@ import CreateItinerary from '@/views/CreateItineraryView.vue'
 import MyItineraries from '@/views/MyItinerariesView.vue'
 import AdminItineraries from '@/views/AdminItinerariesView.vue'
 import EditItinerary from '../components/EditItineraryComp.vue'
-
+import CreateARouteView from '@/views/CreateARouteView.vue'
 
 
 Vue.use(Router)
@@ -135,6 +135,16 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: "/createroute",
+      name: 'createroute',
+      component: CreateARouteView,
+      meta: {
+        requiresAuth: true
+      }
+      
+
+    }
     
   ]
 
