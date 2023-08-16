@@ -3,7 +3,7 @@
         <div id="my-itineraries-button">
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">
           <div>
-             <h2>Return To My Itineraries</h2>
+             <h4>Return To My Itineraries</h4>
           </div>
         </router-link>
     </div>
@@ -42,7 +42,8 @@ export default {
   computed:{
     itinerary(){
      return this.$store.getters.itinerary
-    }
+    },
+   
 
   },
   created() {
