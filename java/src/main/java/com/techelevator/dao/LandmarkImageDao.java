@@ -8,8 +8,8 @@ public interface LandmarkImageDao {
 
     void addImage(LandmarkImage image);
 
-    List<LandmarkImage> getImagesByLandmarkId(Integer landmarkId);
+    List<LandmarkImage> getImagesByLandmarkId(int landmarkId);
 
-    List<LandmarkImage> getImagesByUserId (Integer userId);
+    List<LandmarkImage> getImagesByUserId (int userId);
 
 }
