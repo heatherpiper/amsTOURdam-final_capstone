@@ -2,7 +2,7 @@
   <div id="edit-itinerary">
     <div class="edit-form-button" v-show="!showForm">
       <a href="#" v-on:click.prevent="showForm = true">
-        <h2>Edit an Itinerary:</h2>
+        <h2>Edit Itinerary:</h2>
       </a>
     </div>
     <br />

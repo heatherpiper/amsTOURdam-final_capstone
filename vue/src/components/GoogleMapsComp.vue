@@ -1,8 +1,11 @@
 <template>
   <div id="map-container">
     <div class="map-content">
-      <div class="locations-of-interest">
-        <h2>Locations of interest:</h2>
+      <div class="locations-of-interest" v-if="showLocationsOfInterestHeader">
+        <h2>Locations of Interest:</h2>
+      </div>
+      <div class="locations-of-interest" v-if="showMyItinerariesLandmarks">
+        <h2>Locations on My Itinerary:</h2>
       </div>
 
       <div class="map-container">
@@ -37,6 +40,14 @@ export default {
       markers: [],
       places: [],
     };
+  },
+  computed: {
+     showLocationsOfInterestHeader() {
+      return this.$route.name === 'landmarks';
+    },
+    showMyItinerariesLandmarks() {
+      return this.$route.name === 'myitinerary';
+    }
   },
   mounted() {
     this.geolocate();
