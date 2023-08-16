@@ -7,37 +7,34 @@
 <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
 
 <script type="text/javascript">  
-const cloudName = "amsTOURdam";
-const uploadPreset = "eadcikpc";
 
-const myWidget = cloudinary.createUploadWidget(
-    {
-        cloudName: amsTOURdam,
-        uploadPreset: eadcikpc,
-        sources: [ "local", "url"],
+export default {
+  name: "UploadWidget",
+  data: () => ({
+    myWidget: null,
+    open: function () {
+      this.myWidget.open();
+    },
+  }),
+  mounted() {
+    this.myWidget = cloudinary.createUploadWidget(
+      {
+        cloudName: "amsTOURdam",
+        uploadPreset: "eadcikpc",
+        sources: ["local", "url"],
         multiple: true,
         clientAllowedFormats: ["images"],
         maxImageFileSize: 5000000,
         maxImageWidth: 2000,
         maxImageHeight: 2000
-    },
-    (error, result) => {
+      },
+      (error, result) => {
         if (!error && result && result.event === "success") {
-            console.log("Done! Here is the image info: ", result.info);
-            document
-                .getElementById("uploadedimage")
-                .setAttribute("src", result.info.secure_url);
+          this.$emit('image-uploaded', result.info.secure_url);
         }
-    }
-);
-
-export default {
-  name: "UploadWidget",
-  data: () => ({
-    open: function () {
-      myWidget.open();
-    },
-  }),
+      }
+    );
+  },
   props: {
     msg: String,
   },
