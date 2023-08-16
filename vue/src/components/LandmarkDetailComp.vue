@@ -16,17 +16,16 @@
     </h3>
     <h3 class="cost">Cost of Entry: {{ landmark.costOfEntry }}</h3>
     <h3 class="reviews">Reviews: {{ landmark.reviews }}</h3>
-    <div id="return-to-landmarks-button">
-      <router-link
-        class="navlink"
-        @click.prevent.stop
-        v-bind:to="{ name: 'landmarks' }"
-      >
-        <div>
-          <h2>Return To Landmarks</h2>
-        </div>
-      </router-link>
-    </div>
+    <div class="button-container">
+        <router-link style="text-decoration: none;" class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">
+          <div>
+            <h2>Check Out More Landmarks</h2>
+          </div>
+        </router-link>
+        <router-link style="text-decoration: none;" class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries' }">
+          <h2>Make an Itinerary</h2>
+        </router-link>
+      </div>
   </div>
 </template>
 
@@ -69,4 +68,29 @@ img.landmark-image {
   margin: 0 auto;
   width: 500px;
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.navlink h2 {
+  font-size: 20px;
+  border: 10px solid  #298a91;
+  background-color: #298a91;
+  border-radius: 45px;
+  color: white;
+  text-decoration: none;
+}
+
+.navlink h2:hover {
+  color: darksalmon;
+  text-decoration: none;
+}
+
+router-link {
+    text-decoration: none;
+}
+
 </style>
