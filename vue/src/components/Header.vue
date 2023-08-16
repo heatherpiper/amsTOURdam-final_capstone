@@ -50,12 +50,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 nav {
   mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 20px 0 0 0;
+  z-index: 1000;
 }
 
 nav ul {
