@@ -1,42 +1,62 @@
 <template>
-    <div>
-        <button v-on:click="open" id="upload_widget" class="cloudinary-button">Upload photos</button>
+    <div class="hello">
+      <button
+        v-on:click="defineWidget()"
+        id="upload_widget"
+        class="cloudinary-button"
+      >
+        Upload photos
+      </button>
     </div>
-</template>
-
-<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
-
-<script type="text/javascript">  
-
-export default {
-  name: "UploadWidget",
-  data: () => ({
-    myWidget: null,
-    open: function () {
-      this.myWidget.open();
+  </template>
+  <script>
+  export default {
+    name: "HelloWorld",
+    props: {
+      msg: String,
     },
-  }),
-  mounted() {
-    this.myWidget = cloudinary.createUploadWidget(
-      {
-        cloudName: "amsTOURdam",
-        uploadPreset: "eadcikpc",
-        sources: ["local", "url"],
-        multiple: true,
-        clientAllowedFormats: ["images"],
-        maxImageFileSize: 5000000,
-        maxImageWidth: 2000,
-        maxImageHeight: 2000
+    data() {
+      return {
+        myWidget: {},
+      };
+    },
+    methods: {
+      defineWidget() {
+        const cloudName = "dcl7rtlvy";
+        const uploadPreset = "eadcikpc";
+        this.myWidget = window.cloudinary.createUploadWidget(
+          {
+            cloudName: cloudName,
+            uploadPreset: uploadPreset,
+            // ... other options
+          },
+          (error, result) => {
+            if (!error && result && result.event === "success") {
+              console.log("Done! Here is the image info: ", result.info);
+              // document
+              //   .getElementById("uploadedimage")
+              //   .setAttribute("src", result.info.secure_url);
+            }
+          }
+        ).open();
       },
-      (error, result) => {
-        if (!error && result && result.event === "success") {
-          this.$emit('image-uploaded', result.info.secure_url);
-        }
-      }
-    );
-  },
-  props: {
-    msg: String,
-  },
-};
-</script>
+    },
+  };
+  </script>
+  <!-- Add "scoped" attribute to limit CSS to this component only -->
+  <style scoped>
+  h3 {
+    margin: 40px 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42B983;
+  }
+  </style>
