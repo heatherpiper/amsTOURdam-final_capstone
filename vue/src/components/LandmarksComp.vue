@@ -2,7 +2,7 @@
 <div class="landmarks">
   <h1>Landmarks</h1>
     <div class="LandmarksGrid">
-       <draggable v-model="landmarks" group="cards" @start="drag=true" @end="drag=false" @change.self="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)">
+       <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag=true" @end="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)">
       <div
         class="LandmarksList"
         v-for="landmark in landmarks"
@@ -21,7 +21,7 @@
         <br>
         <div>
         </div>
-        <!-- <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button> -->
+        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button>
       </div>
       </draggable>
     </div>
@@ -144,5 +144,9 @@ img.landmark-image {
   padding-bottom: 20px;
   max-width: 300px;
   max-height: 300px;
+}
+
+.draggable-landmarks {
+  display: contents; 
 }
 </style>
