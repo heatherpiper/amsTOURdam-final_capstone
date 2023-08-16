@@ -12,8 +12,8 @@ const uploadPreset = "eadcikpc";
 
 const myWidget = cloudinary.createUploadWidget(
     {
-        cloudName: cloudName,
-        uploadPreset: uploadPreset,
+        cloudName: amsTOURdam,
+        uploadPreset: eadcikpc,
         sources: [ "local", "url"],
         multiple: true,
         clientAllowedFormats: ["images"],
