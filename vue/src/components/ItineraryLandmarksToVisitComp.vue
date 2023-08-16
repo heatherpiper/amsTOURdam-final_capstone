@@ -11,10 +11,10 @@
         <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }" >
           <h2>{{ landmark.name }}</h2>
         </router-link>
-        <!-- <div class="landmark-image-container">
+        <div class="landmark-image-container">
           <img class="landmark-image" v-bind:src="landmark.imageName" />
-        </div> -->
-        <!-- <div class="landmark-description">{{ landmark.description }}</div> -->
+        </div>
+        <div class="landmark-description">{{ landmark.description }}</div>
         <br>
       </div>
         <div>
@@ -79,7 +79,7 @@ export default {
 }
 
 .LandmarksList {
-  /* border: 2px solid #2ac1d7; */
+  border: 2px solid #2ac1d7;
   padding: 20px;
   font-family: 'Inter', sans-serif;
 }
