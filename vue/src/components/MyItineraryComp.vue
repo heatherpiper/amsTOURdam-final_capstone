@@ -1,23 +1,30 @@
 <template>
   <div>
-        <div id="my-itineraries-button">
-        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">
-          <div>
-             <h4 class="return-to-itineraries-header">Return To My Itineraries</h4>
-          </div>
-          <br>
-        </router-link>
+    <div id="my-itineraries-button">
+      <router-link
+        class="navlink"
+        @click.prevent.stop
+        v-bind:to="{ name: 'myitineraries' }"
+        v-if="$store.state.token !== ''"
+      >
+        <div>
+          <h4 class="return-to-itineraries-header">Return To My Itineraries</h4>
+        </div>
+        <br />
+      </router-link>
     </div>
     <div id="my-itinerary">
       <h1 class="my-itinerary-header">My Intinerary:</h1>
       <div class="info-item">Itinerary Id: {{ itinerary.itineraryId }}</div>
-      <div class="itinerary-name">Itinerary Name: {{ itinerary.itineraryName }}</div>
-      <div class="info-item">Starting Location (Address) {{ itinerary.startingLocation }}</div>
+      <div class="itinerary-name">
+        Itinerary Name: {{ itinerary.itineraryName }}
+      </div>
+      <div class="info-item">
+        Starting Location (Address) {{ itinerary.startingLocation }}
+      </div>
     </div>
 
-     <div class="my-itinerary-landmarks">
-    </div>
-
+    <div class="my-itinerary-landmarks"></div>
   </div>
 </template>
 
@@ -25,19 +32,39 @@
 import ItineraryService from "@/services/ItineraryService.js";
 export default {
   name: "my-itinerary",
-  components: {
-  },
+  components: {},
   data() {
     return {
-      
+      addedLandmarkIds: [],
     };
   },
-  computed:{
-    itinerary(){
-     return this.$store.getters.itinerary
+  computed: {
+    itinerary() {
+      return this.$store.getters.itinerary;
     },
-   
+    methods: {
+      addLandmark(landmarkId) {
+        if (!this.addedLandmarkIds.includes(landmarkId)) {
+          this.addedLandmarkIds.push(landmarkId);
 
+          this.$router.replace({
+            name: "myitineraries",
+            params: { id: this.itinerary.itineraryId },
+          });
+        }
+      },
+      removeLandmark(landmarkId) {
+        const index = this.addedLandmarkIds.indexOf(landmarkId);
+        if (index !== -1) {
+          this.addedLandmarkIds.splice(index, 1);
+         
+          this.$router.replace({
+            name: "myitineraries",
+            params: { id: this.itinerary.itineraryId },
+          });
+        }
+      },
+    },
   },
   created() {
     const selectedItineraryId = this.$route.params.id;
@@ -46,7 +73,7 @@ export default {
       .then((response) => {
         if (response.status === 200) {
           if (response.data) {
-            this.$store.commit("ADD_ITINERARY", response.data)
+            this.$store.commit("ADD_ITINERARY", response.data);
             // this.itinerary = response.data;
             console.log(this.itinerary);
           } else {
@@ -65,7 +92,6 @@ export default {
 </script>
 
 <style>
-
 #my-itineraries-button {
   text-align: center;
 }
@@ -87,7 +113,7 @@ export default {
 #my-itinerary {
   padding: 20px;
   border: 2px solid;
-  background-color: #519BCB;
+  background-color: #519bcb;
   border-radius: 30px;
   width: 75%; /* Remove width property */
   margin: 0 auto;
@@ -106,5 +132,4 @@ export default {
   text-align: center;
   padding: 15px;
 }
-
 </style>

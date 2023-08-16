@@ -80,6 +80,9 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start; /* Keeps cards aligned at the top of each row */
+  padding: 150px;
+  border: 2px solid #2ac1d7;
+  margin: 20px;
 }
 
 .landmark-card {
@@ -97,7 +100,8 @@ h1 {
 }
 
 h2 {
-  font-size: 17px;
+  display: flex;
+  font-size: 90%;
   text-align: center;
 }
 
