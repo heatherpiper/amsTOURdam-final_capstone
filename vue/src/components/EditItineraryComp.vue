@@ -2,7 +2,7 @@
   <div id="edit-itinerary">
     <div class="edit-form-button" v-show="!showForm">
       <a href="#" v-on:click.prevent="showForm = true">
-        <h2>Edit Itinerary:</h2>
+        <h2 class="edit-header">Edit Itinerary:</h2>
       </a>
     </div>
     <br />
@@ -168,8 +168,20 @@ form {
   border-radius: 5px;
 }
 
-div.edit-form-button {
+.edit-header {
+    font-size: 50px;
+  text-align: center;
+  border: 2px solid;
+  width: 350px;
+  height: 80px;
   margin: 0 auto;
+  color: white;
+  background-color: #519BCB;
+  border-radius: 15px;
+}
+
+.edit-header:hover {
+    color: darksalmon;
 }
 
 

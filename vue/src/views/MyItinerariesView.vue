@@ -2,6 +2,7 @@
   <div>
     <MyItinerariesComp />
     <br>
+    <br>
     <CreateItineraryComp />
     <br>
    
