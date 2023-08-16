@@ -16,10 +16,9 @@
     "cloudinary-core": "^2.13.0",
     "core-js": "^3.9.1",
     "firebase": "^8.2.3",
-<<<<<<< HEAD
-=======
+
     "semantic-ui-css": "^2.5.0",
->>>>>>> 0d7950b3c8026ae2ff5a17fa91616c53005ac591
+
     "vue": "^2.6.12",
     "vue-gallery-slideshow": "^1.5.2",
     "vue-router": "^3.5.1",
