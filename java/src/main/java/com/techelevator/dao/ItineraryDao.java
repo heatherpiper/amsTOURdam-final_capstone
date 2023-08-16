@@ -22,4 +22,6 @@ public interface ItineraryDao {
     Itinerary createItineraryByUserId(int userId, Itinerary itinerary);
 
     void addLandmarkToUserListByItineraryId(int itineraryId, int landmarkId);
+
+    int removeLandmarkFromItineraryByLandmarkId(int itineraryId, int landmarkId);
 }
