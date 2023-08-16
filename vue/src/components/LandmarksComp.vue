@@ -3,17 +3,11 @@
   <h1>Landmarks</h1>
     <div class="LandmarksGrid">
        <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag=true" @end="drag=false" @change="addNewDestinationToItinerary(itineraryId, $event)">
-      <div
-        class="LandmarksList"
-        v-for="(landmark, index) in landmarks"
-        :key="index"
-       
-      >
-        <router-link
-          :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }"
-        >
-          <h2>{{ landmark.name }}</h2>
+      <div class="LandmarksList" v-for="(landmark, index) in landmarks" :key="index">
+        <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }" >
+          <h2 class="landmark-name">{{ landmark.name }}</h2>
         </router-link>
+        <br>
         <div class="landmark-image-container">
           <img class="landmark-image" v-bind:src="landmark.imageName" />
         </div>
@@ -113,18 +107,20 @@ export default {
 .LandmarksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
+  gap: 20px;
   text-decoration: none;
 }
 
 .LandmarksList {
   border: 2px solid #2ac1d7;
-  padding: 20px;
+  padding: 10px;
   font-family: 'Inter', sans-serif;
+  border-radius: 5px;
 }
 
-h2 {
+h2.landmark-name {
   font-size: 20px;
+  text-align: center;
 }
 
 div.landmark-image-container {
@@ -135,8 +131,8 @@ img.landmark-image {
   display: block;
   margin: 0 auto;
   padding-bottom: 20px;
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 280px;
+  max-height: 280px;
 }
 
 .draggable-landmarks {
