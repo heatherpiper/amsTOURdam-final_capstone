@@ -18,11 +18,9 @@
         class="itinerary-item"
       >
         <ul class="itinerary-info">
-          <li class="info-item">Id: {{ itinerary.itineraryId }}</li>
-          <li class="info-item">Itinerary Name: {{ itinerary.itineraryName }}</li>
+          <!-- <li class="info-item">Itinerary Id: {{ itinerary.itineraryId }}</li> -->
+          <li class="info-item" id="itinerary-name">Itinerary Name: {{ itinerary.itineraryName }}</li>
           <li class="info-item">Starting Location (Address): {{ itinerary.startingLocation }}</li>
-          <li class="info-item">Starting Location (Latitude): {{ itinerary.latitude }}</li>
-          <li class="info-item">Starting Location (Longitude): {{ itinerary.longitude }}</li>
         </ul>
         </router-link>
       
@@ -106,10 +104,20 @@ h1 {
   align-items: center;
   padding: 20px;
   border: 2px solid;
-  color: #519BCB;
-  background-color: #ffffffdd;
+  background-color: #519BCB;
   border-radius: 5px;
-  width: 100%; /* Remove width property */
+  width: 90%; /* Remove width property */
+  margin: 20px;
+}
+
+#itinerary-name {
+  font-weight: bold;
+  font-size: 20px
+}
+
+li.info-item {
+  color: white;
+  font-size: 15px;
 }
 
 div.itinerary-box:hover {

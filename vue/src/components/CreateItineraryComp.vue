@@ -2,7 +2,7 @@
   <div id="create-itinerary">
     <div class="create-form-button" v-show="!showForm">
             <a href="#" v-on:click.prevent="showForm = true">
-              <h2>Create an Itinerary:</h2>
+              <h2 class="create-header">Create an Itinerary</h2>
             </a>
         </div>
     <br />
@@ -126,6 +126,23 @@ form {
 
 div.create-form-button {
   margin: 0 auto;
+}
+
+.create-header {
+  font-size: 50px;
+  text-align: center;
+  border: 2px solid;
+  width: 450px;
+  height: 80px;
+  margin: 0 auto;
+  color: white;
+  background-color: #519BCB;
+  border-radius: 15px;
+
+}
+
+.create-header:hover {
+  color: darksalmon;
 }
 
 #my-itineraries {
