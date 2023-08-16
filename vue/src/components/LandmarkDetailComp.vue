@@ -4,6 +4,9 @@
     <h2 class="landmark-name">{{ landmark.name }}</h2>
     <div class="img">
       <img class="landmark-image" v-bind:src="landmark.imageName" />
+    </div>
+    <br>
+    <div class="upload-photos-button">
       <ImageUploadComp />
     </div>
     <h3 class="address">
