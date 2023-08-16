@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <DirectionsMapCompVue />
-    <OriginDestinationFormVue />
-    <RouteListVue />
+  <div id="map-view-container">
+    <div id="map-container">
+      <DirectionsMapCompVue />
+      <OriginDestinationFormVue />
+      <RouteListVue />
+    </div>
   </div>
 </template>
 
@@ -20,5 +22,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+#map-view-container {
+  position: relative; 
+  height: 100vh;
+}
+
+#map-container {
+  /* position: relative;  */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 </style>
