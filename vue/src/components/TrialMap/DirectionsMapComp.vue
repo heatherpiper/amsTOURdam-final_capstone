@@ -1,0 +1,153 @@
+<template>
+  <section class="map" ref="map"></section>
+</template>
+
+<script>
+import { EventBus } from "@/EventBus.js";
+
+export default {
+  data() {
+    return {
+      map: null,
+    };
+  },
+  mounted() {
+    // eslint-disable-next-line no-undef
+    this.map = new google.maps.Map(this.$refs["map"], {
+      // eslint-disable-next-line no-undef
+      center: new google.maps.LatLng(52.3676, 4.9041),
+      zoom: 15,
+      // eslint-disable-next-line no-undef
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+    });
+
+    // eslint-disable-next-line no-undef
+    const directionsService = new google.maps.DirectionsService();
+    // eslint-disable-next-line no-undef
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+
+    EventBus.$on("route-data", ({ origin, destination }) => {
+      directionsService.route(
+        {
+          origin: origin.address,
+          destination: destination.address,
+          travelMode: "DRIVING",
+        },
+        (response, status) => {
+          if (status === "OK") {
+            directionsRenderer.setDirections(response);
+            directionsRenderer.setMap(this.map);
+          }
+          console.log(response);
+          console.log(status);
+        }
+      );
+    });
+    EventBus.$on("routes-data", (routes) => {
+      routes.forEach(({ origin, destination, distance, duration, color }) => {
+        directionsService.route(
+          {
+            origin: origin.address,
+            destination: destination.address,
+            travelMode: "DRIVING",
+          },
+          (response, status) => {
+            if (status === "OK") {
+              // eslint-disable-next-line no-undef
+              const directionsRenderer = new google.maps.DirectionsRenderer({
+                suppressMarkers: true,
+                directions:response,
+                map: this.map,
+                polylineOptions: {
+                    strokeColor: color,
+                    strokeWeight: 8
+                }
+
+              });
+
+              this.createInfoWindowWith(origin, "marker alternate", color);
+              this.createInfoWindowWith(destination, "flag checkered", color);
+
+              const overviewPath = response.routes[0].overview_path;
+              const middleIndex = parseInt(overviewPath.length / 2);
+              const middleLoc = overviewPath[middleIndex];
+
+              // eslint-disable-next-line no-undef
+              const distanceDurationLabel = new google.maps.InfoWindow({
+                content: `<div style="background-color:${color};padding:5px;"><i class="icon car"></i> ${distance.text} -${duration.text}</div>`,
+                // eslint-disable-next-line no-undef
+                position: new google.maps.LatLng(
+                  middleLoc.lat(),
+                  middleLoc.lng()
+                ),
+              });
+              distanceDurationLabel.open(this.map, null);
+
+              directionsRenderer.setDirections(response);
+              directionsRenderer.setMap(this.map);
+
+              this.createPolylineWith(
+                [
+                  { lat: origin.lat, lng: origin.lng },
+                  { lat: overviewPath[0].lat(), lng: overviewPath[0].lng() },
+                ], color);
+
+              this.createPolylineWith(
+                [
+                  { lat: destination.lat, lng: destination.lng },
+                  {
+                    lat: overviewPath[overviewPath.length - 1].lat(),
+                    lng: overviewPath[overviewPath.length - 1].lng()
+                  }
+                ], color);
+            }
+          }
+        );
+      });
+    });
+  },
+  methods: {
+    createInfoWindowWith(location, icon, color) {
+      // eslint-disable-next-line no-undef
+      const infoWindow = new google.maps.InfoWindow({
+        content: `<div style="background-color:${color};padding:5px;"><i class="${icon} icon"></i> ${location.address}</div>`,
+        // eslint-disable-next-line no-undef
+        position: new google.maps.LatLng(location.lat, location.lng),
+      });
+
+      infoWindow.open(this.map, null);
+    },
+    createPolylineWith(path, color) {
+      // eslint-disable-next-line no-undef
+      new google.maps.Polyline({
+        path: path,
+        strokeColor: color,
+        strokeOpacity: 1,
+        strokeWeight: 8,
+        map: this.map,
+      });
+    },
+  },
+};
+</script>
+
+
+<style >
+.map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+}
+.gm-style-iw button {
+  display: none !important;
+}
+.gm-style .gm-style-iw-c {
+  padding: 0px !important;
+}
+.gm-style-iw-d {
+  overflow: hidden !important;
+}
+</style>
