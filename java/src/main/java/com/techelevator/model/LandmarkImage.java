@@ -4,10 +4,10 @@ import java.sql.Timestamp;
 
 public class LandmarkImage {
 
-    private Integer imageId;
+    private int imageId;
     private String imageUrl;
-    private Integer userId;
-    private Integer landmarkId;
+    private int userId;
+    private int landmarkId;
     private Timestamp uploadDate;
 
     public LandmarkImage(Integer imageId, String imageUrl, Integer userId, Integer landmarkId, Timestamp uploadDate) {
