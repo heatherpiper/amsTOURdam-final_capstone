@@ -13,7 +13,7 @@ import CreateItinerary from '@/views/CreateItineraryView.vue'
 import MyItineraries from '@/views/MyItinerariesView.vue'
 import AdminItineraries from '@/views/AdminItinerariesView.vue'
 import EditItinerary from '../components/EditItineraryComp.vue'
-
+import DistanceCalc from '@/pages/DistanceCalc.vue'
 
 
 Vue.use(Router)
@@ -135,6 +135,11 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: "/distancecalc",
+      component: DistanceCalc
+
+    }
     
   ]
 
