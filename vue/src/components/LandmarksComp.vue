@@ -33,7 +33,7 @@
 import draggable from 'vuedraggable';
 import LandmarksService from '../services/LandmarksService';
 import ItineraryService from '../services/ItineraryService';
-  
+
 export default {
   name: "landmarks",
   components: {
