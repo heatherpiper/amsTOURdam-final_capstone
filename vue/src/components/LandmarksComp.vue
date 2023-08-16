@@ -2,11 +2,11 @@
 <div class="landmarks">
   <h1>Landmarks</h1>
     <div class="LandmarksGrid">
-       <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag=true" @end="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)">
+       <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag=true" @end="drag=false" @change="addNewDestinationToItinerary(itineraryId, $event)">
       <div
         class="LandmarksList"
-        v-for="landmark in landmarks"
-        :key="landmark.landmark_id"
+        v-for="(landmark, index) in landmarks"
+        :key="index"
        
       >
         <router-link
@@ -21,7 +21,7 @@
         <br>
         <div>
         </div>
-        <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button>
+        <!-- <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button> -->
       </div>
       </draggable>
     </div>
@@ -53,16 +53,14 @@ export default {
     itineraryId() {
       return this.$route.params.id;
     },
-    showAddButton() {
-      return this.$route.name === 'myitinerary';
-    },
+    // showAddButton() {
+    //   return this.$route.name === 'myitinerary';
+    // },
     
   },
   methods: {
-    addNewDestinationToItinerary(itineraryId, landmarkId) {
-
-      console.log(this.itineraryId);
-
+    addNewDestinationToItinerary(itineraryId, event) {
+      const landmarkId = event.removed.element.landmark_id;
       if (this.addedLandmarks.includes(landmarkId)) {
         alert('This location is already in your itinerary.');
         return;         //Only barely works, and that's if you don't refresh the page
