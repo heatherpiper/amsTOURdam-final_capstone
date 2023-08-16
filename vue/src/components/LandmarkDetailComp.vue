@@ -4,6 +4,7 @@
     <h2 class="landmark-name">{{ landmark.name }}</h2>
     <div class="img">
       <img class="landmark-image" v-bind:src="landmark.imageName" />
+      <ImageUploadComp @image-uploaded="handleImageUploaded" />
     </div>
     <h3 class="address">
       Address: {{ landmark.address?.street }}
@@ -32,10 +33,14 @@
 
 <script>
 import LandmarksService from "../services/LandmarksService";
+import ImageUploadComp from './ImageUploadComp.vue';  
 
 export default {
   name: "landmark-detail",
   props: ["landmarks"],
+  components: {
+    ImageUploadComp
+  },
   data() {
     return {
       landmarkId: 0,
