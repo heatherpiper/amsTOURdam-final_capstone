@@ -4,7 +4,6 @@
         <RouteList />
         <DirectionsMapView />
 
-
     </main>
 </template>
 
