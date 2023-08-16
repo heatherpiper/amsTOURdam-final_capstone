@@ -1,9 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.DaoException;
 import com.techelevator.model.*;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -11,7 +8,6 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class JdbcLandmarkImageDao implements LandmarkImageDao {
@@ -27,20 +23,38 @@ public class JdbcLandmarkImageDao implements LandmarkImageDao {
         jdbcTemplate.update(sql, image.getImageUrl(), image.getUserId(), image.getLandmarkId());
     }
 
-    public List<LandmarkImage> getImagesByLandmarkId(Integer landmarkId) {
+    public List<LandmarkImage> getImagesByLandmarkId(int landmarkId) {
+        List<LandmarkImage> landmarkImagesByLandmarkId = new ArrayList<>();
         String sql = "SELECT * FROM landmark_images WHERE landmark_id = ?";
-        return jdbcTemplate.query(sql, new Object[]{landmarkId}, (rs, rowNum) -> {
-            LandmarkImage image = new LandmarkImage();
-            image.setImageId(rs.getInt("image_id"));
-            image.setImageUrl(rs.getString("image_url"));
-            image.setUserId(rs.getInt("user_id"));
-            image.setLandmarkId(rs.getInt("landmark_id"));
-            image.setUploadDate(rs.getTimestamp("upload_date"));
-            return image;
-        });
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landmarkId);
+        while(results.next()) {
+            LandmarkImage landmarkImage = mapRowToLandmarkImage(results);
+            landmarkImagesByLandmarkId.add(landmarkImage);
+        }
+        return landmarkImagesByLandmarkId;
     }
 
-    public List<LandmarkImage> getImagesByUserId(Integer userId) {
-        return null;
+    public List<LandmarkImage> getImagesByUserId(int userId) {
+        List<LandmarkImage> landmarkImagesByUserId = new ArrayList<>();
+        String sql = "SELECT * FROM landmark_images WHERE user_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while(results.next()) {
+            LandmarkImage landmarkImage = mapRowToLandmarkImage(results);
+            landmarkImagesByUserId.add(landmarkImage);
+        }
+        return landmarkImagesByUserId;
+    }
+
+    private LandmarkImage mapRowToLandmarkImage(SqlRowSet rs) {
+        LandmarkImage landmarkImage = new LandmarkImage();
+        landmarkImage.setImageId(rs.getInt("image_id"));
+        landmarkImage.setImageUrl(rs.getString("image_url"));
+        landmarkImage.setUserId(rs.getInt("user_id"));
+        landmarkImage.setLandmarkId(rs.getInt("landmark_id"));
+        landmarkImage.setUploadDate(rs.getTimestamp("upload_date"));
+
+        return landmarkImage;
     }
 }
