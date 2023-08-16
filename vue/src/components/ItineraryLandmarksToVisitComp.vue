@@ -5,7 +5,7 @@
     </div>
 
     <div class="LandmarksList">
-      <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag = true" @end="drag=false">
+      <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag = true" @end="drag = false" @change="deleteDestinationFromItinerary(itineraryId, landmarkId)">
         <div class="landmark-card" v-for="(landmark, index) in landmarks" :key="index">
           <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id }}">
             <h2>{{ landmark.name }}</h2>
@@ -40,12 +40,20 @@ export default {
     },
   },
   methods: {
+    deleteDestinationFromItinerary(itineraryId, landmarkId) {
+      ItineraryService.removeLandmarkFromItineraryByLandmarkId(itineraryId, landmarkId)
+      .then((response)=>{
+        if (response.status == 204) {
+          this.itinerary.pop(landmarkId)
+        }
+      });
+    }
+    },
     //   refreshItinerary() {
     //   ItineraryService.getLandmarksByUserAndItineraryId().then( (response) => {
     //   this.itinerary = response.data;
     //   })
     // },
-  },
   created() {
     this.userId = this.$store.state.user.id;
     console.log(this.userId);
