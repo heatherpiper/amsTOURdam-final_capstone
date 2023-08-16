@@ -90,11 +90,9 @@ export default {
             if(elements[0].status === "ZERO_RESULTS"){
               this.error = "No Results Found."
             } else{
-              console.log(elements[0].distance);
-              console.log(elements[0].duration);
-
               this.route.distance = elements[0].distance;
               this.route.duration = elements[0].duration;
+              this.route.color = this.getRandomColor();
 
               this.saveRoute();
             
@@ -112,8 +110,16 @@ export default {
     saveRoute(){
       const db = firebase.firestore();
       db.collection("routes").doc().set(this.route);
+    },
+    getRandomColor(){
+      let characters = "0123456789ABCDEF";
+      let color = "#";
+      for(let i = 0; i< 6; i++){
+        color += characters[Math.floor(Math.random() *16)];
+      }
+      return color;
     }
-  },
+  }
 };
 </script>
 

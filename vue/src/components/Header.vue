@@ -14,6 +14,9 @@
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">My Itineraries</router-link>
       </li>
       <li>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'createroute'}" v-if="$store.state.token !== ''">Create A Route</router-link>
+      </li>
+      <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'addlandmark' }" v-if="isAdmin()">Add Landmark</router-link>
       </li>
       <li>
