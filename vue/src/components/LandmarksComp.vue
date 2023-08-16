@@ -7,6 +7,7 @@
         class="LandmarksList"
         v-for="landmark in landmarks"
         :key="landmark.landmark_id"
+       
       >
         <router-link
           :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id } }"
