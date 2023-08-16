@@ -5,7 +5,7 @@
     </div>
 
     <div class="LandmarksList">
-      <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag = true" @end="drag = false" @change="deleteDestinationFromItinerary(itineraryId, landmarkId)">
+      <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag = true" @end="drag = false" @change="deleteDestinationFromItinerary(itineraryId, $event)">
         <div class="landmark-card" v-for="(landmark, index) in landmarks" :key="index">
           <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id }}">
             <h2>{{ landmark.name }}</h2>
@@ -40,11 +40,12 @@ export default {
     },
   },
   methods: {
-    deleteDestinationFromItinerary(itineraryId, landmarkId) {
+    deleteDestinationFromItinerary(itineraryId, event) {
+      const landmarkId = event.removed.element.landmark_id;
       ItineraryService.removeLandmarkFromItineraryByLandmarkId(itineraryId, landmarkId)
       .then((response)=>{
         if (response.status == 204) {
-          this.itinerary.pop(landmarkId)
+          this.landmarks.pop(landmarkId)
         }
       });
     }
