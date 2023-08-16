@@ -14,9 +14,9 @@
             </optgroup>
         </select>
         <button class="ui button show-all" @click="showAllRoutesButtonPressed">Show All</button>
-
+        <button class="ui button remove-route" @click="removeARoute">Delete A Route</button>
     </div>
-    <div class="item" v-for="route in routes" v-bind:key="route.id" @click="routeItemPressed(route)">
+    <div class="item" v-for="route in routes" v-bind:key="route.id" @click="routeItemPressed(route)" :style="{'background-color':route.color}" >
         <div><i class="marker alternate icon"></i>{{route.origin.address}}</div>
         <div><i class="flag checkered icon"></i>{{route.destination.address}}</div>
         <div class="ui label small">{{route.distance.text}}</div>
@@ -69,6 +69,22 @@ export default {
         },
         showAllRoutesButtonPressed(){
             EventBus.$emit("routes-data", this.routes);
+        },
+        removeARoute(){
+            const route = this.routes.shift();
+            const db = firebase.firestore();
+            console.log(route);
+            db.collection("routes").doc(route.id).delete()
+            .then(() => {
+                console.log("Route successfully deleted From Firebase!");
+                const index =  this.routes.findIndex(r => r.id === route.id);
+                if (index !== -1) {
+                    this.routes.splice(index, 1);
+                }
+            })
+            .catch(error => {
+                console.error("Error removing document: ", error);
+            })
         }
     }
 

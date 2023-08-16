@@ -137,7 +137,12 @@ const router = new Router({
     },
     {
       path: "/distancecalc",
-      component: DistanceCalc
+      name: 'createroute',
+      component: DistanceCalc,
+      meta: {
+        requiresAuth: true
+      }
+      
 
     }
     
