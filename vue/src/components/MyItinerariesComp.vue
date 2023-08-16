@@ -78,6 +78,11 @@ export default {
 </script>
 
 <style scoped>
+
+* {
+  box-sizing: border-box;
+}
+
 h1 {
   text-align: center;
   font-size: 60px;
@@ -86,15 +91,15 @@ h1 {
   border-radius: 5px;
 }
 
-.itinerary-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
-}
-
 .itinerary-item {
   text-decoration: none;
 
+}
+
+.itinerary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px; /* Add some gap between grid items */
 }
 
 .itinerary-box {
@@ -104,9 +109,7 @@ h1 {
   color: #519BCB;
   background-color: #ffffffdd;
   border-radius: 5px;
-  flex: 0 0 calc(33.33% - 20px);
-  width: 365px;
-
+  width: 100%; /* Remove width property */
 }
 
 div.itinerary-box:hover {
@@ -118,7 +121,7 @@ ul.itinerary-info {
   padding: 0;
   margin: 0;
   font-size: 20px;
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-direction: column;
 }
