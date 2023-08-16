@@ -3,23 +3,16 @@
         <div id="my-itineraries-button">
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">
           <div>
-             <h4>Return To My Itineraries</h4>
+             <h4 class="return-to-itineraries-header">Return To My Itineraries</h4>
           </div>
+          <br>
         </router-link>
     </div>
     <div id="my-itinerary">
-      <h1>My Intinerary:</h1>
-      <br>
-      <br>
-      <div>Itinerary Id: {{ itinerary.itineraryId }}</div>
-      <div>Itinerary Name: {{ itinerary.itineraryName }}</div>
-      <div>Starting Location (Address) {{ itinerary.startingLocation }}</div>
-      <div>
-        Starting Location (Latitude): {{ itinerary.startingLocationLatitude }}
-      </div>
-      <div>
-        Starting Location (Longitude): {{ itinerary.startingLocationLongitude }}
-      </div>
+      <h1 class="my-itinerary-header">My Intinerary:</h1>
+      <div class="info-item">Itinerary Id: {{ itinerary.itineraryId }}</div>
+      <div class="itinerary-name">Itinerary Name: {{ itinerary.itineraryName }}</div>
+      <div class="info-item">Starting Location (Address) {{ itinerary.startingLocation }}</div>
     </div>
 
      <div class="my-itinerary-landmarks">
@@ -76,4 +69,42 @@ export default {
 #my-itineraries-button {
   text-align: center;
 }
+
+.return-to-itineraries-header {
+  font-size: 20px;
+}
+
+.return-to-itineraries-header:hover {
+  color: darksalmon;
+}
+
+.my-itinerary-header {
+  color: white;
+  text-align: center;
+  font-size: 75px;
+}
+
+#my-itinerary {
+  padding: 20px;
+  border: 2px solid;
+  background-color: #519BCB;
+  border-radius: 30px;
+  width: 75%; /* Remove width property */
+  margin: 0 auto;
+}
+
+.itinerary-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+.info-item {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  padding: 15px;
+}
+
 </style>
