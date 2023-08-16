@@ -5,8 +5,8 @@
     </div>
 
     <div class="LandmarksList">
-      <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag = true" @end="drag = false">
-        <div class="landmark-card" v-for="landmark in landmarks" :key="landmark.landmark_id">
+      <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag = true" @end="drag=false">
+        <div class="landmark-card" v-for="(landmark, index) in landmarks" :key="index">
           <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id }}">
             <h2>{{ landmark.name }}</h2>
           </router-link>
@@ -24,7 +24,7 @@ import draggable from "vuedraggable";
 import ItineraryService from "@/services/ItineraryService.js";
 
 export default {
-  name: "landmarks",
+  name: "landmarks-list",
   components: {
     draggable,
   },
