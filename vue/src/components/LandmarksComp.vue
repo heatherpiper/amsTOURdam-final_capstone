@@ -21,7 +21,6 @@
         <br>
         <div>
         </div>
-        <!-- <button @click="addNewDestinationToItinerary(itineraryId, landmark.landmark_id)" v-if="showAddButton && $store.state.token !== ''">Add Landmark to Itinerary</button> -->
       </div>
       </draggable>
     </div>
@@ -53,10 +52,6 @@ export default {
     itineraryId() {
       return this.$route.params.id;
     },
-    // showAddButton() {
-    //   return this.$route.name === 'myitinerary';
-    // },
-    
   },
   methods: {
     addNewDestinationToItinerary(itineraryId, event) {
