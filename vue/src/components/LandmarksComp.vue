@@ -59,9 +59,7 @@ export default {
 
         if(response.status == 201) {
           // this.refreshItinerary();
-            console.log(this.itineraryId);
           this.addedLandmarks.push(landmarkId);
-          alert('This location has been added to your itinerary!');
         }
       }).catch(error => {
         console.log(error);
@@ -108,7 +106,7 @@ export default {
 h1 {
   font-size: 45px;
   margin-left: 75px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.80);
 }
 
 .LandmarksGrid {
@@ -120,20 +118,23 @@ h1 {
 }
 
 .LandmarksList {
-  border: 2px solid #2ac1d7;
-  padding: 10px;
+  border: 2px solid rgba(13, 13, 17, 0.667);
   font-family: 'Inter', sans-serif;
-  border-radius: 5px;
+  border-radius: 12px;
+  background-color: rgba(13, 13, 17, 0.667);
+  color: white;
+  padding: 10px;
 }
 
 h2.landmark-name {
   font-size: 25px;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #fde75d;
 }
 
 h2.landmark-name:hover {
-  color: darksalmon;
+  color: #fea1bc;
   cursor: pointer;
 }
 

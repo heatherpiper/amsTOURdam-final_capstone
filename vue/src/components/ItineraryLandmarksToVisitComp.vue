@@ -4,7 +4,7 @@
       <h1>Locations Added to My Itinerary:</h1>
     </div>
 
-    <div class="LandmarksList">
+    <div class="Landmarks-List">
       <draggable
         class="draggable-landmarks"
         v-model="landmarks"
@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style scoped>
-.LandmarksList {
+.Landmarks-List {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -107,6 +107,7 @@ export default {
   width: 95vw;
   background-color: gray;
   border-radius: 10px;
+  height: minmax(400px);
 }
 
 .landmark-card {
@@ -122,7 +123,7 @@ export default {
 
 .landmark-card:hover {
   cursor: pointer;
-  border-color: darksalmon;
+  border-color: #FDE75D;
 }
 
 h1 {
@@ -160,8 +161,5 @@ img.landmark-image {
   display: contents;
 }
 
-.LandmarksList {
-  height: 400px;
-}
 
 </style>
