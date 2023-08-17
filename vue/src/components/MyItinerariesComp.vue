@@ -108,7 +108,7 @@ h2 {
   align-items: center;
   padding: 20px;
   border: 2px solid;
-  background-color: #519BCB;
+  background-color: rgba(13, 13, 17, 0.667);
   border-radius: 5px;
   /* width: 90%;  */
   margin: 20px;
@@ -139,7 +139,7 @@ li.info-item {
 }
 
 div.itinerary-box:hover {
-  color: darksalmon;
+  color: #FDE75D;
 }
 
 ul.itinerary-info {
@@ -171,7 +171,7 @@ ul.itinerary-info {
 }
 
 .delete-button:hover {
-  color: darksalmon;
+  color: #2ac1d7;
   cursor: pointer;
 }
 

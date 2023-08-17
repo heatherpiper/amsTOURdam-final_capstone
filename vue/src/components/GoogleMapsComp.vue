@@ -152,7 +152,7 @@ button.pin-button {
 }
 
 button.pin-button:hover {
-  background-color: darksalmon;
+  background-color: #FDE75D;
   cursor: pointer;
 }
 

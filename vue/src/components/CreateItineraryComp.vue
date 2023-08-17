@@ -168,7 +168,7 @@ div.create-form-button {
 
 .cancel-button:hover {
   cursor: pointer;
-  color: darksalmon;
+  color: #FDE75D;
   background-color: rgba(13, 13, 17, 0.667);
 }
 
@@ -182,7 +182,7 @@ div.create-form-button {
 
 .reset-button:hover {
   cursor: pointer;
-  color: darksalmon;
+  color: #FDE75D;
   background-color: rgba(13, 13, 17, 0.667);
 }
 
@@ -196,12 +196,12 @@ div.create-form-button {
 
 .submit-button:hover {
   cursor: pointer;
-  color: darksalmon;
+  color: #FDE75D;
   background-color: rgba(13, 13, 17, 0.667);
 }
 
 .create-header:hover {
-  color: darksalmon;
+  color: #FDE75D;
   cursor: pointer;
 }
 
