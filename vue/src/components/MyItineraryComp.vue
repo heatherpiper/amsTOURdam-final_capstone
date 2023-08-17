@@ -54,6 +54,7 @@ export default {
             name: "myitineraries",
             params: { id: this.itinerary.itineraryId },
           });
+          this.refreshPage();
         }
       },
       removeLandmark(landmarkId) {
@@ -67,6 +68,9 @@ export default {
           });
         }
       },
+      refreshPage(){
+        location.reload();
+      }
     },
   },
   created() {
