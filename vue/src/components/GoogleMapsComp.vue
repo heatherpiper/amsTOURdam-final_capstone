@@ -1,11 +1,12 @@
 <template>
+<div>
   <div id="map-container">
     <div class="map-content">
-      <div class="locations-of-interest" v-if="showLocationsOfInterestHeader">
+      <!-- <div class="locations-of-interest" v-if="showLocationsOfInterestHeader">
         <h2>Locations of Interest:</h2>
-      </div>
+      </div> -->
       <div class="locations-of-interest" v-if="showMyItinerariesLandmarks">
-        <h2>Locations on My Itinerary:</h2>
+        <h2>Locations in My Itinerary:</h2>
       </div>
 
       <div class="map-container">
@@ -26,6 +27,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 
@@ -116,7 +118,13 @@ export default {
   min-height: 70vh;
   background-color: rgba(13, 13, 17, 0.667);
   padding: 15px;
-  margin: 30px;
+  margin: 20px 10vw;
+  border-radius: 25px;
+}
+
+h2 {
+  font-size: 35px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 div.locations-of-interest {
@@ -140,6 +148,7 @@ button.pin-button {
   border-radius: 20px;
   font-weight: bold;
   line-height: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 button.pin-button:hover {
