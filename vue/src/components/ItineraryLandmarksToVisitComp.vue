@@ -120,6 +120,11 @@ export default {
   background-color: white;
 }
 
+.landmark-card:hover {
+  cursor: pointer;
+  border-color: darksalmon;
+}
+
 h1 {
   font-size: 45px;
   margin-left: 75px;

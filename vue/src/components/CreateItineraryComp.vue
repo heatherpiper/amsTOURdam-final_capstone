@@ -2,7 +2,7 @@
   <div id="create-itinerary">
     <div class="create-form-button" v-show="!showForm">
             <a href="#" v-on:click.prevent="showForm = true">
-              <h2 class="create-header">Create an Itinerary:</h2>
+              <h2 class="create-header">Create a New Itinerary:</h2>
             </a>
         </div>
     <br />
