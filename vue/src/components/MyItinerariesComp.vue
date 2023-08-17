@@ -4,6 +4,7 @@
     <h1>My Amsterdam Itineraries:</h1>
     </div>
     <br>
+    <h2>Click on Your Itineraries to Add Locations to Visit:</h2>
     <br>
     <div class="itinerary-grid">
       
@@ -17,8 +18,11 @@
       >
         <ul class="itinerary-info">
           <li class="info-item" id="itinerary-name"> {{ itinerary.itineraryName }}</li>
-          <li class="info-item">Starting Location (Address): {{ itinerary.startingLocation }}</li>
+          <br>
+          <li class="info-item" id="itinerary-starting-location-title">Starting Location: </li>
+          <li class="info-item" id="itinerary-starting-location">{{ itinerary.startingLocation }}</li>
         </ul>
+        <br>
         </router-link>
           <div class="delete-button-container">
             <button class="delete-button" v-on:click="deleteItinerary(itinerary.itineraryId)" >Delete Itinerary</button>
@@ -80,6 +84,12 @@ h1 {
   border: 2px solid;
   margin: 0 auto;
   border-radius: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  text-align: center;
+  color: rgba(13, 13, 17, 0.667);
 }
 
 .itinerary-item {
@@ -99,13 +109,26 @@ h1 {
   border: 2px solid;
   background-color: #519BCB;
   border-radius: 5px;
-  width: 90%; 
+  /* width: 90%;  */
   margin: 20px;
 }
 
 #itinerary-name {
   font-weight: bold;
-  font-size: 20px
+  font-size: 25px;
+  line-height: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  color: rgba(13, 13, 17, 0.667);
+}
+
+#itinerary-starting-location-title {
+  font-weight: 600;
+   font-size: 20px;
+}
+
+#itinerary-starting-location {
+  font-size: 17px;
 }
 
 li.info-item {
@@ -122,7 +145,6 @@ ul.itinerary-info {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -144,6 +166,7 @@ ul.itinerary-info {
   background-color: rgba(13, 13, 17, 0.667);
   padding: 6px;
   font-family: 'Bricolage Grotesque', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .delete-button:hover {

@@ -50,6 +50,7 @@ h1 {
   border: 2px solid;
   margin: 0 auto;
   border-radius: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 
