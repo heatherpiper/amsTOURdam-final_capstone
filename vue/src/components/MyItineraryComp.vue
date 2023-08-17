@@ -115,9 +115,11 @@ export default {
 h1.my-itinerary-header {
   text-align: center;
   font-size: 60px;
-  border: 2px solid;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
   margin: 0 auto;
-  border-radius: 5px;
+  color: #2ac1d7;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   font-family: 'Bricolage Grotesque', sans-serif;
 }
 
