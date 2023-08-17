@@ -5,11 +5,8 @@
     <EditItineraryCompVue />
     <br>
     <GoogleMapsComp v-if="!isLoading"  v-bind:landmarks="landmarks"/>
-
     <br>
      <ItineraryLandmarksToVisitComp v-if="!isLoading" v-bind:landmarks="landmarks"/>
-    <br>
-    <br>
      <LandmarksComp />
      </div>
   
