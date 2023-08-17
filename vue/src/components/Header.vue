@@ -4,7 +4,9 @@
  
     <ul class="nav-list">
       <li id="logo-container">
-        <img id="logo" src="../media/assets/logo-color.png" alt="">
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">
+          <img id="logo" src="../media/assets/logo-color.png" alt="">
+        </router-link>
       <li>
       <li class="nav-item">
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>
@@ -98,19 +100,20 @@ nav ul li a {
   display: block;
 }
 
-nav ul li a:hover {
+.nav-item:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rbga(255, 255, 255, 0.1);
   color: rgba(0, 0, 0, 0.7);
+}
+
+nav ul li a #logo-container:hover {
+  box-shadow: none;
 }
 
 #logo-container {
   display: flex;
   margin: 20px 30% 5px 10px;
 }
-
-
-
 
 #logo {
   width: 220px;

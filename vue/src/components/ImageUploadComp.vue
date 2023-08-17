@@ -7,6 +7,10 @@
       >
         Upload Photos from Your Visit!
       </button>
+      <br>
+      <br>
+      <img id="uploadedimage" />
+      <br>
     </div>
   </template>
 
@@ -34,9 +38,9 @@
           (error, result) => {
             if (!error && result && result.event === "success") {
               console.log("Done! Here is the image info: ", result.info);
-              // document
-              //   .getElementById("uploadedimage")
-              //   .setAttribute("src", result.info.secure_url);
+              document
+                 .getElementById("uploadedimage")
+                 .setAttribute("src", result.info.secure_url);
             }
           }
         ).open();
@@ -46,7 +50,7 @@
   </script>
 
 
-  <style>
+  <style scoped>
 
   button.cloudinary-button {
     font-family: 'Bricolage Grotesque', sans-serif;
@@ -59,6 +63,11 @@
   button.cloudinary-button:hover {
     cursor: pointer;
     color: darksalmon;
+  }
+
+  img {
+    width: 35vw;
+    height: 20vw;
   }
 
   </style>
