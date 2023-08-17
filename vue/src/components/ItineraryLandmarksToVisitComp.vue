@@ -159,4 +159,9 @@ img.landmark-image {
 .draggable-landmarks {
   display: contents;
 }
+
+.LandmarksList {
+  height: 400px;
+}
+
 </style>
