@@ -158,6 +158,19 @@ public class JdbcItineraryDao implements ItineraryDao {
         }
     }
 
+    public int removeLandmarkFromItineraryByLandmarkId(int itineraryId, int landmarkId) {
+        int numberOfRows = 0;
+        String sql = "DELETE FROM itinerary_landmarks WHERE itinerary_id =? AND landmark_id =?;";
+        try {
+            numberOfRows = jdbcTemplate.update(sql, itineraryId, landmarkId);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        } catch (DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+        return numberOfRows;
+    }
+
 
     private Itinerary mapRowToItinerary(SqlRowSet rs) {
         Itinerary itinerary = new Itinerary();

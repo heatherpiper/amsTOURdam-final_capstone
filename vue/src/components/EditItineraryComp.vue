@@ -2,63 +2,39 @@
   <div id="edit-itinerary">
     <div class="edit-form-button" v-show="!showForm">
       <a href="#" v-on:click.prevent="showForm = true">
-        <h2>Edit Itinerary:</h2>
+        <h2 class="edit-header">Edit My Itinerary:</h2>
       </a>
     </div>
     <br />
 
     <form
-      id="Edit-itinerary"
+      id="itinerary"
       v-on:submit.prevent="updateItinerary()"
       v-if="showForm"
     >
-      <div class="input-name">
-        <label for="name">Itinerary Name:</label>
-        <input id="name" type="text" v-model="editedItinerary.itineraryName" />
+
+      <div class="input-container">
+        <label class="input" for="name">Itinerary Name:</label>
+        <input id="name" type="text" class="input-field" v-model="editedItinerary.itineraryName" />
       </div>
-      <div class="input-starting-location">
-        <label for="name">Starting Location (Address):</label>
+      <div class="input-container">
+        <label class="input" for="name">Starting Location (Address):</label>
         <input
           id="starting-location"
-          type="text"
+          type="text" 
+          class="input-field"
           v-model="editedItinerary.startingLocation"
         />
       </div>
 
-      <div class="input-latitude">
-        <label for="latitudeInput">Latitude Coordinates:</label>
-        <input
-          type="number"
-          step="0.000001"
-          min="-90"
-          max="90"
-          name="latitudeInput"
-          id="latitudeInput"
-          v-model="editedItinerary.latitude"
-        />
-      </div>
-
-      <div class="input-longitude">
-        <label for="longitudeInput">Longitude Coordinates:</label>
-        <input
-          type="number"
-          step="0.000001"
-          min="-90"
-          max="90"
-          name="longitudeInput"
-          id="longitudeInput"
-          v-model="editedItinerary.longitude"
-        />
-      </div>
-
       <div class="create-buttons">
-        <input v-on:click.prevent="hideForm" type="button" value="Cancel" />
-        <input
+        <input class="cancel-button" v-on:click.prevent="hideForm" type="button" value="Cancel" />
+        <input class="reset-button"
           v-on:click.prevent="resetForm()"
           type="button"
           value="Reset Form"
         />
-        <button type="submit">Update</button>
+        <button class="submit-button" type="submit">Update</button>
       </div>
     </form>
   </div>
@@ -157,20 +133,132 @@ export default {
 </script>
 
 <style scoped>
+
 form {
-  text-align: center;
-  font-size: 40px;
-  border: 2px solid;
-  color: #519bcb;
-  font-family: Arial, "Times New Roman", Times, serif;
-  background-color: #ffffffdd;
-  margin: 0 auto;
-  border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px solid;
+    color: #519BCB;
+    background-color: rgba(13, 13, 17, 0.667);
+    margin: 0 auto;
+    border-radius: 15px;
+    padding: 40px 0;
+    width: 70vw;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.input-name,
+.input-starting-location {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  width: 100%;
+  font-size: 15px;
+}
+
+label.input {
+  padding: 15px;
+    margin-bottom: 5px;
+}
+
+.input {
+  width: 350px; 
+  border-radius: 15px;
+  font-size: 22px;
+}
+
+
+.input-label {
+  width: 200px; 
+  text-align: right;
+  padding-right: 10px;
+}
+
+
+.input-field {
+  flex: 1; 
+  padding: 8px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  font-size: 20px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 div.edit-form-button {
   margin: 0 auto;
 }
 
+.edit-header {
+  font-size: 30px;
+  text-align: center;
+  border: 2px solid;
+  width: 250px;
+  height: 80px;
+  margin: 0 auto;
+  color: white;
+  background-color: rgba(13, 13, 17, 0.667);  
+  border-radius: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+}
+
+.cancel-button {
+  padding: 4px;
+  margin: 15px;
+  border-radius: 15px;
+  font-size: 60%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
+}
+
+.reset-button {
+  padding: 4px;
+  margin: 15px;
+  border-radius: 15px;
+  font-size: 60%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.reset-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
+}
+
+.submit-button {
+  padding: 4px;
+  margin: 15px;
+  border-radius: 15px;
+  font-size: 60%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
+}
+
+.edit-header:hover {
+  color: darksalmon;
+}
+
+input[type="text"] {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  width: 35vw;
+}
 
 </style>
