@@ -23,7 +23,7 @@
       </div>
       <br>
       <div class="info-item">
-        Starting Location (Address): {{ itinerary.startingLocation }}
+        Starting Location: {{ itinerary.startingLocation }}
       </div>
     </div>
 
@@ -132,6 +132,7 @@ h1.my-itinerary-header {
   color: white;
   text-align: center;
   font-family: 'Bricolage Grotesque', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .info-item {

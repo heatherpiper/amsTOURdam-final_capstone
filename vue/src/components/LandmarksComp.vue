@@ -108,6 +108,7 @@ export default {
 h1 {
   font-size: 45px;
   margin-left: 75px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .LandmarksGrid {
@@ -128,6 +129,7 @@ h1 {
 h2.landmark-name {
   font-size: 25px;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2.landmark-name:hover {

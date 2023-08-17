@@ -154,6 +154,7 @@ div.create-form-button {
   color: white;
   background-color: rgba(13, 13, 17, 0.667);
   border-radius: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
 }
 

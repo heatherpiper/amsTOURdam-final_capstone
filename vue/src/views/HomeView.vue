@@ -2,7 +2,8 @@
   <div class="home">
     <div class="home-card">
       <h2>Discover YOUR Amsterdam</h2>
-      <body>Build the perfect itinerary to suit your individual needs from our curated list of landmarks and attractions</body>
+      <br>
+      <!-- <h3>Build the perfect itinerary to suit your individual needs from our curated list of landmarks and attractions</h3> -->
     </div>
   </div>
 </template>
@@ -32,7 +33,14 @@ h2 {
   margin: 0 auto;
   border-radius: 5px;
   color: #2ac1d7;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+/* h3 {
+  color: rgba(13, 13, 17, 0.667);
+  margin-left: 40px;
+  font-size: 25px;
+} */
 
 #home-card {
   border: 2px solid black;
