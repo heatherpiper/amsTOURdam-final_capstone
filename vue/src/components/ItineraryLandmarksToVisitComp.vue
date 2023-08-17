@@ -123,7 +123,7 @@ export default {
 
 .landmark-card:hover {
   cursor: pointer;
-  border-color: darksalmon;
+  border-color: #FDE75D;
 }
 
 h1 {
