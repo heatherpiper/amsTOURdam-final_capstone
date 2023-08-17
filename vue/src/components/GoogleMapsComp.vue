@@ -124,6 +124,7 @@ export default {
 
 h2 {
   font-size: 35px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 div.locations-of-interest {
@@ -147,6 +148,7 @@ button.pin-button {
   border-radius: 20px;
   font-weight: bold;
   line-height: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 button.pin-button:hover {
