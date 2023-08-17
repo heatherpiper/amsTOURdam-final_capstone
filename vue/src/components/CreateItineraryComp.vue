@@ -2,20 +2,21 @@
   <div id="create-itinerary">
     <div class="create-form-button" v-show="!showForm">
             <a href="#" v-on:click.prevent="showForm = true">
-              <h2 class="create-header">Create an Itinerary</h2>
+              <h2 class="create-header">Create an Itinerary:</h2>
             </a>
         </div>
     <br />
     <form id="itinerary" v-on:submit.prevent="createItinerary()" v-if="showForm">
       <div class="input-name">
-        <label class="input" for="name">Itinerary Name:</label>
-        <input id="name" type="text" v-model="createdItinerary.itineraryName" />
+        <label class="input" for="name" >Itinerary Name:</label>
+        <input id="name" type="text" placeholder="Name your Itinerary" v-model="createdItinerary.itineraryName" />
       </div>
       <div class="input-starting-location">
-        <label class="input"  for="name">Starting Location (Address):</label>
+        <label class="input"  for="name" >Starting Location:</label>
         <input
           id="starting-location"
           type="text"
+          placeholder="Type in an Address"
           v-model="createdItinerary.startingLocation"
         />
       </div>
@@ -109,9 +110,9 @@ form {
     border-radius: 15px;
     padding: 40px 0;
     max-width: 700px;
-    display: flex; /* Use flexbox to align form elements */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center items horizontally */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .input-name,
@@ -120,12 +121,17 @@ form {
     flex-direction:row;
     align-items: center;
      width: 100%;
+     font-size: 22px;
    
+}
+
+#name, #starting-location {
+  border-radius: 15px;
 }
 
 label.input {
   padding: 15px;
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .input {
@@ -139,14 +145,14 @@ div.create-form-button {
 }
 
 .create-header {
-  font-size: 50px;
+  font-size: 30px;
   text-align: center;
   border: 2px solid;
-  width: 450px;
+  width: 250px;
   height: 80px;
   margin: 0 auto;
   color: white;
-  background-color: #519BCB;
+  background-color: rgba(13, 13, 17, 0.667);
   border-radius: 15px;
 
 }
@@ -156,6 +162,13 @@ div.create-form-button {
   margin: 15px;
   border-radius: 15px;
   font-size: 80%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
 }
 
 .reset-button {
@@ -163,6 +176,13 @@ div.create-form-button {
   margin: 15px;
   border-radius: 15px;
   font-size: 80%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.reset-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
 }
 
 .submit-button {
@@ -170,10 +190,23 @@ div.create-form-button {
   margin: 15px;
   border-radius: 15px;
   font-size: 80%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
 }
 
 .create-header:hover {
   color: darksalmon;
+  cursor: pointer;
+}
+
+input[type="text"]::placeholder {
+  color: #999;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 </style>
