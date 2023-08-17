@@ -21,13 +21,13 @@ export default {
 
 
 <style>
- /* #app {
-  background-image: url("media/assets/HomeBG.jpg"); 
+#app {
+  background-image: url("media/assets/amsterdam-sunset.jpg"); 
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-size: auto;
-} */
+  background-size: cover;
+}
 
 </style>

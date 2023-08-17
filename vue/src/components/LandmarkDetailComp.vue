@@ -68,7 +68,7 @@ div.landmark {
     text-align: center;
     width: 700px;
     margin: 10px auto;
-    border: 2px solid #298a91;
+    border: 2px solid #2ac1d7;
     border-radius: 20px;
 }
 
@@ -108,15 +108,15 @@ h3.cost {
 
 .navlink h2 {
   font-size: 20px;
-  border: 10px solid  #298a91;
-  background-color: #298a91;
+  border: 10px solid  #2ac1d7;
+  background-color: #2ac1d7;
   border-radius: 45px;
   color: white;
   text-decoration: none;
 }
 
 .navlink h2:hover {
-  color: darksalmon;
+  color: #FDE75D;
   text-decoration: none;
 }
 
