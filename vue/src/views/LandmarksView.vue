@@ -1,7 +1,7 @@
 <template>
 <div>
   <div>
-    <h1>Explore Locations:</h1>
+    <h1>Explore Locations in Amsterdam:</h1>
   </div>
   <div class="landmarksvue">
     <GoogleMapsComp v-if="!isLoading" v-bind:landmarks="landmarks" />

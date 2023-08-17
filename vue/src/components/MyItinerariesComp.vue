@@ -1,11 +1,9 @@
 <template>
   <div id="my-itineraries">
-    <!-- <EditItineraryCompVue /> -->
     <div>
-    <h1>My Itineraries:</h1>
+    <h1>My Amsterdam Itineraries:</h1>
     </div>
     <br>
-    <!-- <div class="id-test">USER ID (TEST): {{ this.$store.state.user.id }}</div> -->
     <br>
     <div class="itinerary-grid">
       
@@ -18,15 +16,13 @@
         class="itinerary-item"
       >
         <ul class="itinerary-info">
-          <!-- <li class="info-item">Itinerary Id: {{ itinerary.itineraryId }}</li> -->
-          <li class="info-item" id="itinerary-name">Itinerary Name: {{ itinerary.itineraryName }}</li>
+          <li class="info-item" id="itinerary-name"> {{ itinerary.itineraryName }}</li>
           <li class="info-item">Starting Location (Address): {{ itinerary.startingLocation }}</li>
         </ul>
         </router-link>
-      
-        
-        <!-- <button  v-on:click="$router.push('myitinerary/'+itinerary.itineraryId)"  value="Edit Itinerary" >Edit Itinerary</button> -->
-        <button  v-on:click="deleteItinerary(itinerary.itineraryId)" >Delete Itinerary</button>
+          <div class="delete-button-container">
+            <button class="delete-button" v-on:click="deleteItinerary(itinerary.itineraryId)" >Delete Itinerary</button>
+          </div>
       </div>
     </div>
   </div>
@@ -34,13 +30,10 @@
 
 <script>
 import ItineraryService from "@/services/ItineraryService.js";
-// import EditItineraryCompVue from '../components/EditItineraryComp.vue';
 
 export default {
   name: "my-itineraries",
-  components: {
-    // EditItineraryCompVue
-  },
+
   data() {
     return {
       itinerariesByUserId: [], 
@@ -97,7 +90,7 @@ h1 {
 .itinerary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px; /* Add some gap between grid items */
+  gap: 20px; 
 }
 
 .itinerary-box {
@@ -106,7 +99,7 @@ h1 {
   border: 2px solid;
   background-color: #519BCB;
   border-radius: 5px;
-  width: 90%; /* Remove width property */
+  width: 90%; 
   margin: 20px;
 }
 
@@ -118,6 +111,7 @@ h1 {
 li.info-item {
   color: white;
   font-size: 15px;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 div.itinerary-box:hover {
@@ -139,5 +133,22 @@ ul.itinerary-info {
   font-size: 15px;
 }
 
+.delete-button-container {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.delete-button {
+  border-radius: 15px;
+  color: white;
+  background-color: rgba(13, 13, 17, 0.667);
+  padding: 6px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.delete-button:hover {
+  color: darksalmon;
+  cursor: pointer;
+}
 
 </style>

@@ -14,11 +14,11 @@
     >
 
       <div class="input-container">
-        <label for="name">Itinerary Name:</label>
+        <label class="input" for="name">Itinerary Name:</label>
         <input id="name" type="text" class="input-field" v-model="editedItinerary.itineraryName" />
       </div>
       <div class="input-container">
-        <label for="name">Starting Location (Address):</label>
+        <label class="input" for="name">Starting Location (Address):</label>
         <input
           id="starting-location"
           type="text" 
@@ -144,18 +144,19 @@ form {
     margin: 0 auto;
     border-radius: 15px;
     padding: 40px 0;
-    max-width: 900px;
-    display: flex; /* Use flexbox to align form elements */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center items horizontally */
+    width: 70vw;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .input-name,
 .input-starting-location {
   display: flex;
-  flex-direction: row; /* Change to column to stack inputs vertically */
+  flex-direction: row; 
   align-items: center;
   width: 100%;
+  font-size: 15px;
 }
 
 label.input {
@@ -164,27 +165,27 @@ label.input {
 }
 
 .input {
-  width: 300px; /* Use full width for input fields */
+  width: 350px; 
   border-radius: 15px;
- 
+  font-size: 22px;
 }
 
-/* Add this style for input labels */
+
 .input-label {
-  width: 200px; /* Set a fixed width for labels to align them */
+  width: 200px; 
   text-align: right;
   padding-right: 10px;
 }
 
-/* Add this style for input fields */
+
 .input-field {
-  flex: 1; /* Expand input fields to fill remaining space */
+  flex: 1; 
   padding: 8px;
   border-radius: 15px;
   border: 1px solid #ccc;
+  font-size: 20px;
 }
 
-/* Add this style for input containers */
 .input-container {
   display: flex;
   align-items: center;
@@ -196,14 +197,14 @@ div.edit-form-button {
 }
 
 .edit-header {
-  font-size: 50px;
+  font-size: 30px;
   text-align: center;
   border: 2px solid;
-  width: 450px;
+  width: 250px;
   height: 80px;
   margin: 0 auto;
   color: white;
-  background-color: #519BCB;
+  background-color: rgba(13, 13, 17, 0.667);  
   border-radius: 15px;
 
 }
@@ -212,37 +213,51 @@ div.edit-form-button {
   padding: 4px;
   margin: 15px;
   border-radius: 15px;
-  font-size: 80%;
+  font-size: 60%;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .cancel-button:hover {
   cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
 }
 
 .reset-button {
   padding: 4px;
   margin: 15px;
   border-radius: 15px;
-  font-size: 80%;
+  font-size: 60%;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .reset-button:hover {
   cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
 }
 
 .submit-button {
   padding: 4px;
   margin: 15px;
   border-radius: 15px;
-  font-size: 80%;
+  font-size: 60%;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .submit-button:hover {
   cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
 }
 
-.create-header:hover {
+.edit-header:hover {
   color: darksalmon;
+}
+
+input[type="text"] {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  width: 35vw;
 }
 
 </style>
