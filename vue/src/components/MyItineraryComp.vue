@@ -109,7 +109,7 @@ export default {
 }
 
 .return-to-itineraries-header:hover {
-  color: darksalmon;
+  color: #FDE75D;
 }
 
 h1.my-itinerary-header {

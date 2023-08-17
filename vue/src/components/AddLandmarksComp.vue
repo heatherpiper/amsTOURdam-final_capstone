@@ -245,7 +245,7 @@ h2 {
 
 .cancel-button:hover {
   cursor: pointer;
-  color: darksalmon;
+  color: #FDE75D;
 }
 
 .submit-button {
@@ -259,7 +259,7 @@ h2 {
 
 .submit-button:hover {
    cursor: pointer;
-  color: darksalmon;
+  color: #FDE75D;
 }
 
 </style>

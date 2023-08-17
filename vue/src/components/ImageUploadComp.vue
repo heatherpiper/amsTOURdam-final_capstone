@@ -58,7 +58,7 @@
 
   button.cloudinary-button:hover {
     cursor: pointer;
-    color: darksalmon;
+    color: #FDE75D;
   }
 
   </style>
