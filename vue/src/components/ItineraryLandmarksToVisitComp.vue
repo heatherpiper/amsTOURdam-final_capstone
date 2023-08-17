@@ -104,6 +104,9 @@ export default {
   padding: 150px;
   border: 2px solid #2ac1d7;
   margin: 20px;
+  width: 95vw;
+  background-color: gray;
+  border-radius: 10px;
 }
 
 .landmark-card {
@@ -113,6 +116,8 @@ export default {
   padding: 4px;
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
+  height: 150px;
+  background-color: white;
 }
 
 h1 {
@@ -131,7 +136,7 @@ div p {
   text-align: center;
   margin: 0 auto;
   font-weight:lighter;
-  color: gray;
+  color: white;
   font-family: 'Bricolage Grotesque', sans-serif;
 }
 
