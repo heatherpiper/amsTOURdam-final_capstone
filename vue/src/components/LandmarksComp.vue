@@ -1,6 +1,6 @@
 <template>
 <div class="landmarks">
-  <h1>Landmarks</h1>
+  <h1>Landmarks:</h1>
     <div class="LandmarksGrid">
        <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag=true" @end="drag=false" @change="addNewDestinationToItinerary(itineraryId, $event)">
       <div class="LandmarksList" v-for="(landmark, index) in landmarks" :key="index">
@@ -104,6 +104,12 @@ export default {
 </script>
 
 <style scoped>
+
+h1 {
+  font-size: 45px;
+  text-align: center;
+}
+
 .LandmarksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
