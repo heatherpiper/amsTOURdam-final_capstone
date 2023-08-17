@@ -1,9 +1,16 @@
 <template>
+<div>
   <div>
-    <DirectionsMapCompVue />
-    <OriginDestinationFormVue />
-    <RouteListVue />
+    <h1>Map Your Way Through Amsterdam:</h1>
   </div>
+  <div id="map-view-container">
+    <div id="map-container">
+      <DirectionsMapCompVue />
+      <OriginDestinationFormVue />
+      <RouteListVue />
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -20,5 +27,29 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+#map-view-container {
+  position: relative; 
+  height: 100vh;
+}
+
+#map-container {
+  /* position: relative;  */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+  border: 2px solid;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
 </style>

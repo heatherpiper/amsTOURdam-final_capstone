@@ -5,16 +5,16 @@
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>
       </li>
       <li>
-        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Explore Locations</router-link>
       </li>
       <!-- <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'adminitineraries'}">Admin Itineraries</router-link>
       </li> -->
       <li>
-        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">My Itineraries</router-link>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">Make Plans</router-link>
       </li>
       <li>
-        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'createroute'}" v-if="$store.state.token !== ''">Create A Route</router-link>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'createroute'}" v-if="$store.state.token !== ''">Map Your Way</router-link>
       </li>
       <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'addlandmark' }" v-if="isAdmin()">Add Landmark</router-link>
@@ -50,12 +50,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 nav {
   mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 20px 0 0 0;
+  z-index: 1000;
 }
 
 nav ul {

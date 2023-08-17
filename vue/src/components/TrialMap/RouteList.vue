@@ -92,7 +92,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style >
 .route-list-view{
 position: relative;
 z-index: 1;
