@@ -1,9 +1,9 @@
 <template>
   <div id="map-container">
     <div class="map-content">
-      <div class="locations-of-interest" v-if="showLocationsOfInterestHeader">
+      <!-- <div class="locations-of-interest" v-if="showLocationsOfInterestHeader">
         <h2>Locations of Interest:</h2>
-      </div>
+      </div> -->
       <div class="locations-of-interest" v-if="showMyItinerariesLandmarks">
         <h2>Locations on My Itinerary:</h2>
       </div>
@@ -116,7 +116,11 @@ export default {
   min-height: 70vh;
   background-color: rgba(13, 13, 17, 0.667);
   padding: 15px;
-  margin: 30px;
+  margin: 20px 485px;
+}
+
+h2 {
+  font-size: 35px;
 }
 
 div.locations-of-interest {

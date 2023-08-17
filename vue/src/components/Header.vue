@@ -5,7 +5,7 @@
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>
       </li>
       <li>
-        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Landmarks</router-link>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">Explore Locations</router-link>
       </li>
       <!-- <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'adminitineraries'}">Admin Itineraries</router-link>
