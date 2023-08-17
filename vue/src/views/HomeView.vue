@@ -3,6 +3,10 @@
     <div class="home-card">
       <h2>Discover YOUR Amsterdam</h2>
       <br>
+      <!-- <div class="logo-container">
+        <img class="logo" src="../media/assets/logo-color.png" alt="">
+      </div> -->
+      <br>
       <!-- <h3>Build the perfect itinerary to suit your individual needs from our curated list of landmarks and attractions</h3> -->
     </div>
   </div>
@@ -50,6 +54,14 @@ h2 {
 
 body {
   color: white;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo {
+  width: 50vw;
 }
 
 
