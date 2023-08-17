@@ -9,6 +9,7 @@
     <div class="upload-photos-button">
       <ImageUploadComp />
     </div>
+    <br>
     <h3 class="address">
       Address: {{ landmark.address?.street }}
       {{ landmark.address?.houseNumber }} {{ landmark.address?.postalCode }}
@@ -18,8 +19,8 @@
     <h3 class="historic-details">
       Historic Details: {{ landmark.historicDetails }}
     </h3>
-    <h3 class="cost">Cost of Entry: {{ landmark.costOfEntry }}</h3>
-    <h3 class="reviews">Reviews: {{ landmark.reviews }}</h3>
+    <h3 class="cost">Cost of Entry: {{ landmark.costOfEntry }} Euros</h3>
+    <br>
     <div class="button-container">
         <router-link style="text-decoration: none;" class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">
           <div>
@@ -60,21 +61,43 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 div.landmark {
     background-color: white;
     text-align: center;
     width: 700px;
-    margin: 0 auto;
+    margin: 10px auto;
     border: 2px solid #298a91;
     border-radius: 20px;
+}
+
+.landmark-name {
+  color: #4183c4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 45px;
 }
 
 img.landmark-image {
   display: block;
   margin: 0 auto;
   width: 500px;
+}
+
+h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  margin: 10px 20px;
+  text-align: left;
+  color: rgba(13, 13, 17, 0.667);
+
+}
+
+h3.address {
+  text-align: center;
+}
+
+h3.cost {
+  text-align: center;
 }
 
 .button-container {
@@ -98,7 +121,7 @@ img.landmark-image {
 }
 
 router-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 </style>

@@ -1,11 +1,10 @@
 <template>
   <div id="my-itineraries">
-    <!-- <EditItineraryCompVue /> -->
     <div>
-    <h1>My Itineraries:</h1>
+    <h1>My Amsterdam Itineraries:</h1>
     </div>
     <br>
-    <!-- <div class="id-test">USER ID (TEST): {{ this.$store.state.user.id }}</div> -->
+    <h2>Click on an Itinerary to Add Locations to Visit:</h2>
     <br>
     <div class="itinerary-grid">
       
@@ -18,15 +17,16 @@
         class="itinerary-item"
       >
         <ul class="itinerary-info">
-          <!-- <li class="info-item">Itinerary Id: {{ itinerary.itineraryId }}</li> -->
-          <li class="info-item" id="itinerary-name">Itinerary Name: {{ itinerary.itineraryName }}</li>
-          <li class="info-item">Starting Location (Address): {{ itinerary.startingLocation }}</li>
+          <li class="info-item" id="itinerary-name"> {{ itinerary.itineraryName }}</li>
+          <br>
+          <li class="info-item" id="itinerary-starting-location-title">Starting Location: </li>
+          <li class="info-item" id="itinerary-starting-location">{{ itinerary.startingLocation }}</li>
         </ul>
+        <br>
         </router-link>
-      
-        
-        <!-- <button  v-on:click="$router.push('myitinerary/'+itinerary.itineraryId)"  value="Edit Itinerary" >Edit Itinerary</button> -->
-        <button  v-on:click="deleteItinerary(itinerary.itineraryId)" >Delete Itinerary</button>
+          <div class="delete-button-container">
+            <button class="delete-button" v-on:click="deleteItinerary(itinerary.itineraryId)" >Delete Itinerary</button>
+          </div>
       </div>
     </div>
   </div>
@@ -34,13 +34,10 @@
 
 <script>
 import ItineraryService from "@/services/ItineraryService.js";
-// import EditItineraryCompVue from '../components/EditItineraryComp.vue';
 
 export default {
   name: "my-itineraries",
-  components: {
-    // EditItineraryCompVue
-  },
+
   data() {
     return {
       itinerariesByUserId: [], 
@@ -87,6 +84,12 @@ h1 {
   border: 2px solid;
   margin: 0 auto;
   border-radius: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  text-align: center;
+  color: rgba(13, 13, 17, 0.667);
 }
 
 .itinerary-item {
@@ -97,7 +100,7 @@ h1 {
 .itinerary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px; /* Add some gap between grid items */
+  gap: 20px; 
 }
 
 .itinerary-box {
@@ -106,18 +109,32 @@ h1 {
   border: 2px solid;
   background-color: #519BCB;
   border-radius: 5px;
-  width: 90%; /* Remove width property */
+  /* width: 90%;  */
   margin: 20px;
 }
 
 #itinerary-name {
   font-weight: bold;
-  font-size: 20px
+  font-size: 25px;
+  line-height: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  color: rgba(13, 13, 17, 0.667);
+}
+
+#itinerary-starting-location-title {
+  font-weight: 600;
+   font-size: 20px;
+}
+
+#itinerary-starting-location {
+  font-size: 17px;
 }
 
 li.info-item {
   color: white;
   font-size: 15px;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 div.itinerary-box:hover {
@@ -128,7 +145,6 @@ ul.itinerary-info {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -139,5 +155,23 @@ ul.itinerary-info {
   font-size: 15px;
 }
 
+.delete-button-container {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.delete-button {
+  border-radius: 15px;
+  color: white;
+  background-color: rgba(13, 13, 17, 0.667);
+  padding: 6px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.delete-button:hover {
+  color: darksalmon;
+  cursor: pointer;
+}
 
 </style>

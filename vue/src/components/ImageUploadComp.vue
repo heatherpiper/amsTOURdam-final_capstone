@@ -5,7 +5,7 @@
         id="upload_widget"
         class="cloudinary-button"
       >
-        Upload photos
+        Upload Photos from Your Visit!
       </button>
     </div>
   </template>
@@ -47,5 +47,18 @@
 
 
   <style>
+
+  button.cloudinary-button {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    background-color: #298a91;
+    border-radius: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+  }
+
+  button.cloudinary-button:hover {
+    cursor: pointer;
+    color: darksalmon;
+  }
 
   </style>
