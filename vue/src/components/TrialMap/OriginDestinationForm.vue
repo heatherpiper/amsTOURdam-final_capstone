@@ -124,7 +124,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style >
 .origin-destination-form {
   position: relative;
   z-index: 1;

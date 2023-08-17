@@ -1,5 +1,7 @@
 <template>
-  <section class="map" ref="map"></section>
+  <div class="map-container">
+    <section class="map" ref="map"></section>
+  </div>
 </template>
 
 <script>
@@ -133,19 +135,24 @@ export default {
 
 
 <style >
+
+/* .map-container {
+  position: relative;
+} */
+
 .map {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: red;
+  /* background-color: red; */
 }
 .gm-style-iw button {
   display: none !important;
 }
 .gm-style .gm-style-iw-c {
-  padding: 0px !important;
+  padding: 0px  !important;
 }
 .gm-style-iw-d {
   overflow: hidden !important;

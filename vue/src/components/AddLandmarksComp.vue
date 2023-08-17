@@ -63,8 +63,8 @@
       <input id="reviews" type="text" v-model="newLandmark.reviews" />
   </div>
   <div class="actions">
-      <button v-on:click="resetForm()" type="button">Cancel</button>
-      <button>Submit</button>
+      <button v-on:click="resetForm()" type="button" class="cancel-button">Cancel</button>
+      <button class="submit-button">Submit</button>
     </div>
   </form>
   </div>
@@ -153,6 +153,21 @@ export default {
 </script>
 
 <style scoped>
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+  border: 2px solid;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  width: 100vw;
+}
+
+input {
+  border-radius: 15px;
+}
+
 .addlandmarks {
     display: flex;
     align-items: center;
@@ -162,12 +177,16 @@ export default {
 width: 50vw;
 margin-top: 50px;
 background-color:rgba(13, 13, 17, 0.667);
+border-radius: 15px;
 }
 .form-element {
 display: flex;
 margin-top: 10px;
 margin-bottom: 5px;
 height: 2.50vw;
+font-family: 'Bricolage Grotesque', sans-serif;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+color: var(--accent-color-light);
 }
 .actions {
     display: block;
@@ -214,4 +233,33 @@ textarea {
 h2 {
   text-align: center;
 }
+
+.cancel-button {
+  border-radius: 15px;
+  color: white;
+  background-color: rgba(13, 13, 17, 0.667);
+  padding: 6px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+}
+
+.submit-button {
+  border-radius: 15px;
+  color: white;
+  background-color: rgba(13, 13, 17, 0.667);
+  padding: 6px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.submit-button:hover {
+   cursor: pointer;
+  color: darksalmon;
+}
+
 </style>

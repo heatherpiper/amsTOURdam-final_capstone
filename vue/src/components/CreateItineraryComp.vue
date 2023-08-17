@@ -2,44 +2,29 @@
   <div id="create-itinerary">
     <div class="create-form-button" v-show="!showForm">
             <a href="#" v-on:click.prevent="showForm = true">
-              <h2>Create an Itinerary:</h2>
+              <h2 class="create-header">Create a New Itinerary:</h2>
             </a>
         </div>
     <br />
     <form id="itinerary" v-on:submit.prevent="createItinerary()" v-if="showForm">
       <div class="input-name">
-        <label for="name">Itinerary Name:</label>
-        <input id="name" type="text" v-model="createdItinerary.itineraryName" />
+        <label class="input" for="name" >Itinerary Name:</label>
+        <input id="name" type="text" placeholder="Name your Itinerary" v-model="createdItinerary.itineraryName" />
       </div>
       <div class="input-starting-location">
-        <label for="name">Starting Location (Address):</label>
+        <label class="input"  for="name" >Starting Location:</label>
         <input
           id="starting-location"
           type="text"
+          placeholder="Type in an Address"
           v-model="createdItinerary.startingLocation"
         />
       </div>
 
-       <div class="input-latitude">
-        <label for="latitudeInput">Latitude Coordinates:</label>
-        <input
-          type="number" step="0.000001" min="-90" max="90" name="latitudeInput" id="latitudeInput"
-          v-model="createdItinerary.latitude"
-        />
-      </div>
-
-        <div class="input-longitude">
-        <label for="longitudeInput">Longitude Coordinates:</label>
-        <input
-           type="number" step="0.000001" min="-90" max="90" name="longitudeInput" id="longitudeInput"
-          v-model="createdItinerary.longitude"
-        />
-      </div>
-
       <div class="create-buttons">
-        <input v-on:click.prevent="hideForm" type="button" value="Cancel"  />
-        <input v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
-        <input type="submit" value="Submit Form" v-bind:disabled="!isFormValid" />
+        <input class="cancel-button" v-on:click.prevent="hideForm" type="button" value="Cancel"  />
+        <input class="reset-button" v-on:click.prevent="resetForm()" type="button" value="Reset Form" />
+        <input class="submit-button" type="submit" value="Submit Form" v-bind:disabled="!isFormValid" />
       </div>
     </form>
   </div>
@@ -116,20 +101,113 @@ export default {
 
 form {
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
+    font-weight: bold;
     border: 2px solid;
     color: #519BCB;
     background-color: rgba(13, 13, 17, 0.667);
     margin: 0 auto;
-    border-radius: 5px;
+    border-radius: 15px;
+    padding: 40px 0;
+    max-width: 700px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
 }
+
+.input-name,
+.input-starting-location {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+     width: 100%;
+     font-size: 22px;
+   
+}
+
+#name, #starting-location {
+  border-radius: 15px;
+}
+
+label.input {
+  padding: 15px;
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 300px; 
+  border-radius: 15px;
+}
+
 
 div.create-form-button {
   margin: 0 auto;
 }
 
-#my-itineraries {
-    width: 800px;
+.create-header {
+  font-size: 30px;
+  text-align: center;
+  border: 2px solid;
+  width: 250px;
+  height: 80px;
+  margin: 0 auto;
+  color: white;
+  background-color: rgba(13, 13, 17, 0.667);
+  border-radius: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+}
+
+.cancel-button {
+  padding: 4px;
+  margin: 15px;
+  border-radius: 15px;
+  font-size: 80%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
+}
+
+.reset-button {
+  padding: 4px;
+  margin: 15px;
+  border-radius: 15px;
+  font-size: 80%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.reset-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
+}
+
+.submit-button {
+  padding: 4px;
+  margin: 15px;
+  border-radius: 15px;
+  font-size: 80%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  color: darksalmon;
+  background-color: rgba(13, 13, 17, 0.667);
+}
+
+.create-header:hover {
+  color: darksalmon;
+  cursor: pointer;
+}
+
+input[type="text"]::placeholder {
+  color: #999;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 </style>

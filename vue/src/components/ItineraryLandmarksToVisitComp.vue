@@ -1,13 +1,29 @@
 <template>
   <div class="landmarks">
     <div>
-      <h1>Landmarks On My Itinerary:</h1>
+      <h1>Locations Added to My Itinerary:</h1>
     </div>
 
     <div class="LandmarksList">
-      <draggable class="draggable-landmarks" v-model="landmarks" group="cards" @start="drag = true" @end="drag = false">
-        <div class="landmark-card" v-for="landmark in landmarks" :key="landmark.landmark_id">
-          <router-link :to="{ name: 'landmarkdetail', params: { id: landmark.landmark_id }}">
+      <draggable
+        class="draggable-landmarks"
+        v-model="landmarks"
+        group="cards"
+        @start="drag = true"
+        @end="drag = false"
+        @change="deleteDestinationFromItinerary(itineraryId, $event)"
+      >
+        <div
+          class="landmark-card"
+          v-for="(landmark, index) in landmarks"
+          :key="index"
+        >
+          <router-link
+            :to="{
+              name: 'landmarkdetail',
+              params: { id: landmark.landmark_id },
+            }"
+          >
             <h2>{{ landmark.name }}</h2>
           </router-link>
           <div class="landmark-image-container">
@@ -15,6 +31,9 @@
           </div>
         </div>
       </draggable>
+      <div>
+        <p>Drag Locations Here to Add to Your Itinerary!</p>
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +43,7 @@ import draggable from "vuedraggable";
 import ItineraryService from "@/services/ItineraryService.js";
 
 export default {
-  name: "landmarks",
+  name: "landmarks-list",
   components: {
     draggable,
   },
@@ -40,12 +59,23 @@ export default {
     },
   },
   methods: {
-    //   refreshItinerary() {
-    //   ItineraryService.getLandmarksByUserAndItineraryId().then( (response) => {
-    //   this.itinerary = response.data;
-    //   })
-    // },
+    deleteDestinationFromItinerary(itineraryId, event) {
+      const landmarkId = event.removed.element.landmark_id;
+      ItineraryService.removeLandmarkFromItineraryByLandmarkId(
+        itineraryId,
+        landmarkId
+      ).then((response) => {
+        if (response.status == 204) {
+          this.landmarks.pop(landmarkId);
+        }
+      });
+    },
   },
+  //   refreshItinerary() {
+  //   ItineraryService.getLandmarksByUserAndItineraryId().then( (response) => {
+  //   this.itinerary = response.data;
+  //   })
+  // },
   created() {
     this.userId = this.$store.state.user.id;
     console.log(this.userId);
@@ -70,7 +100,13 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start; /* Keeps cards aligned at the top of each row */
+  align-items: flex-start;
+  padding: 150px;
+  border: 2px solid #2ac1d7;
+  margin: 20px;
+  width: 95vw;
+  background-color: gray;
+  border-radius: 10px;
 }
 
 .landmark-card {
@@ -79,17 +115,34 @@ export default {
   margin: 4px;
   padding: 4px;
   font-family: "Inter", sans-serif;
-  box-sizing: border-box; /* Includes padding in width calculation */
+  box-sizing: border-box;
+  height: 150px;
+  background-color: white;
+}
+
+.landmark-card:hover {
+  cursor: pointer;
+  border-color: darksalmon;
 }
 
 h1 {
-  font-size: 30px;
-  margin: 12px;
+  font-size: 45px;
+  margin-left: 75px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-  font-size: 17px;
+  display: flex;
+  font-size: 90%;
   text-align: center;
+}
+
+div p {
+  text-align: center;
+  margin: 0 auto;
+  font-weight:lighter;
+  color: white;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .landmark-image-container {
@@ -104,7 +157,6 @@ img.landmark-image {
 }
 
 .draggable-landmarks {
-  display: contents; 
+  display: contents;
 }
-
 </style>
