@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div>
+      <h1 class="my-itinerary-header">My Amsterdam Intinerary:</h1>
+    </div>
+    <br>
     <div id="my-itineraries-button">
       <router-link
         class="navlink"
@@ -14,13 +18,12 @@
       </router-link>
     </div>
     <div id="my-itinerary">
-      <h1 class="my-itinerary-header">My Intinerary:</h1>
-      <div class="info-item">Itinerary Id: {{ itinerary.itineraryId }}</div>
       <div class="itinerary-name">
-        Itinerary Name: {{ itinerary.itineraryName }}
+       {{ itinerary.itineraryName }}
       </div>
+      <br>
       <div class="info-item">
-        Starting Location (Address) {{ itinerary.startingLocation }}
+        Starting Location (Address): {{ itinerary.startingLocation }}
       </div>
     </div>
 
@@ -98,16 +101,20 @@ export default {
 
 .return-to-itineraries-header {
   font-size: 20px;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .return-to-itineraries-header:hover {
   color: darksalmon;
 }
 
-.my-itinerary-header {
-  color: white;
+h1.my-itinerary-header {
   text-align: center;
-  font-size: 75px;
+  font-size: 60px;
+  border: 2px solid;
+  margin: 0 auto;
+  border-radius: 5px;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 #my-itinerary {
@@ -121,15 +128,17 @@ export default {
 
 .itinerary-name {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 40px;
   color: white;
   text-align: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .info-item {
   color: white;
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   padding: 15px;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 </style>

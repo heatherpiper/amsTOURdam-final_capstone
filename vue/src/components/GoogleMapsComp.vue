@@ -1,4 +1,5 @@
 <template>
+<div>
   <div id="map-container">
     <div class="map-content">
       <!-- <div class="locations-of-interest" v-if="showLocationsOfInterestHeader">
@@ -26,6 +27,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 
@@ -116,7 +118,8 @@ export default {
   min-height: 70vh;
   background-color: rgba(13, 13, 17, 0.667);
   padding: 15px;
-  margin: 20px 485px;
+  margin: 20px 10vw;
+  border-radius: 25px;
 }
 
 h2 {

@@ -26,9 +26,11 @@ export default {
 <style scoped>
 
 h2 {
-  text-align: left;
+    text-align: center;
   font-size: 86px;
+  border: 2px solid;
   margin: 0 auto;
+  border-radius: 5px;
   color: #2ac1d7;
 }
 

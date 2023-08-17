@@ -11,10 +11,10 @@
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'adminitineraries'}">Admin Itineraries</router-link>
       </li> -->
       <li>
-        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">My Itineraries</router-link>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries'}" v-if="$store.state.token !== ''">Make Plans</router-link>
       </li>
       <li>
-        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'createroute'}" v-if="$store.state.token !== ''">Create A Route</router-link>
+        <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'createroute'}" v-if="$store.state.token !== ''">Map Your Way</router-link>
       </li>
       <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'addlandmark' }" v-if="isAdmin()">Add Landmark</router-link>
