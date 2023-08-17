@@ -1,6 +1,11 @@
 <template>
+<div>
   <nav>
+ 
     <ul>
+      <li  id="logo-container">
+        <img id="logo" src="../media/assets/logo-color.png" alt="">
+      <li>
       <li>
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>
       </li>
@@ -27,6 +32,7 @@
       </li>
     </ul>
   </nav>
+  </div>
 </template>
 
 <script>
@@ -53,7 +59,7 @@ export default {
 <style scoped>
 
 nav {
-  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+  /* mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%); */
   margin: 0 auto;
   padding: 20px 0 0 0;
   z-index: 1000;
@@ -84,6 +90,16 @@ nav ul li a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rbga(255, 255, 255, 0.1);
   color: rgba(0, 0, 0, 0.7);
+}
+
+#logo-container {
+  text-align: left;
+  margin-right: 480px;
+  margin-top: 20px
+}
+
+#logo {
+  width: 14vw;
 }
 
 </style>
