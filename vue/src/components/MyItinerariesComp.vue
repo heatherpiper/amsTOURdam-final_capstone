@@ -4,7 +4,7 @@
     <h1>My Amsterdam Itineraries:</h1>
     </div>
     <br>
-    <h2>Click on Your Itineraries to Add Locations to Visit:</h2>
+    <h2>Click on an Itinerary to Add Locations to Visit:</h2>
     <br>
     <div class="itinerary-grid">
       
