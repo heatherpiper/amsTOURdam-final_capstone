@@ -79,6 +79,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
   align-items: flex-start; /* Keeps cards aligned at the top of each row */
 }
 
@@ -114,6 +115,10 @@ img.landmark-image {
 
 .draggable-landmarks {
   display: contents; 
+}
+
+.LandmarksList {
+  height: 400px;
 }
 
 </style>
