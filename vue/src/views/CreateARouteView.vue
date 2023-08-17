@@ -1,4 +1,8 @@
 <template>
+<div>
+  <div>
+    <h1>Create a Route:</h1>
+  </div>
   <div id="map-view-container">
     <div id="map-container">
       <DirectionsMapCompVue />
@@ -6,6 +10,7 @@
       <RouteListVue />
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -36,5 +41,14 @@ export default {
   bottom: 0;
   left: 0;
 }
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+  border: 2px solid;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
 
 </style>
