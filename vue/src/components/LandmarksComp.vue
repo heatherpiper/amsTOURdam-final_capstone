@@ -59,9 +59,7 @@ export default {
 
         if(response.status == 201) {
           // this.refreshItinerary();
-            console.log(this.itineraryId);
           this.addedLandmarks.push(landmarkId);
-          alert('This location has been added to your itinerary!');
         }
       }).catch(error => {
         console.log(error);
