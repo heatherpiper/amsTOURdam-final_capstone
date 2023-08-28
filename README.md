@@ -1,5 +1,9 @@
-# Final Capstone
-​
-This directory contains all of the starter projects for the final capstone.
-​
-Each project contains instructions that provides information about the starting code and explains how to get started with the final capstone project.
+# City Tour Application - Final Capstone Project for Tech Elevator
+
+## amsTOURdam - Discover YOUR Amsterdam today
+
+amsTOURdam is an application that allows users to create custom itineraries from a curated list of experiences and activities within the city of Amsterdam. 
+
+Users can search and browse a database of landmarks, drag landmark cards into and out of itineraries for easy editing, build custom color-coded routes, and upload photos of their travels.
+
+Tools: Java, Spring Boot, PostgreSQL, Vue.js, HTML, CSS, JavaScript, GitLab, Google Maps API, Cloudinary API
