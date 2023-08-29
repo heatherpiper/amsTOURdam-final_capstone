@@ -6,7 +6,7 @@
         <h2>Locations of Interest:</h2>
       </div> -->
       <div class="locations-of-interest" v-if="showMyItinerariesLandmarks">
-        <h2>Locations in My Itinerary:</h2>
+        <h2>Locations in my itinerary:</h2>
       </div>
 
       <div class="map-container">

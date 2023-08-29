@@ -19,7 +19,7 @@ import MyItineraryComp from "../components/MyItineraryComp.vue";
 import LandmarksComp from "../components/LandmarksComp.vue";
 import ItineraryLandmarksToVisitComp from "../components/ItineraryLandmarksToVisitComp.vue"
 import EditItineraryCompVue from '../components/EditItineraryComp.vue';
-import ItineraryService from '../services/ItineraryService';
+import ItineraryService from '../services/ItineraryService.js';
 import GoogleMapsComp from "../components/GoogleMapsComp.vue";
  
 
@@ -29,8 +29,8 @@ export default {
     MyItineraryComp,
     ItineraryLandmarksToVisitComp,
     LandmarksComp,
-     EditItineraryCompVue,
-     GoogleMapsComp
+    EditItineraryCompVue,
+    GoogleMapsComp
     
   },
    data() {

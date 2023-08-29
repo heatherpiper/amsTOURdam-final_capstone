@@ -11,9 +11,6 @@ import firebase from 'firebase';
 
 Vue.config.productionTip = false
 
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "***REMOVED***",
   authDomain: "amstourdam-9b514.firebaseapp.com",
@@ -23,7 +20,7 @@ const firebaseConfig = {
   appId: "1:422045294229:web:8481db89e4f462ced9c59c",
   measurementId: "G-L93YX3M9VL"
 };
-// Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
 
 console.log(firebase);

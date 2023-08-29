@@ -1,7 +1,7 @@
 <template>
 <div>
   <div>
-    <h1>Map Your Way Through Amsterdam:</h1>
+    <h1>Map Your Way Through Amsterdam</h1>
   </div>
   <div id="map-view-container">
     <div id="map-container">

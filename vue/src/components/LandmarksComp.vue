@@ -52,7 +52,7 @@ export default {
       const landmarkId = event.removed.element.landmark_id;
       if (this.addedLandmarks.includes(landmarkId)) {
         alert('This location is already in your itinerary.');
-        return;         //Only barely works, and that's if you don't refresh the page
+        return;         
       }
 
       ItineraryService.addLandmarkToUserListByItineraryId(itineraryId, landmarkId).then((response) => {
@@ -65,7 +65,7 @@ export default {
         console.log(error);
       })
     },
-     landmarkAlreadyExistsInItinerary(landmarkId){      //Also only works if you don't refresh the page/let's you add one once that's already there.
+     landmarkAlreadyExistsInItinerary(landmarkId){
 
        return this.addedLandmarks.includes(landmarkId);
         // if (this.itineraryId.includes(this.landmark.landmark_id)) {

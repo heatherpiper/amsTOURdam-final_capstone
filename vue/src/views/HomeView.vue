@@ -7,7 +7,7 @@
         <img class="logo" src="../media/assets/logo-color.png" alt="">
       </div> -->
       <br>
-      <!-- <h3>Build the perfect itinerary to suit your individual needs from our curated list of landmarks and attractions</h3> -->
+      <h3>Build the perfect itinerary to suit your individual needs from our curated list of landmarks and attractions</h3>
     </div>
   </div>
 </template>

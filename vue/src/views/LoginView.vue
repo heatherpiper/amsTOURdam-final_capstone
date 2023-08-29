@@ -4,10 +4,10 @@
       <h1 >Please Sign In</h1>
       <br>
       <div role="alert" v-if="invalidCredentials">
-        Invalid username and password!
+        Invalid username or password!
       </div>
       <div role="alert" v-if="this.$route.query.registration">
-        Thank you for registering, please sign in.
+        Thank you for registering. You may now sign in.
       </div>
       <div class="form-input-group">
         <label for="username">Username</label>

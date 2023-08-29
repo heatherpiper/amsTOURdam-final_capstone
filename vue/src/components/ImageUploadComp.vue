@@ -33,7 +33,10 @@
           {
             cloudName: cloudName,
             uploadPreset: uploadPreset,
-            // ... other options
+            sources: [ 'local', 'url', 'google_drive', 'dropbox' ],
+            tags: [ 'user-uploads', 'landmark' ],
+            resourceType: 'image',
+            maxFileSize: '1500000',
           },
           (error, result) => {
             if (!error && result && result.event === "success") {

@@ -7,7 +7,7 @@
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">
           <img id="logo" src="../media/assets/logo-color.png" alt="">
         </router-link>
-      <li>
+      </li>
       <li class="nav-item">
         <router-link class="navlink" @click.prevent.stop v-bind:to="{ name: 'home' }">Home</router-link>
       </li>

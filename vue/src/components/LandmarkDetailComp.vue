@@ -24,11 +24,11 @@
     <div class="button-container">
         <router-link style="text-decoration: none;" class="navlink" @click.prevent.stop v-bind:to="{ name: 'landmarks' }">
           <div>
-            <h2>Check Out More Landmarks</h2>
+            <h2>Browse more landmarks</h2>
           </div>
         </router-link>
         <router-link style="text-decoration: none;" class="navlink" @click.prevent.stop v-bind:to="{ name: 'myitineraries' }">
-          <h2>Make an Itinerary</h2>
+          <h2>Create an itinerary</h2>
         </router-link>
       </div>
   </div>
@@ -37,14 +37,10 @@
 
 <script>
 import LandmarksService from "../services/LandmarksService";
-import ImageUploadComp from './ImageUploadComp.vue';  
 
 export default {
   name: "landmark-detail",
   props: ["landmarks"],
-  components: {
-    ImageUploadComp
-  },
   data() {
     return {
       landmarkId: 0,

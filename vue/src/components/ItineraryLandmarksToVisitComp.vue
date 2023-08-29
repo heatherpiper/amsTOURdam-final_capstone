@@ -1,7 +1,7 @@
 <template>
   <div class="landmarks">
     <div>
-      <h1>Locations Added to My Itinerary:</h1>
+      <h1>Locations added to my itinerary:</h1>
     </div>
 
     <div class="Landmarks-List">
@@ -32,7 +32,7 @@
         </div>
       </draggable>
       <div>
-        <p>Drag Locations Here to Add to Your Itinerary!</p>
+        <p>Drag location cards here to add them to your itinerary!</p>
       </div>
     </div>
   </div>
