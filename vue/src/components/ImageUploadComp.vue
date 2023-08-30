@@ -27,7 +27,7 @@
     },
     methods: {
       defineWidget() {
-        const cloudName = "***REMOVED***";
+        const cloudName = "**REMOVED**";
         const uploadPreset = "eadcikpc";
         this.myWidget = window.cloudinary.createUploadWidget(
           {

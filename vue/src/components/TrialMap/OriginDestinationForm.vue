@@ -1,7 +1,7 @@
 <template>
   <section class="origin-destination-form">
     <div class="ui form">
-      <div class = "ui message red small" v-show="error">{{error}}</div>
+      <div class="ui message red small" v-show="error">{{ error }}</div>
       <div class="two fields">
         <div class="field">
           <div class="ui left icon input">
@@ -15,7 +15,7 @@
             <input type="text" placeholder="Destination" ref="destination" />
           </div>
         </div>
-        <button class="ui button small green" :class="{loading:spinner}" @click="calculateButtonPressed">
+        <button class="ui button small green" :class="{ loading: spinner }" @click="calculateButtonPressed">
           Calculate
         </button>
       </div>
@@ -44,58 +44,58 @@ export default {
         distance: {},
         duration: {},
       },
-      error:"",
+      error: "",
       spinner: false
     };
   },
 
   mounted() {
-      for(let ref in this.$refs){
-          //console.log(this.$refs[ref]);
+    for (let ref in this.$refs) {
+      //console.log(this.$refs[ref]);
+      // eslint-disable-next-line no-undef
+      const autocomplete = new google.maps.places.Autocomplete(
+        this.$refs[ref],
+        {
           // eslint-disable-next-line no-undef
-          const autocomplete = new google.maps.places.Autocomplete(
-              this.$refs[ref],
-              {
-                  // eslint-disable-next-line no-undef
-                  bounds: new google.maps.LatLngBounds(
-        //   eslint-disable-next-line no-undef
-          new google.maps.LatLng(52.3676, 4.9041)
-                  )
-              }
-          );
-          autocomplete.addListener("place_changed", () =>{
-            const place = autocomplete.getPlace();
-            this.route[ref].address = `${place.name}, ${place.vicinity}`;
-            this.route[ref].lat = place.geometry.location.lat();
-            this.route[ref].lng = place.geometry.location.lng();
-        });
+          bounds: new google.maps.LatLngBounds(
+            //   eslint-disable-next-line no-undef
+            new google.maps.LatLng(52.3676, 4.9041)
+          )
+        }
+      );
+      autocomplete.addListener("place_changed", () => {
+        const place = autocomplete.getPlace();
+        this.route[ref].address = `${place.name}, ${place.vicinity}`;
+        this.route[ref].lat = place.geometry.location.lat();
+        this.route[ref].lng = place.geometry.location.lng();
+      });
     }
   },
 
-  // new: api key AIzaSyDiKECNn9zmym1vPWnEPDJCcBKBrYUNyhQ  old: ***REMOVED***
+  // new: api key **REMOVED**  old: **REMOVED**
   methods: {
 
     calculateButtonPressed() {
       this.spinner = true;
 
-      const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=${this.route.origin.lat},${this.route.origin.lng}&destinations=${this.route.destination.lat},${this.route.destination.lng}&key=***REMOVED***`;
+      const URL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/distancematrix/json?origins=${this.route.origin.lat},${this.route.origin.lng}&destinations=${this.route.destination.lat},${this.route.destination.lng}&key=**REMOVED*`;
       axios
         .get(URL)
         .then((response) => {
-          if(response.data.error_message){
+          if (response.data.error_message) {
             this.error = response.data.error_message;
-          }else{
-          const elements = response.data.rows[0].elements;
+          } else {
+            const elements = response.data.rows[0].elements;
 
-            if(elements[0].status === "ZERO_RESULTS"){
+            if (elements[0].status === "ZERO_RESULTS") {
               this.error = "No Results Found."
-            } else{
+            } else {
               this.route.distance = elements[0].distance;
               this.route.duration = elements[0].duration;
               this.route.color = this.getRandomColor();
 
               this.saveRoute();
-            
+
 
             }
             this.spinner = false;
@@ -107,15 +107,15 @@ export default {
           this.spinner = false;
         });
     },
-    saveRoute(){
+    saveRoute() {
       const db = firebase.firestore();
       db.collection("routes").doc().set(this.route);
     },
-    getRandomColor(){
+    getRandomColor() {
       let characters = "0123456789ABCDEF";
       let color = "#";
-      for(let i = 0; i< 6; i++){
-        color += characters[Math.floor(Math.random() *16)];
+      for (let i = 0; i < 6; i++) {
+        color += characters[Math.floor(Math.random() * 16)];
       }
       return color;
     }

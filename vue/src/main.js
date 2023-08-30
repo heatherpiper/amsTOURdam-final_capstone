@@ -12,7 +12,7 @@ import firebase from 'firebase';
 Vue.config.productionTip = false
 
 const firebaseConfig = {
-  apiKey: "***REMOVED***",
+  apiKey: "**REPLACE**",
   authDomain: "amstourdam-9b514.firebaseapp.com",
   projectId: "amstourdam-9b514",
   storageBucket: "amstourdam-9b514.appspot.com",
@@ -28,7 +28,7 @@ console.log(firebase);
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "***REMOVED***",
+    key: "**REPLACE**",
     libraries: 'places, directions'
   }
 });
