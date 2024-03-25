@@ -11,7 +11,7 @@
     "@cloudinary/url-gen": "^1.11.1",
     "@cloudinary/vue": "^1.11.2",
     "@googlemaps/js-api-loader": "^1.16.2",
-    "axios": "^0.21.1",
+    "axios": "^1.6.8",
     "cloudinary": "^1.40.0",
     "cloudinary-core": "^2.13.0",
     "core-js": "^3.9.1",
