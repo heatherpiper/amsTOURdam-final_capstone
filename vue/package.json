@@ -16,6 +16,7 @@
     "cloudinary-core": "^2.13.0",
     "core-js": "^3.9.1",
     "firebase": "^8.10.1",
+    "postcss": ">=8.4.31",
     "semantic-ui-css": "^2.5.0",
     "vue": "^2.6.12",
     "vue-gallery-slideshow": "^1.5.2",
@@ -33,6 +34,7 @@
     "@vue/test-utils": "1.1.3",
     "eslint": "^8.26.0",
     "eslint-plugin-vue": "^7.7.0",
+    "postcss": ">=8.4.31",
     "vue-loader-v16": "npm:vue-loader@16.1.2",
     "vue-template-compiler": "^2.6.12"
   }
